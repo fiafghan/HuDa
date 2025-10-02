@@ -1,5 +1,5 @@
-from huda.csv import open_csv
+from huda.json import open_json
 
-df = open_csv("afg_hpc_needs_api_2025.csv")
+df = open_json("testdata/testjson.json")
 
 print (df)

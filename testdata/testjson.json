@@ -1,0 +1,50 @@
+[
+    {
+        "country": "Afghanistan",
+        "year": 2025,
+        "population_total": 40000000,
+        "population_in_need": 18000000,
+        "sector": "Food",
+        "affected": 15000000
+    },
+    {
+        "country": "Afghanistan",
+        "year": 2025,
+        "population_total": 40000000,
+        "population_in_need": 10000000,
+        "sector": "Health",
+        "affected": 8500000
+    },
+    {
+        "country": "Afghanistan",
+        "year": 2025,
+        "population_total": 40000000,
+        "population_in_need": 12000000,
+        "sector": "Water, Sanitation & Hygiene",
+        "affected": 9000000
+    },
+    {
+        "country": "Pakistan",
+        "year": 2025,
+        "population_total": 240000000,
+        "population_in_need": 5000000,
+        "sector": "Food",
+        "affected": 4000000
+    },
+    {
+        "country": "Pakistan",
+        "year": 2025,
+        "population_total": 240000000,
+        "population_in_need": 2000000,
+        "sector": "Health",
+        "affected": 1500000
+    },
+    {
+        "country": "Somalia",
+        "year": 2025,
+        "population_total": 17000000,
+        "population_in_need": 9000000,
+        "sector": "Food",
+        "affected": 8000000
+    }
+]
