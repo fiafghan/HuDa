@@ -6,7 +6,7 @@ DONE-Load Excel files (XLSX, XLS)
 
 DONE-Load JSON data
 
-Load XML data
+pending-Load XML data
 
 Load SQL databases (Postgres, MySQL, SQLite)
 

@@ -1,5 +1,4 @@
-from huda.json import open_json
+from huda.xml import openxml
 
-df = open_json("testdata/testjson.json")
-
+df = openxml("testdata/test.xml")
 print (df)
