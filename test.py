@@ -1,5 +1,5 @@
-from humdata.csv_loader import open_csv
+from humdata.excel_loader import open_excel
 
-df = open_csv("afg_hpc_needs_api_2025.csv")
+df = open_excel("one.xlsx")
 
 print (df)
