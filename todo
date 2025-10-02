@@ -10,7 +10,7 @@ DONE-Load XML data
 
 DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
-Pending-Load API data (REST APIs)
+DONE-Load API data (REST APIs)
 
 Load data from humanitarian APIs (OCHA HDX, ReliefWeb, ACAPS)
 
