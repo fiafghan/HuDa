@@ -1,4 +1,5 @@
-from huda.xml import openxml
+from huda.sql import open_sql
 
-df = openxml("testdata/test.xml")
+df = open_sql("testdata/humanitarian_data.db")
+
 print (df)
