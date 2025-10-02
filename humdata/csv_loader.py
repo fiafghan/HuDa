@@ -1,7 +1,7 @@
 import pandas as pd
 from .encoding_detector import detect_encoding
 
-def load_csv(file_path):
+def open_csv(file_path):
     """
     Load CSV file with smart encoding + delimeter detection.
     """

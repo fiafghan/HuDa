@@ -2,8 +2,8 @@
 HumData - A Humanitarian Data Analytics Helper Library
 """
 
-from .csv_loader import load_csv
+from .csv_loader import open_csv
 
 __all__ = [
-    "load_csv",
+    "open_csv",
 ]
