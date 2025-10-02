@@ -1,6 +1,6 @@
-from huda.mysql import open_mysql
+from huda.API import api_load
 
-df = open_mysql("Select * from users", host="localhost", port=3306, 
-                        user="root", password="", database="iumsdb")
 
+df = api_load("https://jsonplaceholder.typicode.com/posts", {"id":1})
+    
 print (df)
