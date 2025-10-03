@@ -1,10 +1,10 @@
 1. Data Ingestion & Loading
 
-DONE-Load CSV files
+DONE-Load CSV files- Changed from pandas to polars
 
-DONE-Load Excel files (XLSX, XLS)
+DONE-Load Excel files (XLSX, XLS)- Changed from pandas to polars
 
-DONE-Load JSON data
+DONE-Load JSON data- Changed from pandas to polars
 
 DONE-Load XML data
 
