@@ -1,11 +1,5 @@
-from huda.csv import open_csv
+from huda.excel import open_excel
 
-
-df = open_csv("testdata/test.csv",
-initial_filters={
-    "country":"Afghanistan",
-    "year":2025,
-    "sector":"Food"
-})
+df = open_excel("testdata/one.xlsx", sheet_name="Sheet1")
     
 print (df)
