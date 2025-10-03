@@ -12,7 +12,7 @@ DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
 DONE-Load API data (REST APIs)
 
-Load GeoJSON data
+DONE-Load GeoJSON data
 
 Load Parquet files
 

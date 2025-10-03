@@ -1,6 +1,5 @@
-from huda.geojson import open_geojson
+from huda.parquet import open_parquet
 
-gdf, df = open_geojson("testdata/test.geojson")
+df = open_parquet("testdata/sample_afghanistan.parquet")
 
-print(gdf)
 print(df)

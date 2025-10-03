@@ -10,6 +10,7 @@ from .postgres import open_postgres
 from .mysql import open_mysql
 from .API import open_api
 from .geojson import open_geojson
+from .parquet import open_parquet
 
 __all__ = [
     "open_csv",
@@ -21,4 +22,5 @@ __all__ = [
     "open_mysql",
     "open_api",
     "open_geojson",
+    "open_parquet",
 ]
