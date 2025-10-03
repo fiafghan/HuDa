@@ -12,8 +12,6 @@ DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
 DONE-Load API data (REST APIs)
 
-PENDING-Load data from humanitarian APIs (OCHA HDX, ReliefWeb, ACAPS)
-
 Load shapefiles (geospatial data)
 
 Load GeoJSON data

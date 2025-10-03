@@ -1,6 +1,11 @@
-from huda.hdx import open_hdx
+from huda.csv import open_csv
 
 
-df = get_hdx_dataset("WHO Cholera data")
+df = open_csv("testdata/test.csv",
+initial_filters={
+    "country":"Afghanistan",
+    "year":2025,
+    "sector":"Food"
+})
     
 print (df)
