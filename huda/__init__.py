@@ -9,6 +9,7 @@ from .xml import openxml
 from .postgres import open_postgres
 from .mysql import open_mysql
 from .API import api_load
+from .hdx import open_hdx
 
 __all__ = [
     "open_csv",

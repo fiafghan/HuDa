@@ -1,6 +1,6 @@
-from huda.API import api_load
+from huda.hdx import open_hdx
 
 
-df = api_load("https://jsonplaceholder.typicode.com/posts", {"id":1})
+df = get_hdx_dataset("WHO Cholera data")
     
 print (df)
