@@ -1,34 +1,40 @@
 import requests
-import pandas as pd
+import polars as pl
 
-def api_load(url, filters=None):
+def open_api(url, filters=None):
     """
-    Load data from a REST API URL directly into a DataFrame and optionally filter it.
-    
+    Load data from a REST API URL directly into a Polars DataFrame and optionally filter it.
+
     Parameters:
         - url: Full API URL including endpoint
         - filters: Optional dictionary to filter rows (column=value)
-    
-    Example:
+
+    Example usage:
+    ----------------------
+        # Load all posts
         df = api_load("https://jsonplaceholder.typicode.com/posts")
+        print(df)
+
+        # Load comments filtered by postId = 1
         df_filtered = api_load("https://jsonplaceholder.typicode.com/comments", {"postId": 1})
+        print(df_filtered)
     """
     try:
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
 
-        # Convert JSON to DataFrame
+        # Convert JSON to Polars DataFrame
         if isinstance(data, list):
-            df = pd.DataFrame(data)
+            df = pl.DataFrame(data)
         elif isinstance(data, dict):
             # Try to find a list inside dict
             for key, value in data.items():
                 if isinstance(value, list):
-                    df = pd.DataFrame(value)
+                    df = pl.DataFrame(value)
                     break
             else:
-                df = pd.DataFrame([data])
+                df = pl.DataFrame([data])
         else:
             print("⚠️ API did not return JSON data.")
             return None
@@ -37,9 +43,9 @@ def api_load(url, filters=None):
         if filters:
             for col, val in filters.items():
                 if col in df.columns:
-                    df = df[df[col] == val]
+                    df = df.filter(pl.col(col) == val)
 
-        print(f"✅ Loaded {len(df)} rows from {url}")
+        print(f"✅ Loaded {df.height} rows from {url}")
         return df
 
     except Exception as e:

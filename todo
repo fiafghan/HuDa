@@ -12,8 +12,6 @@ DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
 DONE-Load API data (REST APIs)
 
-PENDING-Load shapefiles (geospatial data)
-
 Load GeoJSON data
 
 Load Parquet files

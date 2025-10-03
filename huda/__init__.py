@@ -8,7 +8,7 @@ from .json import open_json
 from .xml import open_xml
 from .postgres import open_postgres
 from .mysql import open_mysql
-from .API import api_load
+from .API import open_api
 
 __all__ = [
     "open_csv",
@@ -18,5 +18,5 @@ __all__ = [
     "open_sqlite",
     "open_postgres",
     "open_mysql",
-    "api_load",
+    "open_api",
 ]
