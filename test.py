@@ -1,5 +1,4 @@
-from huda.shape import open_shape
+from huda.mysql import open_mysql
 
-gdf,df = open_shape("testdata/shape/test.shp")
-    
-print (gdf)
+df = open_mysql("localhost", 3306, "root", "", "iumsdb", "users")
+print(df)
