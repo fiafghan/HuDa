@@ -6,7 +6,7 @@ DONE-Load Excel files (XLSX, XLS)- Changed from pandas to polars
 
 DONE-Load JSON data- Changed from pandas to polars
 
-DONE-Load XML data
+DONE-Load XML data - this is remaining
 
 DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
