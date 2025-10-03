@@ -1,5 +1,5 @@
-from huda.excel import open_excel
+from huda.json import open_json
 
-df = open_excel("testdata/one.xlsx", sheet_name="Sheet1")
+df = open_json("testdata/testjson.json")
     
 print (df)
