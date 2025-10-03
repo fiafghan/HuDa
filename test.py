@@ -1,7 +1,6 @@
-from huda.API import open_api
+from huda.geojson import open_geojson
 
-df = open_api("https://jsonplaceholder.typicode.com/posts",
-{
-    "userId":2
-})
+gdf, df = open_geojson("testdata/test.geojson")
+
+print(gdf)
 print(df)
