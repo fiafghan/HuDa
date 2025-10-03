@@ -1,26 +1,30 @@
-import pandas as pd
-from sqlalchemy import create_engine
+import polars as pl
+import sqlite3
 
-def open_sqlite(query, db_path):
+def open_sqlite(db_path, table_name):
     """
-    Open data from a SQLite database file.
-    
+    Open data from a SQLite database file into a Polars DataFrame.
+
     Parameters:
-        - query: SQL query string
-        - db_path: path to the SQLite .db file
-    
-    Example:
-        df = open_sqlite("SELECT * FROM needs_table", "humanitarian_sqlite.db")
+        - db_path: path to your SQLite .db file
+        - table_name: name of the table you want to load
+
+    Example usage:
+    ----------------------
+        df = open_sqlite("humanitarian_sqlite.db", "needs_table")
+        print(df)
+
+    ✅ This will show all rows from the 'needs_table' table.
     """
     try:
-        engine = create_engine(f"sqlite:///{db_path}")
-        df = pd.read_sql_query(query, engine)
-        engine.dispose()
-        
+        conn = sqlite3.connect(db_path)
+        query = f"SELECT * FROM {table_name}"
+        df = pl.read_database(query, conn)
+        conn.close()
+
         print("✅ SQLite data loaded successfully!")
-        print(f"Rows: {len(df)}, Columns: {len(df.columns)}")
+        print(f"Rows: {df.height}, Columns: {df.width}")
         return df
-    
     except Exception as e:
-        print("⚠️ SQLite read error:", e)
+        print("⚠️ SQLite load error:", e)
         return None

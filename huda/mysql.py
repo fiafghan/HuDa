@@ -1,24 +1,36 @@
-import pandas as pd
-from sqlalchemy import create_engine
+import polars as pl
+import pymysql
 
-def open_mysql(query, host, port, user, password, database):
+def open_mysql(host, port, user, password, database, table_name):
     """
-    Open data from a MySQL database.
-    
-    Example:
-        df = open_mysql("SELECT * FROM needs_table", 
-                        host="localhost", port=3306, 
-                        user="root", password="1234", database="humanitarian_mysql")
+    Open data from a MySQL database into a Polars DataFrame.
+
+    Parameters:
+        - host, port, user, password, database: MySQL connection details
+        - table_name: name of the table to load
+
+    Example usage:
+    ----------------------
+        df = open_mysql("localhost", 3306, "root", "1234", "humanitarian_mysql", "needs_table")
+        print(df)
+
+    ✅ This will show all rows from 'needs_table'.
     """
     try:
-        engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}")
-        df = pd.read_sql_query(query, engine)
-        engine.dispose()
-        
+        conn = pymysql.connect(
+            host=host,
+            port=port,
+            user=user,
+            password=password,
+            database=database
+        )
+        query = f"SELECT * FROM {table_name}"
+        df = pl.read_database(query, conn)
+        conn.close()
+
         print("✅ MySQL data loaded successfully!")
-        print(f"Rows: {len(df)}, Columns: {len(df.columns)}")
+        print(f"Rows: {df.height}, Columns: {df.width}")
         return df
-    
     except Exception as e:
-        print("⚠️ MySQL read error:", e)
+        print("⚠️ MySQL load error:", e)
         return None

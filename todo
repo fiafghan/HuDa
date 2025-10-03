@@ -6,13 +6,13 @@ DONE-Load Excel files (XLSX, XLS)- Changed from pandas to polars
 
 DONE-Load JSON data- Changed from pandas to polars
 
-DONE-Load XML data - this is remaining
+DONE-Load XML data
 
 DONE-Load SQL databases (Postgres, MySQL, SQLite)
 
 DONE-Load API data (REST APIs)
 
-Load shapefiles (geospatial data)
+PENDING-Load shapefiles (geospatial data)
 
 Load GeoJSON data
 

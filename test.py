@@ -1,5 +1,5 @@
-from huda.json import open_json
+from huda.shape import open_shape
 
-df = open_json("testdata/testjson.json")
+gdf,df = open_shape("testdata/shape/test.shp")
     
-print (df)
+print (gdf)
