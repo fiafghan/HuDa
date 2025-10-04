@@ -23,7 +23,7 @@ DONE-Load NetCDF data (climate, weather, food security)
 
 2. Data Cleaning & Preparation
 
-Handle missing values (drop, impute), drop missing was checked!
+Handle missing values (drop, impute), fill_mean was also tested!
 
 Normalize column names
 
