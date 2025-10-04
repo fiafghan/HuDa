@@ -1,5 +1,5 @@
-from huda.stata import open_stata
+from huda.netcdf import open_netcdf
 
-df = open_stata("testdata/sample_stata.dta")
+df = open_netcdf("testdata/sample_data.nc")
 
 print(df)

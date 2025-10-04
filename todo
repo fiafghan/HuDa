@@ -16,7 +16,7 @@ DONE-Load GeoJSON data
 
 DONE-Load Parquet files
 
-Load Stata/SPSS data
+DONE(only spss)-Load Stata/SPSS data
 
 Load NetCDF data (climate, weather, food security)
 
