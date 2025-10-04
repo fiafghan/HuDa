@@ -1,7 +1,7 @@
 country,year,sector,population,affected
-faghanistan,2025,Health,,50000
-Afghanistan,2025,Food,150000,70000
-Afghanistan,2024,Health,90000,40000
-Syria,2025,Health,120000,60000
-Syria,2024,Food,,30000
-Yemen,2025,Food,110000,55000
+faghanistan,2025,Health,117500.0,50000
+Afghanistan,2025,Food,150000.0,70000
+Afghanistan,2024,Health,90000.0,40000
+Syria,2025,Health,120000.0,60000
+Syria,2024,Food,117500.0,30000
+Yemen,2025,Food,110000.0,55000
