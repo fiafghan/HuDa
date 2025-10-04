@@ -18,23 +18,8 @@ DONE-Load Parquet files
 
 DONE(only spss)-Load Stata/SPSS data
 
-Load NetCDF data (climate, weather, food security)
+DONE-Load NetCDF data (climate, weather, food security)
 
-Load UNHCR population datasets
-
-Load World Bank data directly
-
-Load WHO health datasets
-
-Load WFP food security datasets
-
-Load IMF/financial datasets
-
-Load remote datasets via URL
-
-Load compressed files (zip, gzip, tar)
-
-Auto-detect file encoding
 
 2. Data Cleaning & Preparation
 
