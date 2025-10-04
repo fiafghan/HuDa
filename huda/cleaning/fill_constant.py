@@ -1,6 +1,6 @@
 import polars as pl
 
-def fill_constant(df, value="Unknown"):
+def fill_constant(df, value=None):
     """
     🧱 Fill all missing values in the DataFrame with a constant value.
 
