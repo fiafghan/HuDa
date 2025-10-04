@@ -1,5 +1,5 @@
-from huda.parquet import open_parquet
+from huda.stata import open_stata
 
-df = open_parquet("testdata/sample_afghanistan.parquet")
+df = open_stata("testdata/sample_stata.dta")
 
 print(df)

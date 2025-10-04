@@ -11,6 +11,8 @@ from .mysql import open_mysql
 from .API import open_api
 from .geojson import open_geojson
 from .parquet import open_parquet
+from .spss import open_spss
+from .stata import open_stata
 
 __all__ = [
     "open_csv",
@@ -23,4 +25,6 @@ __all__ = [
     "open_api",
     "open_geojson",
     "open_parquet",
+    "open_spss",
+    "open_stata",
 ]
