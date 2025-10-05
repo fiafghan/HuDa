@@ -9,6 +9,7 @@ from .normalize_columns import normalize_columns
 from .combine_datasets import combine_datasets
 from .duplicate import duplicate
 from .standardize_dates import standardize_dates
+from .standardize_country import standardize_country
 
 __all__ = [
     "drop_missing",
@@ -22,4 +23,5 @@ __all__ = [
     "combine_datasets",
     "duplicate",
     "standardize_dates",
+    "standardize_country",
 ]
