@@ -1,7 +1,9 @@
-from huda.cleaning import normalize_columns
+from huda.cleaning import combine_datasets
 from huda.opening import open_csv
 
-df = open_csv("testdata/test.csv")
+df1 = open_csv("testdata/test.csv")
+df2 = open_csv("testdata/test1.csv")
 
-normalized_columns = normalize_columns(df)
-print(normalized_columns)
+combined_datasets = combine_datasets(df1, df2, on="country", how="left")
+combined_datasets.write_csv("testdata/combined_dataset_left.csv")
+print(combined_datasets)
