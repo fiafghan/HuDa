@@ -11,6 +11,7 @@ from .duplicate import duplicate
 from .standardize_dates import standardize_dates
 from .standardize_country import standardize_country
 from .translate_categories import translate_categories
+from .standardize_numbers import standardize_numbers
 
 __all__ = [
     "drop_missing",
@@ -26,4 +27,5 @@ __all__ = [
     "standardize_dates",
     "standardize_country",
     "translate_categories",
+    "standardize_numbers",
 ]

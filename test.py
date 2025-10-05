@@ -1,4 +1,4 @@
-from huda.cleaning import translate_categories
+from huda.cleaning import standardize_numbers
 from huda.opening import open_csv
 
 df = open_csv("testdata/test.csv")
@@ -6,6 +6,6 @@ df = open_csv("testdata/test.csv")
 
 print(df)
 
-transed = translate_categories(df, columns=['recieved', 'sector'])
-transed.write_csv("testdata/trans_categ.csv")
-print(transed)
+std_numbers = standardize_numbers(df)
+std_numbers.write_csv("testdata/std_numbers.csv")
+print(std_numbers)

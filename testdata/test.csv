@@ -3,9 +3,9 @@ country,year,sector,population,affected,date,recieved
 AF,2025,Food,,70000,12-01-2025,n
 Afghanistan,2024,خانم,90000.0,40000,12-01-2025,غیرفعال
 Syria,2025,,,60000,12-01-2025,yes
-Syria,2024,Food,117500.0,30000,12-01-2025,yes
+Syria,2024,Food,4.5M,30000,12-01-2025,yes
 Syria,2024,Food,117500.0,30000,12-01-2025,بلی
-Syria,2024,Food,117500.0,30000,12-01-2025,yes
+Syria,2024,Food,2.5 B,30000,12-01-2025,yes
 USA,2024,Food,117500.0,30000,12-01-2025,yes
 Syria,2024,خوب,117500.0,30000,12-01-2025,yes
-Yemen,2025,Food,,55000,12-01-2025,yes
+Yemen,2025,Food,,5 000,12-01-2025,yes
