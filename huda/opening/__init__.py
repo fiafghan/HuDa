@@ -26,5 +26,5 @@ __all__ = [
     "open_geojson",
     "open_parquet",
     "open_spss",
-    "open_netcdf",
+    "open_netcdf"
 ]

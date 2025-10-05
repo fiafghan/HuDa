@@ -1,4 +1,4 @@
-country,year,sector,population,affected
+country name,year?,sector type,population,affected
 ,2025,Health,117500.0,50000
 Afghanistan,2025,Food,,70000
 Afghanistan,2024,Health,90000.0,40000

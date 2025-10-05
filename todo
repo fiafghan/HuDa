@@ -25,7 +25,7 @@ DONE-Load NetCDF data (climate, weather, food security)
 
 DONE-Handle missing values (drop, impute)
 
-Normalize column names
+Done-Normalize column names
 
 Merge multiple datasets
 

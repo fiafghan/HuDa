@@ -5,6 +5,7 @@ from .fill_mode import fill_mode
 from .fill_constant import fill_constant
 from .forward_fill import forward_fill
 from .backward_fill import backward_fill
+from .normalize_columns import normalize_columns
 
 __all__ = [
     "drop_missing",
@@ -13,5 +14,6 @@ __all__ = [
     "fill_mode",
     "fill_constant",
     "forward_fill",
-    "backward_fill"
+    "backward_fill",
+    "normalize_columns"
 ]
