@@ -1,7 +1,7 @@
-from huda.cleaning import backward_fill
+from huda.cleaning import drop_missing
 from huda.csv import open_csv
 
 df = open_csv("testdata/test.csv")
 
-backward_filled = backward_fill(df, "population")
-print(backward_filled)
+dropped_df = drop_missing(df)
+print(dropped_df)
