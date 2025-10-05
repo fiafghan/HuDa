@@ -27,11 +27,9 @@ DONE-Handle missing values (drop, impute)
 
 Done-Normalize column names
 
-PENDING-Merge multiple datasets
+DONE-Merge multiple datasets
 
-Split datasets by country/region
-
-Handle duplicate rows
+PENDING-Handle duplicate rows
 
 Standardize date formats
 

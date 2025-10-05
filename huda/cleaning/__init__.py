@@ -7,6 +7,7 @@ from .forward_fill import forward_fill
 from .backward_fill import backward_fill
 from .normalize_columns import normalize_columns
 from .combine_datasets import combine_datasets
+from .duplicate import duplicate
 
 __all__ = [
     "drop_missing",
@@ -18,4 +19,5 @@ __all__ = [
     "backward_fill",
     "normalize_columns",
     "combine_datasets",
+    "duplicate",
 ]
