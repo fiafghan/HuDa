@@ -1,4 +1,4 @@
-from huda.cleaning import standardize_country
+from huda.cleaning import translate_categories
 from huda.opening import open_csv
 
 df = open_csv("testdata/test.csv")
@@ -6,6 +6,6 @@ df = open_csv("testdata/test.csv")
 
 print(df)
 
-standardized = standardize_country(df, column="country", output="name")
-standardized.write_csv("testdata/std_countries.csv")
-print(standardized)
+transed = translate_categories(df, columns=['recieved', 'sector'])
+transed.write_csv("testdata/trans_categ.csv")
+print(transed)

@@ -1,0 +1,11 @@
+country,year,sector,population,affected,date,recieved
+,2025,Health,117500.0,50000,2025-01-12,Yes
+AF,2025,Food,,70000,2025-01-12,No
+Afghanistan,2024,Female,90000.0,40000,2025-01-12,Inactive
+Syria,2025,,,60000,2025-01-12,Yes
+Syria,2024,Food,117500.0,30000,2025-01-12,Yes
+Syria,2024,Food,117500.0,30000,2025-01-12,Yes
+Syria,2024,Food,117500.0,30000,2025-01-12,Yes
+USA,2024,Food,117500.0,30000,2025-01-12,Yes
+Syria,2024,Good,117500.0,30000,2025-01-12,Yes
+Yemen,2025,Food,,55000,2025-01-12,Yes

@@ -33,9 +33,9 @@ DONE-Handle duplicate rows
 
 DONE-Standardize date formats
 
-Standardize country names/codes (ISO3, ISO2)
+DONE-Standardize country names/codes (ISO3, ISO2)
 
-Translate categorical variables
+DONE-Translate categorical variables
 
 Handle inconsistent number formats
 

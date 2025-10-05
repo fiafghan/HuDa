@@ -10,6 +10,7 @@ from .combine_datasets import combine_datasets
 from .duplicate import duplicate
 from .standardize_dates import standardize_dates
 from .standardize_country import standardize_country
+from .translate_categories import translate_categories
 
 __all__ = [
     "drop_missing",
@@ -24,4 +25,5 @@ __all__ = [
     "duplicate",
     "standardize_dates",
     "standardize_country",
+    "translate_categories",
 ]
