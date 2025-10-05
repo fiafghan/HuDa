@@ -8,6 +8,7 @@ from .backward_fill import backward_fill
 from .normalize_columns import normalize_columns
 from .combine_datasets import combine_datasets
 from .duplicate import duplicate
+from .standardize_dates import standardize_dates
 
 __all__ = [
     "drop_missing",
@@ -20,4 +21,5 @@ __all__ = [
     "normalize_columns",
     "combine_datasets",
     "duplicate",
+    "standardize_dates",
 ]

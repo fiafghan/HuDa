@@ -1,4 +1,4 @@
-from huda.cleaning import duplicate
+from huda.cleaning import standardize_dates
 from huda.opening import open_csv
 
 df = open_csv("testdata/test.csv")
@@ -6,6 +6,6 @@ df = open_csv("testdata/test.csv")
 
 print(df)
 
-removed_duplicates = duplicate(df, keep="last", columns=["year", "sector"])
-removed_duplicates.write_csv("testdata/removed_duplicates.csv")
-print(removed_duplicates)
+standardized = standardize_dates(df, column="date")
+standardized.write_csv("testdata/standardized_dates.csv")
+print(standardized)
