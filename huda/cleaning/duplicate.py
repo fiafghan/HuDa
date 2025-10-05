@@ -1,18 +1,27 @@
 import polars as pl
 
-def duplicate(df, subset=None, keep="first"):
+def duplicate(df, columns=None, keep="first"):
     """
     ♻️ Handle (remove or keep) duplicate rows in a DataFrame.
 
-    - If no `subset` is given → checks all columns for duplicates.
-    - `keep="first"` → keeps the first occurrence.
-    - `keep="last"` → keeps the last occurrence.
-    - `keep=False` → removes all duplicates completely.
+    Parameters
+    ----------
+    df : pl.DataFrame
+        The input DataFrame.
+    columns : str | list[str] | None
+        Columns to check for duplicates.
+        - None → check all columns.
+        - str → check only one column.
+        - list[str] → check based on multiple columns.
+    keep : {"first", "last", False}
+        - "first" → keep the first occurrence.
+        - "last" → keep the last occurrence.
+        - False → remove all duplicates completely.
 
     Example:
     ----------
         import polars as pl
-        from huda.cleaning import duplicate
+        from huda.cleaning.duplicate import duplicate
 
         df = pl.DataFrame({
             "country": ["Afghanistan", "Afghanistan", "Syria", "Yemen", "Yemen"],
@@ -23,8 +32,11 @@ def duplicate(df, subset=None, keep="first"):
         # ✅ Remove duplicates based on all columns
         df_no_dupes = duplicate(df)
 
-        # ✅ Remove duplicates only based on 'country' column, keep last occurrence
-        df_country = duplicate(df, subset=["country"], keep="last")
+        # ✅ Remove duplicates only based on one column
+        df_country = duplicate(df, columns="country", keep="last")
+
+        # ✅ Remove duplicates based on multiple columns
+        df_multi = duplicate(df, columns=["country", "year"])
 
     Output Example:
     ----------
@@ -46,9 +58,20 @@ def duplicate(df, subset=None, keep="first"):
     - 💡 Always inspect your data before removing duplicates to avoid losing valid records.
     """
     try:
-        df_clean = df.unique(subset=subset, keep=keep)
-        print("✅ Duplicate rows handled successfully!")
+        # 🔹 Normalize column input (single str → list)
+        if isinstance(columns, str):
+            columns = [columns]
+
+        # 🔹 Handle duplicates
+        df_clean = df.unique(subset=columns, keep=keep)
+
+        if columns is None:
+            print("✅ Duplicates handled based on all columns.")
+        else:
+            print(f"✅ Duplicates handled based on columns: {columns}")
+
         return df_clean
+
     except Exception as e:
         print("⚠️ Error while handling duplicates:", e)
         return df
