@@ -12,6 +12,7 @@ from .standardize_dates import standardize_dates
 from .standardize_country import standardize_country
 from .translate_categories import translate_categories
 from .standardize_numbers import standardize_numbers
+from .handle_outliers import handle_outliers
 
 __all__ = [
     "drop_missing",
@@ -28,4 +29,5 @@ __all__ = [
     "standardize_country",
     "translate_categories",
     "standardize_numbers",
+    "handle_outliers",
 ]

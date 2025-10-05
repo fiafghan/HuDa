@@ -37,9 +37,9 @@ DONE-Standardize country names/codes (ISO3, ISO2)
 
 DONE-Translate categorical variables
 
-Handle inconsistent number formats
+DONE-Handle inconsistent number formats
 
-Remove outliers
+PENDING-Handling outliers
 
 Convert currencies automatically
 
