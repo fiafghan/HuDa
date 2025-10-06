@@ -6,6 +6,6 @@ df = open_csv("testdata/test.csv")
 
 print(df)
 
-hd_outliers = outlier_isolation(df)
+hd_outliers = outlier_isolation(df, columns=['age', 'year'])
 hd_outliers.write_csv("testdata/outlier_isolation.csv")
 print(hd_outliers)
