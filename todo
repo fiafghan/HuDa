@@ -41,15 +41,7 @@ DONE-Handle inconsistent number formats
 
 DONE-Handling outliers. remember that i added outlier isolation using IsolationForest of Sklearn.
 
-Convert currencies automatically
-
-Standardize population denominators
-
-Detect inconsistent survey responses
-
-Normalize humanitarian indicators (per 1000, per capita)
-
-Clean text fields (lowercase, punctuation removal)
+DONE-Clean text fields (lowercase, punctuation removal)
 
 Geocode location names to lat/long
 

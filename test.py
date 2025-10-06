@@ -1,11 +1,10 @@
-from huda.cleaning import outlier_isolation
 from huda.opening import open_csv
+from huda.cleaning import auto_text_cleaner
 
-df = open_csv("testdata/test.csv")
+df = open_csv("testdata/auto_txt_cleaner.csv")
 
+print (df)
 
-print(df)
+auto_text_clean = auto_text_cleaner(df, columns=["respondent_name", 'feedback'])
 
-hd_outliers = outlier_isolation(df, columns=['age', 'year'])
-hd_outliers.write_csv("testdata/outlier_isolation.csv")
-print(hd_outliers)
+print (auto_text_clean)

@@ -14,6 +14,9 @@ from .translate_categories import translate_categories
 from .standardize_numbers import standardize_numbers
 from .outlier_handler import outlier_handler
 from .outlier_isolation import outlier_isolation
+from .auto_text_cleaner import auto_text_cleaner
+
+
 
 __all__ = [
     "drop_missing",
@@ -32,4 +35,5 @@ __all__ = [
     "standardize_numbers",
     "outlier_handler",
     "outlier_isolation",
+    "auto_text_cleaner",
 ]
