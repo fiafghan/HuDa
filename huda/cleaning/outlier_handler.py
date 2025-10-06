@@ -1,6 +1,6 @@
 import polars as pl
 
-def handle_outliers(df, columns=None, method="iqr", factor=1.5):
+def outlier_handler(df, columns=None, method="iqr", factor=1.5):
     """
     📊 Handle extreme or unusual values (outliers) in numeric columns.
 

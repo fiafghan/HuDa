@@ -39,7 +39,7 @@ DONE-Translate categorical variables
 
 DONE-Handle inconsistent number formats
 
-PENDING-Handling outliers
+PENDING-Handling outliers. remember that i added outlier isolation but i did not test that. please test that.
 
 Convert currencies automatically
 

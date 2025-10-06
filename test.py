@@ -1,4 +1,4 @@
-from huda.cleaning import handle_outliers
+from huda.cleaning import outlier_isolation
 from huda.opening import open_csv
 
 df = open_csv("testdata/test.csv")
@@ -6,6 +6,6 @@ df = open_csv("testdata/test.csv")
 
 print(df)
 
-hd_outliers = handle_outliers(df, columns='population')
-hd_outliers.write_csv("testdata/hd_outliers.csv")
+hd_outliers = outlier_isolation(df)
+hd_outliers.write_csv("testdata/outlier_isolation.csv")
 print(hd_outliers)
