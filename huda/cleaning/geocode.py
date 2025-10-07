@@ -35,7 +35,7 @@ def geocode(df, location_col=None, user_agent="huda_geocoder"):
         "population": [4500000, 1000000, 1200000, 500000]
     })
 
-    df_geo = geocode_locations(df, location_col="province")
+    df_geo = geocode(df, location_col="province")
 
     🧾 Output:
     -----------
