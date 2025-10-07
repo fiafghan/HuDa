@@ -59,9 +59,9 @@ def admin_boundaries(df, country_col="country", adm1_col="province", adm2_col="d
 
         # ✅ Apply matching using Polars map_elements (NOT apply)
         df = df.with_columns([
-            pl.col("adm0_raw").map_elements(lambda x: match_name(x, unique_countries), return_dtype=pl.Utf8).alias("adm0"),
-            pl.col("adm1_raw").map_elements(lambda x: match_name(x, unique_provinces), return_dtype=pl.Utf8).alias("adm1"),
-            pl.col("adm2_raw").map_elements(lambda x: match_name(x, unique_districts), return_dtype=pl.Utf8).alias("adm2"),
+            pl.col("adm0_raw").map_elements(lambda x: match_name(x, unique_countries), return_dtype=pl.Utf8).alias("Admin_0_Name"),
+            pl.col("adm1_raw").map_elements(lambda x: match_name(x, unique_provinces), return_dtype=pl.Utf8).alias("Admin_1_Name"),
+            pl.col("adm2_raw").map_elements(lambda x: match_name(x, unique_districts), return_dtype=pl.Utf8).alias("Admin_2_Name"),
         ])
 
         print("✅ Administrative boundaries resolved autonomously (ADM0–ADM2)")
