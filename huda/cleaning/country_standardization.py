@@ -1,7 +1,7 @@
 import polars as pl
 import pycountry
 
-def standardize_country(df, column, output="iso3"):
+def country_standardization(df, column, output="iso3"):
     """
     🌍 Standardize country names or codes to a unified format (ISO-2 or ISO-3).
 

@@ -1,6 +1,6 @@
 import polars as pl
 
-def standardize_dates(df, column, style="iso"):
+def dates_standardization(df, column, style="iso"):
     """
     📅 Standardize date formats easily with multiple ready-made styles.
 

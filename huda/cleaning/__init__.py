@@ -9,9 +9,9 @@ from .normalize_columns import normalize_columns
 from .combine_datasets import combine_datasets
 from .duplicate import duplicate
 from .standardize_dates import standardize_dates
-from .standardize_country import standardize_country
+from .country_standardization import country_standardization
 from .translate_categories import translate_categories
-from .standardize_numbers import standardize_numbers
+from .numbers_standardization import numbers_standardization
 from .outlier_handler import outlier_handler
 from .outlier_isolation import outlier_isolation
 from .auto_text_cleaner import auto_text_cleaner
@@ -31,10 +31,10 @@ __all__ = [
     "normalize_columns",
     "combine_datasets",
     "duplicate",
-    "standardize_dates",
-    "standardize_country",
+    "dates_standardization",
+    "country_standardization",
     "translate_categories",
-    "standardize_numbers",
+    "numbers_standardization",
     "outlier_handler",
     "outlier_isolation",
     "auto_text_cleaner",
