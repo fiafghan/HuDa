@@ -1,10 +1,12 @@
 from huda.opening import open_csv
-from huda.cleaning import admin_boundaries
+from huda.transformation import aggregate_data_by_region
 
-df = open_csv("testdata/geocode.csv")
+df = open_csv("testdata/sample_afghanistan_regions.csv")
 
 print (df)
 
-geocoded = admin_boundaries(df, country_col="count", adm1_col="prov", adm2_col="dist")
+agg = aggregate_data_by_region(df, region_col="Region", agg_method="mean")
 
-print (geocoded)
+print (agg)
+
+df = agg.write_csv("testdata/agg.csv")
