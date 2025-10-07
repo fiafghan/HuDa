@@ -47,10 +47,6 @@ DONE-Geocode location names to lat/long
 
 DONE-Resolve administrative boundaries (ADM0–ADM3)
 
-Pending-Detect missing country codes
-
-Merge multiple time-series datasets
-
 3. Data Transformation
 
 Aggregate data by region
