@@ -43,7 +43,7 @@ DONE-Handling outliers. remember that i added outlier isolation using IsolationF
 
 DONE-Clean text fields (lowercase, punctuation removal)
 
-Geocode location names to lat/long
+PEDNING-Geocode location names to lat/long
 
 Resolve administrative boundaries (ADM0–ADM3)
 

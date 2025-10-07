@@ -1,10 +1,10 @@
 from huda.opening import open_csv
-from huda.cleaning import auto_text_cleaner
+from huda.cleaning import geocode
 
-df = open_csv("testdata/auto_txt_cleaner.csv")
+df = open_csv("testdata/geocode.csv")
 
 print (df)
 
-auto_text_clean = auto_text_cleaner(df, columns=["respondent_name", 'feedback'])
+geocoded = geocode(df)
 
-print (auto_text_clean)
+print (geocoded)

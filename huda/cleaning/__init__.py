@@ -15,6 +15,7 @@ from .standardize_numbers import standardize_numbers
 from .outlier_handler import outlier_handler
 from .outlier_isolation import outlier_isolation
 from .auto_text_cleaner import auto_text_cleaner
+from .geocode import geocode
 
 
 
@@ -36,4 +37,5 @@ __all__ = [
     "outlier_handler",
     "outlier_isolation",
     "auto_text_cleaner",
+    "geocode",
 ]
