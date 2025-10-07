@@ -32,7 +32,7 @@ def admin_boundaries(df, country_col="country", adm1_col="province", adm2_col="d
         "district": ["Kabul", "Kabool", "Herat"]
     })
 
-    df_clean = admin_boundaries(df)
+    df_clean = admin_boundaries(df, country_col = "country", adm1_col = "province", adm2_col = "district", threshold=80)
     print(df_clean)
     """
     try:

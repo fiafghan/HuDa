@@ -47,7 +47,7 @@ DONE-Geocode location names to lat/long
 
 DONE-Resolve administrative boundaries (ADM0–ADM3)
 
-Extract year/month/week from dates
+PENDING-Extract year/month/week from dates
 
 Detect missing country codes
 
