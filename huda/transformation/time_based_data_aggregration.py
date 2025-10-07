@@ -1,6 +1,6 @@
 import polars as pl
 
-def aggregate_by_time(df, date_column_name=None, frequency="monthly", aggregation_method="sum"):
+def time_based_data_aggregration(df, date_column_name=None, frequency="monthly", aggregation_method="sum"):
     """
     📅 Aggregate survey data by time (day, month, year)
     ====================================================
@@ -16,7 +16,7 @@ def aggregate_by_time(df, date_column_name=None, frequency="monthly", aggregatio
     df : pl.DataFrame
         Afghan survey dataset with dates and numbers.
 
-    date_col : str, optional
+    date_column_name : str, optional
         Column name containing dates. If not given, finds a column with 'date' in its name.
 
     freq : str, default="monthly"
@@ -78,26 +78,29 @@ def aggregate_by_time(df, date_column_name=None, frequency="monthly", aggregatio
     """
     try:
         # Find date column automatically
-        if date_col is None:
+        if date_column_name is None:
             possible_dates = [c for c in df.columns if "date" in c.lower()]
             if not possible_dates:
                 raise ValueError("No date column found!")
-            date_col = possible_dates[0]
+            date_column_name = possible_dates[0]
 
-        # Convert to date type
-        df = df.with_columns(pl.col(date_col).str.to_date(strict=False))
+        # Convert to date type only if column is not already a date
+        if df[date_column_name].dtype not in [pl.Date, pl.Datetime]:
+            df = df.with_columns(
+                pl.col(date_column_name).cast(pl.Utf8).str.to_date(strict=False)
+            )
 
         # Extract year, month, day
         df = df.with_columns([
-            pl.col(date_col).dt.year().alias("year"),
-            pl.col(date_col).dt.month().alias("month"),
-            pl.col(date_col).dt.day().alias("day"),
+            pl.col(date_column_name).dt.year().alias("year"),
+            pl.col(date_column_name).dt.month().alias("month"),
+            pl.col(date_column_name).dt.day().alias("day"),
         ])
 
         # Decide grouping
-        if freq == "yearly":
+        if frequency == "yearly":
             group_cols = ["year"]
-        elif freq == "monthly":
+        elif frequency == "monthly":
             group_cols = ["year", "month"]
         else:
             group_cols = ["year", "month", "day"]
@@ -106,11 +109,11 @@ def aggregate_by_time(df, date_column_name=None, frequency="monthly", aggregatio
         numeric_cols = [c for c, dt in df.schema.items() if dt in (pl.Float64, pl.Int64)]
 
         # Choose aggregation method
-        if agg_method == "sum":
+        if aggregation_method == "sum":
             agg_exprs = [pl.col(c).sum().alias(f"{c}_sum") for c in numeric_cols]
-        elif agg_method == "mean":
+        elif aggregation_method == "mean":
             agg_exprs = [pl.col(c).mean().alias(f"{c}_mean") for c in numeric_cols]
-        elif agg_method == "count":
+        elif aggregation_method == "count":
             agg_exprs = [pl.count().alias("records_count")]
         else:
             raise ValueError("Invalid aggregation method")
@@ -118,7 +121,7 @@ def aggregate_by_time(df, date_column_name=None, frequency="monthly", aggregatio
         # Group and aggregate
         df_agg = df.groupby(group_cols).agg(agg_exprs)
 
-        print(f"✅ Aggregated by {freq} using {agg_method}")
+        print(f"✅ Aggregated by {frequency} using {aggregation_method}")
         return df_agg
 
     except Exception as e:

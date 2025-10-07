@@ -51,9 +51,9 @@ DONE-Resolve administrative boundaries (ADM0–ADM3)
 
 DONE-Aggregate data by region
 
-PENDING-Aggregate by time period (daily, monthly, yearly)
+DONE-Aggregate by time period (daily, monthly, yearly)
 
-Normalize per population size
+PENDING-Normalize per population size
 
 Calculate percentages (e.g., % of population in need)
 

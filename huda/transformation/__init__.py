@@ -1,5 +1,8 @@
-from .aggregate_data_by_region import aggregate_data_by_region
+from .region_based_data_aggregation import region_based_data_aggregation
+from .time_based_data_aggregration import time_based_data_aggregration
+
 
 __all__ = [
-    "aggregate_data_by_region",
+    "region_based_data_aggregation",
+    "time_based_data_aggregration",
 ]

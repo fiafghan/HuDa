@@ -1,6 +1,6 @@
 import polars as pl
 
-def aggregate_data_by_region(df, region_col="province", agg_method="mean"):
+def region_based_data_aggregation(df, region_col="province", agg_method="mean"):
     """
     📊 Aggregate Data by Region
     ===========================

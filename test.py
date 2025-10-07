@@ -1,11 +1,12 @@
 from huda.opening import open_csv
-from huda.transformation import aggregate_data_by_region
+from huda.transformation import time_based_data_aggregration
 
-df = open_csv("testdata/sample_afghanistan_regions.csv")
+df = open_csv("testdata/agg_time.csv")
 
 print (df)
 
-agg = aggregate_data_by_region(df, region_col="Region", agg_method="sum")
+
+agg = time_based_data_aggregration(df, frequency="monthly", date_column_name="date",aggregation_method="mean")
 
 print (agg)
 
