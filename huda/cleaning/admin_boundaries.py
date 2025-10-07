@@ -1,86 +1,72 @@
 import polars as pl
+from fuzzywuzzy import process
 
-def admin_boundaries(df, country_col="country", adm1_col="province", adm2_col="district", adm3_col=None, reference_df=None):
+def admin_boundaries(df, country_col="country", adm1_col="province", adm2_col="district", threshold=80):
     """
-    🗺 Resolve Administrative Boundaries (ADM0–ADM3)
-    =================================================
-    
-    💡 Simple Explanation:
-    ----------------------
-    This function automatically fills or validates administrative levels in your dataset:
-    - ADM0 → Country
-    - ADM1 → Province / Region
-    - ADM2 → District / Sub-region
-    - ADM3 → Optional lower level (if available)
-    
-    👇 How it works:
+    🗺 Autonomous Admin Boundaries Resolver (ADM0–ADM2)
+    =====================================================
+
+    💡 What it does:
     ----------------
-    - Uses a reference dataset (official admin boundaries)
-    - Matches the input names to the official names
-    - Fixes spelling variations or missing levels
-    - Returns the original dataset with corrected ADM columns
-    
+    - Automatically detects and fixes inconsistent spellings of provinces and districts
+    - Works without any external reference dataset
+    - Uses fuzzy string matching to map similar names together
+    - Adds standardized ADM columns: 'adm0', 'adm1', 'adm2'
+
     🧾 Parameters:
     ----------------
     - df : pl.DataFrame
-        Your dataset with location information
-    - country_col : str
-        Column containing country names (ADM0)
-    - adm1_col : str
-        Column containing province names (ADM1)
-    - adm2_col : str
-        Column containing district names (ADM2)
-    - adm3_col : str | None
-        Optional lower-level administrative unit
-    - reference_df : pl.DataFrame | None
-        Reference dataset with columns: country, adm1, adm2, adm3
-    
+        Dataset with country, province, and district columns
+    - country_col, adm1_col, adm2_col : str
+        Columns containing country, province, and district names
+    - threshold : int
+        Fuzzy matching threshold (0–100) for considering names as similar
+
     🧠 Example Usage:
     -----------------
     import polars as pl
 
     df = pl.DataFrame({
-        "country": ["Afghanistan"]*5,
-        "province": ["Kabul", "Herat", "Kandahar", "Badakhshan", "Balkh"],
-        "district": ["Kabul", "Herat", "Kandahar", "Fayzabad", "Mazar-i-Sharif"]
+        "country": ["Afghanistan", "Afganistan", "Afghanistan"],
+        "province": ["Kabul", "Kabol", "Herat"],
+        "district": ["Kabul", "Kabool", "Herat"]
     })
 
-    # Reference dataset (official admin boundaries)
-    reference_df = pl.DataFrame({
-        "country": ["Afghanistan"]*5,
-        "adm1": ["Kabul", "Herat", "Kandahar", "Badakhshan", "Balkh"],
-        "adm2": ["Kabul", "Herat", "Kandahar", "Fayzabad", "Mazar-i-Sharif"]
-    })
-
-    df_clean = admin_boundaries(df, reference_df=reference_df)
+    df_clean = admin_boundaries(df)
     print(df_clean)
-
-    🧾 Output:
-    -----------------
-    ADM columns are corrected and standardized.
     """
     try:
-        if reference_df is None:
-            print("⚠️ Reference dataset not provided. Returning original dataframe.")
-            return df
+        # ✅ Normalize text
+        df = df.with_columns([
+            pl.col(country_col).str.strip_chars().str.to_lowercase().alias("adm0_raw"),
+            pl.col(adm1_col).str.strip_chars().str.to_lowercase().alias("adm1_raw"),
+            pl.col(adm2_col).str.strip_chars().str.to_lowercase().alias("adm2_raw"),
+        ])
 
-        # Merge df with reference admin boundaries
-        df_resolved = df.join(
-            reference_df, 
-            left_on=[country_col, adm1_col, adm2_col], 
-            right_on=["country", "adm1", "adm2"],
-            how="left"
-        )
+        # ✅ Create unique lists for matching
+        unique_countries = df["adm0_raw"].unique().to_list()
+        unique_provinces = df["adm1_raw"].unique().to_list()
+        unique_districts = df["adm2_raw"].unique().to_list()
 
-        # If ADM3 column exists, rename
-        if adm3_col and adm3_col in reference_df.columns:
-            df_resolved = df_resolved.with_columns(
-                reference_df[adm3_col].alias("adm3")
-            )
+        # ✅ Define fuzzy match function
+        def match_name(name, choices, threshold=threshold):
+            if name is None or name == "":
+                return None
+            match = process.extractOne(name, choices)
+            if match and match[1] >= threshold:
+                return match[0]
+            return name
 
-        print(f"✅ Administrative boundaries resolved using reference dataset.")
-        return df_resolved
+        # ✅ Apply matching using Polars map_elements (NOT apply)
+        df = df.with_columns([
+            pl.col("adm0_raw").map_elements(lambda x: match_name(x, unique_countries), return_dtype=pl.Utf8).alias("adm0"),
+            pl.col("adm1_raw").map_elements(lambda x: match_name(x, unique_provinces), return_dtype=pl.Utf8).alias("adm1"),
+            pl.col("adm2_raw").map_elements(lambda x: match_name(x, unique_districts), return_dtype=pl.Utf8).alias("adm2"),
+        ])
+
+        print("✅ Administrative boundaries resolved autonomously (ADM0–ADM2)")
+        return df.drop(["adm0_raw", "adm1_raw", "adm2_raw"])
 
     except Exception as e:
-        print("⚠️ Error while resolving administrative boundaries:", e)
+        print("⚠️ Error resolving admin boundaries:", e)
         return df

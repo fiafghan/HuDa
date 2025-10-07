@@ -1,11 +1,3 @@
-province,population
-Kabul,4500000
-Herat,1000000
-Kandahar,1200000
-Badakhshan,500000
-Balkh,800000
-Nangarhar,1500000
-Laghman,400000
-Ghazni,600000
-Kunar,350000
-Takhar,550000
+count,prov,dist
+Afghanistan,Kabul,kabul
+Pakistan,peshawar,Hayatabad
