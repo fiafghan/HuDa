@@ -16,6 +16,7 @@ from .outlier_handler import outlier_handler
 from .outlier_isolation import outlier_isolation
 from .auto_text_cleaner import auto_text_cleaner
 from .geocode import geocode
+from .admin_boundaries import admin_boundaries
 
 
 
@@ -38,4 +39,5 @@ __all__ = [
     "outlier_isolation",
     "auto_text_cleaner",
     "geocode",
+    "admin_boundaries",
 ]

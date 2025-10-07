@@ -43,9 +43,9 @@ DONE-Handling outliers. remember that i added outlier isolation using IsolationF
 
 DONE-Clean text fields (lowercase, punctuation removal)
 
-PEDNING-Geocode location names to lat/long
+DONE-Geocode location names to lat/long
 
-Resolve administrative boundaries (ADM0–ADM3)
+PENDING-Resolve administrative boundaries (ADM0–ADM3)
 
 Extract year/month/week from dates
 
