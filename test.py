@@ -1,13 +1,13 @@
 from huda.opening import open_csv
-from huda.transformation import population_based_normalization
+from huda.transformation import percentage_calculation
 import polars as pl
 
-df = open_csv("testdata/popu_norm.csv")
+df = open_csv("testdata/percentage.csv")
 
 print (df)
 
-agg = population_based_normalization(df, value_columns=['patients', 'students'], population_column='population', per=1000)
+percent = percentage_calculation(df, numerator_columns=['population', 'students', 'vaccinated'], denominator_column="population")
 
-print (agg)
+print (percent)
 
 
