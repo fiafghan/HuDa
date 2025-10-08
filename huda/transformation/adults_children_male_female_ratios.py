@@ -1,7 +1,7 @@
 import polars as pl
 from typing import Union
 
-def adults_children_ratios(
+def adults_children_male_female_ratios(
     data: Union[str, pl.DataFrame],
     numerator_columns: list,
     denominator_columns: list,
@@ -44,7 +44,7 @@ def adults_children_ratios(
         "adults": [3300000, 750000, 900000]
     })
 
-    df_ratio = adults_children_ratios(df, numerator_columns=["children"], denominator_columns=["adults"])
+    df_ratio = adults_children_male_female_ratios(df, numerator_columns=["children"], denominator_columns=["adults"])
     print(df_ratio)
 
     Output Table:

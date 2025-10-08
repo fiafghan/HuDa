@@ -6,7 +6,7 @@ df = open_csv("testdata/demographics.csv")
 
 print (df)
 
-dem = adults_children_ratios(df, numerator_columns=['children'], denominator_columns=['adults'])
+dem = adults_children_ratios(df, numerator_columns=['male'], denominator_columns=['female'])
 
 print (dem)
 

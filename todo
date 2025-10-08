@@ -57,9 +57,7 @@ DONE-Calculate percentages (e.g., % of population in need)
 
 DONE-Calculate ratios (e.g., children vs adults)
 
-Standardize indicators across datasets
-
-Pivot/unpivot data (wide ↔ long)
+PENDING-Pivot/unpivot data (wide ↔ long)
 
 Rolling averages (moving mean)
 
