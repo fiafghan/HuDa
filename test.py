@@ -1,13 +1,13 @@
 from huda.opening import open_csv
-from huda.transformation import percentage_calculation
+from huda.transformation import adults_children_ratios
 import polars as pl
 
-df = open_csv("testdata/percentage.csv")
+df = open_csv("testdata/demographics.csv")
 
 print (df)
 
-percent = percentage_calculation(df, numerator_columns=['population', 'students', 'vaccinated'], denominator_column="population")
+dem = adults_children_ratios(df, numerator_columns=['children'], denominator_columns=['adults'])
 
-print (percent)
+print (dem)
 
 
