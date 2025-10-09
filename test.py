@@ -1,13 +1,13 @@
 from huda.opening import open_csv
-from huda.transformation import pivot_unpivot
+from huda.transformation import average_rolling
 import polars as pl
 
-df = open_csv("testdata/unpivot.csv")
+df = open_csv("testdata/rolling.csv")
 
 print (df)
 
-piv = pivot_unpivot(df, index=['province'], values=['beneficiaries_jan', 'beneficiaries_feb', 'beneficiaries_mar'], operation="unpivot", columns="mont")
+roll = average_rolling(df, value_columns = ['beneficiaries', 'food_baskets'], window = 3)
 
-print (piv)
+print (roll)
 
 
