@@ -1,13 +1,13 @@
 from huda.opening import open_csv
-from huda.transformation import average_rolling
+from huda.transformation import monthly_yearly_growth
 import polars as pl
 
-df = open_csv("testdata/rolling.csv")
+df = open_csv("testdata/growth.csv")
 
 print (df)
 
-roll = average_rolling(df, value_columns = ['beneficiaries', 'food_baskets'], window = 3)
+gr = monthly_yearly_growth(df, value_column="beneficiaries", date_column="date", period="monthly")
 
-print (roll)
+print (gr)
 
 

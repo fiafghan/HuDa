@@ -4,6 +4,7 @@ from .percentage_calculation import percentage_calculation
 from .adults_children_male_female_ratios import adults_children_male_female_ratios
 from .pivot_unpivot import pivot_unpivot
 from .average_rolling import average_rolling
+from .monthly_yearly_growth import monthly_yearly_growth
 
 
 __all__ = [
@@ -13,4 +14,5 @@ __all__ = [
     "adults_children_male_female_ratios",
     "pivot_unpivot",
     "average_rolling",
+    "monthly_yearly_growth",
 ]
