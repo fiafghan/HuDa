@@ -5,6 +5,7 @@ from .adults_children_male_female_ratios import adults_children_male_female_rati
 from .pivot_unpivot import pivot_unpivot
 from .average_rolling import average_rolling
 from .monthly_yearly_growth import monthly_yearly_growth
+from .severity_index_calculation import severity_index_calculation
 
 
 __all__ = [
@@ -15,4 +16,5 @@ __all__ = [
     "pivot_unpivot",
     "average_rolling",
     "monthly_yearly_growth",
+    "severity_index_calculation",
 ]
