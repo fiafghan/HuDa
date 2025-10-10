@@ -1,15 +1,12 @@
-import streamlit as st
 import polars as pl
-import pandas as pd # Import pandas for type hinting and internal use with plot libs
-import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd  # Import pandas for type hinting and internal use with plot libs
 from typing import Union
-import io # To handle file uploads as a buffer
+import io  # To handle file uploads as a buffer
 
 # Your original monthly_yearly_growth function definition
 # ----------------------------------------------------------------------------------
 def monthly_yearly_growth(
-    data: Union[str, pd.DataFrame, pl.DataFrame],
+    data: Union[str, pd.DataFrame, pl.DataFrame, io.BytesIO],
     value_column: str = "beneficiaries",
     date_column: str = "date",
     period: str = "monthly"
@@ -21,12 +18,12 @@ def monthly_yearly_growth(
     -------------
     - Calculates growth of a numeric column over time
     - Supports monthly (MoM) or yearly (YoY) growth
-    - Automatically converts CSV or Pandas DF to Polars DF
+    - Automatically converts CSV path, Pandas DF, Polars DF, or bytes buffer to Polars DF
     
     Parameters:
     -----------
-    data : str | pd.DataFrame | pl.DataFrame
-        CSV path, Pandas DataFrame, or Polars DataFrame
+    data : str | pd.DataFrame | pl.DataFrame | io.BytesIO
+        CSV path, Pandas DataFrame, Polars DataFrame, or a bytes buffer (e.g., from a file upload).
     value_column : str
         Numeric column to calculate growth on (e.g., beneficiaries)
     date_column : str
@@ -43,7 +40,8 @@ def monthly_yearly_growth(
     Example Usage (Afghan survey):
     -------------------------------
     import polars as pl
-    
+    from your_library_name import monthly_yearly_growth # Assuming this function is in 'your_library_name'
+
     df = pl.DataFrame({
         "province": ["Kabul", "Kabul", "Herat", "Herat", "Kandahar", "Kandahar"],
         "date": ["2024-01-01","2024-02-01","2024-01-01","2024-02-01","2024-01-01","2024-02-01"],
@@ -86,50 +84,46 @@ def monthly_yearly_growth(
     """
 
     # ---- Step 1: Convert input to Polars DF ----
-    # Streamlit passes uploaded file content as bytes, so use io.BytesIO
-    if isinstance(data, io.BytesIO): # Handle Streamlit's uploaded file object
+    if isinstance(data, io.BytesIO):
         df = pl.read_csv(data)
     elif isinstance(data, str):
         df = pl.read_csv(data)
-    elif "pandas" in str(type(data)): # This will match pd.DataFrame
+    elif "pandas" in str(type(data)):  # This will match pd.DataFrame
         df = pl.from_pandas(data)
     elif isinstance(data, pl.DataFrame):
         df = data
     else:
-        # For debugging, you might want to print type(data)
-        # st.error(f"DEBUG: Unexpected data type: {type(data)}")
-        raise TypeError("Input must be CSV path, Pandas DF, Polars DF, or Streamlit UploadedFile.")
+        raise TypeError("Input 'data' must be CSV path (str), Pandas DataFrame, Polars DataFrame, or an io.BytesIO object.")
 
-    # ---- Step 2: Convert date column if needed ----
-    # Attempt to infer date format if string and strptime fails
+    # ---- Step 2: Validate and convert date column ----
     if date_column not in df.columns:
-        st.error(f"Date column '{date_column}' not found in your data.")
-        st.stop() # Stop the script execution
+        raise ValueError(f"Date column '{date_column}' not found in your data.")
 
     if df.schema[date_column] == pl.Utf8:
         try:
             # Try common YYYY-MM-DD
             df = df.with_columns(
-                pl.col(date_column).str.strptime(pl.Date, "%Y-%m-%d", strict=True) # strict=True to fail fast on mismatch
+                pl.col(date_column).str.strptime(pl.Date, "%Y-%m-%d", strict=True).alias(date_column)
             )
         except Exception:
-            try: # Try MM/DD/YYYY
+            try:  # Try MM/DD/YYYY
                 df = df.with_columns(
-                    pl.col(date_column).str.strptime(pl.Date, "%m/%d/%Y", strict=True)
+                    pl.col(date_column).str.strptime(pl.Date, "%m/%d/%Y", strict=True).alias(date_column)
                 )
             except Exception:
-                st.error(f"Could not parse date column '{date_column}'. Please ensure it's in YYYY-MM-DD or MM/DD/YYYY format. Column type is: {df.schema[date_column]}")
-                st.stop()
-    elif df.schema[date_column] == pl.Date:
-        pass # Already a date
-    else:
-        st.error(f"Date column '{date_column}' is not in a recognized date or string format. Found: {df.schema[date_column]}")
-        st.stop()
-    
+                raise ValueError(
+                    f"Could not parse date column '{date_column}'. Please ensure it's in "
+                    f"YYYY-MM-DD or MM/DD/YYYY format. Column type is: {df.schema[date_column]}"
+                )
+    elif df.schema[date_column] != pl.Date:
+        raise TypeError(
+            f"Date column '{date_column}' is not in a recognized date or string format. "
+            f"Found: {df.schema[date_column]}. Expected Utf8 or Date."
+        )
+
     # Ensure value column is numeric
     if df.schema[value_column] not in [pl.Int64, pl.Float64]:
-        st.error(f"Value column '{value_column}' must be a numeric type. Found: {df.schema[value_column]}")
-        st.stop()
+        raise TypeError(f"Value column '{value_column}' must be a numeric type. Found: {df.schema[value_column]}.")
 
     # ---- Step 3: Extract year/month for grouping and sorting ----
     df = df.with_columns([
@@ -148,140 +142,6 @@ def monthly_yearly_growth(
             ((pl.col(value_column) - pl.col(value_column).shift(12)) / pl.col(value_column).shift(12) * 100).alias("growth_rate_pct")
         ])
     else:
-        st.error("Period must be 'monthly' or 'yearly'.")
-        st.stop()
+        raise ValueError("Parameter 'period' must be 'monthly' or 'yearly'.")
 
     return df
-# ----------------------------------------------------------------------------------
-
-
-# --- Streamlit UI Code ---
-st.set_page_config(layout="wide", page_title="Growth Rate Calculator")
-
-st.title("📊 Growth Rate Calculator")
-st.markdown("""
-Upload your CSV data to calculate Month-over-Month (MoM) or Year-over-Year (YoY) growth rates.
-""")
-
-# File uploader widget
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-
-if uploaded_file is not None:
-    try:
-        # Streamlit uploaded files are bytes. We need to convert to an IO object
-        # for polars to read directly.
-        bytes_data = uploaded_file.getvalue()
-        df = pl.read_csv(io.BytesIO(bytes_data))
-        
-        st.write("### Original Data Preview")
-        st.dataframe(df.head(5).to_pandas()) # Convert to pandas for Streamlit's display
-
-        all_columns = df.columns
-        
-        st.sidebar.header("Calculation Settings")
-        
-        # Selectbox for value column
-        value_column = st.sidebar.selectbox(
-            "Select Value Column (e.g., beneficiaries):",
-            options=all_columns,
-            index=all_columns.index("beneficiaries") if "beneficiaries" in all_columns else 0
-        )
-        
-        # Selectbox for date column
-        date_column = st.sidebar.selectbox(
-            "Select Date Column (e.g., date):",
-            options=all_columns,
-            index=all_columns.index("date") if "date" in all_columns else 0
-        )
-        
-        # Radio buttons for period type
-        period_type = st.sidebar.radio(
-            "Select Growth Period:",
-            options=["monthly", "yearly"],
-            index=0, # Default to monthly
-            format_func=lambda x: f"{x.capitalize()} Growth"
-        )
-        
-        # Optional group by column
-        group_by_column = st.sidebar.selectbox(
-            "Optional: Group growth by (e.g., province) for separate trends:",
-            options=["None"] + all_columns,
-            index=0
-        )
-        
-        # Button to trigger calculation
-        if st.sidebar.button("Calculate Growth Rates"):
-            with st.spinner("Calculating growth rates..."):
-                try:
-                    growth_df = monthly_yearly_growth(
-                        data=df, # Pass the Polars DataFrame
-                        value_column=value_column,
-                        date_column=date_column,
-                        period=period_type
-                    )
-
-                    st.write(f"### Results: {period_type.capitalize()} Growth Rates")
-                    st.dataframe(growth_df.to_pandas()) # Display results
-
-                    # --- Plotting ---
-                    st.write("### Growth Rate Trend")
-                    
-                    # Convert to pandas for plotting with seaborn/matplotlib
-                    plot_df = growth_df.to_pandas()
-                    # Ensure date column is datetime for plotting
-                    plot_df[date_column] = pd.to_datetime(plot_df[date_column])
-                    
-                    fig, ax = plt.subplots(figsize=(12, 6))
-                    
-                    group_col_for_plot = group_by_column if group_by_column != "None" else None
-                    
-                    sns.lineplot(
-                        data=plot_df,
-                        x=date_column,
-                        y="growth_rate_pct",
-                        hue=group_col_for_plot,
-                        marker='o',
-                        ax=ax
-                    )
-                    ax.set_title(f"{period_type.capitalize()} Growth Rate Over Time" + (f" by {group_col_for_plot.capitalize()}" if group_col_for_plot else ""), fontsize=16)
-                    ax.set_xlabel("Date", fontsize=12)
-                    ax.set_ylabel("Growth Rate (%)", fontsize=12)
-                    ax.grid(True, linestyle='--', alpha=0.7)
-                    ax.axhline(0, color='grey', linestyle='--', linewidth=0.8) # Zero line for reference
-                    plt.xticks(rotation=45, ha='right')
-                    plt.tight_layout()
-                    st.pyplot(fig) # Display the plot in Streamlit
-                    
-                    # Download button for results
-                    st.download_button(
-                        label="Download Results as CSV",
-                        data=growth_df.write_csv(None), # Polars can write to a buffer
-                        file_name=f"{period_type}_growth_results.csv",
-                        mime="text/csv"
-                    )
-
-                except Exception as e:
-                    st.error(f"An error occurred during calculation: {e}")
-                    # st.exception(e) # Uncomment for detailed traceback in debug
-        
-        st.sidebar.markdown("---")
-        st.sidebar.markdown("Need help? Refer to the example CSV structure below.")
-
-    except Exception as e:
-        st.error(f"Error reading CSV file. Please ensure it is a valid CSV. Error: {e}")
-        # st.exception(e) # Uncomment for detailed traceback in debug
-
-else:
-    st.info("Upload a CSV file to begin.")
-    st.markdown("""
-    **Example CSV structure:**
-    ```csv
-    date,province,beneficiaries
-    2023-01-01,Kabul,100
-    2023-02-01,Kabul,110
-    2023-03-01,Kabul,120
-    2023-01-01,Herat,50
-    2023-02-01,Herat,55
-    2023-03-01,Herat,60
-    ```
-    """)
