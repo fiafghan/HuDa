@@ -8,6 +8,7 @@ from .monthly_yearly_growth import monthly_yearly_growth
 from .severity_index_calculation import severity_index_calculation
 from .needs_coverage_calculation import needs_coverage_calculation
 from .averages_weighted_population import averages_weighted_population
+from .age_group_standardization import age_group_standardization
 
 
 __all__ = [
@@ -21,4 +22,5 @@ __all__ = [
     "severity_index_calculation",
     "needs_coverage_calculation",
     "averages_weighted_population",
+    "age_group_standardization",
 ]
