@@ -15,7 +15,56 @@ def needs_coverage_calculation(
     🚨 Calculate Humanitarian Needs Coverage
     ======================================
 
-    (Docstring trimmed for brevity)
+    🧭 What it does:
+    ----------------
+    Calculates how much of the humanitarian *needs* (like food, water, shelter)
+    have been met by the *provided* aid — either per type or as a weighted or total overall percentage.
+
+    🧮 Parameters:
+    --------------
+    data : str | pandas.DataFrame | polars.DataFrame | io.BytesIO
+        Input dataset (CSV path, pandas/polars DF, or uploaded bytes)
+    needs_columns : List[str]
+        Columns representing total needs (e.g., ["food_needs", "water_needs", "shelter_needs"])
+    provided_columns : List[str]
+        Columns representing aid provided (same order as `needs_columns`)
+    output_coverage_col : str, default="coverage_pct"
+        Column name for weighted overall result if `weights` are provided
+    group_by_cols : Optional[List[str]]
+        Columns to group by (e.g., ["province", "date"])
+    weights : Optional[Dict[str, Union[int, float]]]
+        Optional weighting for calculating a weighted average across needs
+
+    🧾 Returns:
+    ------------
+    pl.DataFrame
+        Polars DataFrame containing:
+        - Individual coverage per need (e.g., `food_needs_coverage_pct`)
+        - Optional weighted overall coverage if `weights` are used
+        - ✅ New column `total_needs_coverage_pct` representing the combined overall coverage
+
+    🧩 Formula for total coverage:
+        total_needs_coverage_pct = (Σ all provided) / (Σ all needs) × 100
+
+    🧪 Example:
+    -----------
+    df = pl.DataFrame({
+        "province": ["Kabul", "Herat"],
+        "food_needs": [1000, 800],
+        "food_provided": [700, 600],
+        "water_needs": [5000, 4000],
+        "water_provided": [3500, 3200],
+        "shelter_needs": [2000, 1500],
+        "shelter_provided": [1200, 1000],
+    })
+
+    df_out = needs_coverage_calculation(
+        data=df,
+        needs_columns=["food_needs", "water_needs", "shelter_needs"],
+        provided_columns=["food_provided", "water_provided", "shelter_provided"]
+    )
+
+    print(df_out)
     """
 
     # --- 1. Convert data to Polars DataFrame ---
@@ -44,11 +93,11 @@ def needs_coverage_calculation(
     if group_by_cols:
         agg_exprs = []
 
-        # Sum up totals
+        # Sum up totals for needs and provided
         for col in needs_columns + provided_columns:
             agg_exprs.append(pl.sum(col).alias(col))
 
-        # Add mean for coverage columns
+        # Mean of coverage percentages
         for need_col in needs_columns:
             cov_col = f"{need_col}_coverage_pct"
             agg_exprs.append(pl.mean(cov_col).alias(cov_col))
@@ -61,33 +110,38 @@ def needs_coverage_calculation(
         total_weight = sum(weights.values())
         for need_col, weight in weights.items():
             cov_col = f"{need_col}_coverage_pct"
-            weighted_exprs.append((pl.col(cov_col) * weight))
+            weighted_exprs.append(pl.col(cov_col) * weight)
 
         df = df.with_columns(
             (sum(weighted_exprs) / total_weight).alias(output_coverage_col)
         )
 
+    # --- 5. ✅ Total (overall) combined coverage ---
+    df = df.with_columns([
+        (pl.sum_horizontal([pl.col(c) for c in provided_columns]) /
+         pl.sum_horizontal([pl.col(c) for c in needs_columns]) * 100)
+        .alias("total_needs_coverage_pct")
+    ])
+
     return df
 
 
-# ✅ Example test (works fine now)
+# ✅ Example test
 if __name__ == "__main__":
-    data_zero_total_needs = pl.DataFrame({
-        "location": ["Z"],
-        "f_needs": [0],
-        "f_prov": [0],
-        "w_needs": [0],
-        "w_prov": [0]
+    df = pl.DataFrame({
+        "location": ["Kabul", "Herat", "Kandahar"],
+        "food_needs": [1000, 800, 1200],
+        "food_provided": [700, 600, 800],
+        "water_needs": [5000, 4000, 6000],
+        "water_provided": [3500, 3200, 4200],
+        "shelter_needs": [2000, 1800, 2400],
+        "shelter_provided": [1500, 1200, 1800],
     })
 
-    weights_zero_total = {"f_needs": 0.5, "w_needs": 0.5}
-
-    df_zero_total_needs = needs_coverage_calculation(
-        data=data_zero_total_needs,
-        needs_columns=["f_needs", "w_needs"],
-        provided_columns=["f_prov", "w_prov"],
-        weights=weights_zero_total,
-        output_coverage_col="overall_zeros"
+    df_out = needs_coverage_calculation(
+        data=df,
+        needs_columns=["food_needs", "water_needs", "shelter_needs"],
+        provided_columns=["food_provided", "water_provided", "shelter_provided"]
     )
 
-    print(df_zero_total_needs)
+    print(df_out)

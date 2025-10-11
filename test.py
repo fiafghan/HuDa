@@ -6,13 +6,13 @@ df = open_csv("testdata/needs_coverage.csv")
 
 print (df)
 
-gr = needs_coverage_calculation(
+cov = needs_coverage_calculation(
             data=df,
             needs_columns=["food_needs_persons", "water_needs_liters", "shelter_needs_hh"],
             provided_columns=["food_provided_persons", "water_provided_liters", "shelter_provided_hh"],
             group_by_cols=["location", "date"]
     )
 
-print (gr)
+print (cov)
 
 
