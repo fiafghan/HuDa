@@ -9,6 +9,7 @@ from .severity_index_calculation import severity_index_calculation
 from .needs_coverage_calculation import needs_coverage_calculation
 from .averages_weighted_population import averages_weighted_population
 from .age_group_standardization import age_group_standardization
+from .gender_group_standardization import gender_group_standardization
 
 
 __all__ = [
@@ -23,4 +24,5 @@ __all__ = [
     "needs_coverage_calculation",
     "averages_weighted_population",
     "age_group_standardization",
+    "gender_group_standardization",
 ]
