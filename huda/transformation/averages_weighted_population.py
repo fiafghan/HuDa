@@ -8,7 +8,7 @@ def averages_weighted_population(
     needs_columns: List[str],
     provided_columns: List[str],
     population_column: Optional[str] = None,
-    output_coverage_col: str = "weighted_coverage_pct",
+    output_coverage_col: str = "weighted_coverage_pct", 
     group_by_cols: Optional[List[str]] = None,
     weights: Optional[Dict[str, Union[int, float]]] = None
 ) -> pl.DataFrame:
