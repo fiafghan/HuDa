@@ -6,6 +6,7 @@ from .pivot_unpivot import pivot_unpivot
 from .average_rolling import average_rolling
 from .monthly_yearly_growth import monthly_yearly_growth
 from .severity_index_calculation import severity_index_calculation
+from .needs_coverage_calculation import needs_coverage_calculation
 
 
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "average_rolling",
     "monthly_yearly_growth",
     "severity_index_calculation",
+    "needs_coverage_calculation",
 ]

@@ -1,0 +1,10 @@
+location,date,food_needs_persons,food_provided_persons,water_needs_liters,water_provided_liters,shelter_needs_hh,shelter_provided_hh
+District_A,2024-01-01,1000,700,5000,3500,200,150
+District_A,2024-01-02,1100,800,5200,3800,210,160
+District_B,2024-01-01,800,750,4000,3000,150,100
+District_B,2024-01-02,900,600,4100,2500,160,80
+District_C,2024-01-01,1500,1000,7000,5000,300,200
+District_D,2024-01-01,500,500,2000,2000,100,100
+District_E,2024-01-01,200,0,1000,0,50,0
+District_F,2024-01-01,0,0,0,0,0,0
+District_G,2024-01-01,300,350,1500,1600,70,80

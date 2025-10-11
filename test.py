@@ -1,15 +1,16 @@
 from huda.opening import open_csv
-from huda.transformation import severity_index_calculation
+from huda.transformation import needs_coverage_calculation
 import polars as pl
 
-df = open_csv("testdata/severity.csv")
+df = open_csv("testdata/needs_coverage.csv")
 
 print (df)
 
-gr = severity_index_calculation(
-        data=df,
-        indicator_columns=["affected_people", "food_insecurity_score", "water_access_score", "displacement_count"],
-        reverse_indicators=["water_access_score"] # Tell the function to flip 'water_access_pct'
+gr = needs_coverage_calculation(
+            data=df,
+            needs_columns=["food_needs_persons", "water_needs_liters", "shelter_needs_hh"],
+            provided_columns=["food_provided_persons", "water_provided_liters", "shelter_provided_hh"],
+            group_by_cols=["location", "date"]
     )
 
 print (gr)
