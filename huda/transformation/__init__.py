@@ -7,6 +7,7 @@ from .average_rolling import average_rolling
 from .monthly_yearly_growth import monthly_yearly_growth
 from .severity_index_calculation import severity_index_calculation
 from .needs_coverage_calculation import needs_coverage_calculation
+from .averages_weighted_population import averages_weighted_population
 
 
 __all__ = [
@@ -19,4 +20,5 @@ __all__ = [
     "monthly_yearly_growth",
     "severity_index_calculation",
     "needs_coverage_calculation",
+    "averages_weighted_population",
 ]

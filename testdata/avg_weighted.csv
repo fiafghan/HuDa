@@ -1,0 +1,6 @@
+province,population,food_needs,food_provided,water_needs,water_provided,shelter_needs,shelter_provided
+Kabul,5000000,1000,800,5000,4000,200,150
+Herat,2000000,800,500,4000,2500,150,100
+Kandahar,3000000,1200,900,6000,4500,250,200
+Balkh,1000000,500,300,2000,1200,100,80
+Nangarhar,1500000,700,600,3500,2800,150,130
