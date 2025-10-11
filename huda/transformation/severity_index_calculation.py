@@ -230,10 +230,11 @@ def severity_index_calculation(
     # --- Step 5: Combine the normalized indicators into a single raw score ---
     # Now that all indicators are on the same 0-1 scale, and they have their "importance levels" (weights), the function adds them all up for each place.
     # This gives you a "raw" severity score.
-    weighted_sum_expr = pl.sum(
+    weighted_sum_expr = sum(
         [
-            pl.col(f"{col}_normalized") * weights.get(col, 1.0)
+            (pl.col(col) * weights.get(col, 1))
             for col in indicator_columns
+            if col not in reverse_indicators
         ]
     )
     
