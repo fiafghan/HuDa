@@ -1,15 +1,14 @@
 from huda.opening import open_csv
-from huda.transformation import z_score_calculation
+from huda.validation_and_quality import mandatory_fields_check
 import polars as pl
 
-df = open_csv("testdata/zscore.csv")
+df = open_csv("testdata/mandatory_fields_check.csv")
 
 print (df)
 
-cov = z_score_calculation(
+cov = mandatory_fields_check(
     data=df,
-    column="amount",
-    threshold=3.0,
+    mandatory_fields=["gender", "age", "sector"]
     )
 
 print (cov)
