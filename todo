@@ -77,9 +77,7 @@ DONE-Convert categorical codes to human-readable labels
 
 DONE-Calculate z-scores for anomalies
 
-PENDING-Calculate cumulative totals
-
-Generate derived variables (per 10k households, etc.)
+DONE-Calculate cumulative totals
 
 4. Data Validation & Quality
 
