@@ -11,6 +11,7 @@ from .averages_weighted_population import averages_weighted_population
 from .age_group_standardization import age_group_standardization
 from .gender_group_standardization import gender_group_standardization
 from .categorical_code_to_label import categorical_code_to_label
+from .z_score_calculation import z_score_calculation
 
 
 __all__ = [
@@ -27,4 +28,5 @@ __all__ = [
     "age_group_standardization",
     "gender_group_standardization",
     "categorical_code_to_label",
+    "z_score_calculation",
 ]

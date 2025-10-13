@@ -75,11 +75,9 @@ DONE-Standardize gender categories
 
 DONE-Convert categorical codes to human-readable labels
 
-Map crisis phase categories (IPC, CH, INFORM)
+DONE-Calculate z-scores for anomalies
 
-Calculate z-scores for anomalies
-
-Calculate cumulative totals
+PENDING-Calculate cumulative totals
 
 Generate derived variables (per 10k households, etc.)
 
