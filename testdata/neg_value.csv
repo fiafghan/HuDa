@@ -1,0 +1,6 @@
+province,age,food_provided,water_liters,shelter_units
+Kabul,25,100,500,10
+Herat,-5,50,300,5
+Kandahar,35,-10,400,8
+Balkh,40,70,-20,6
+Nangarhar,30,90,450,-3

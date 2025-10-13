@@ -1,14 +1,14 @@
 from huda.opening import open_csv
-from huda.validation_and_quality import mandatory_fields_check
+from huda.validation_and_quality import negative_values_detection_where_they_should_not_exist
 import polars as pl
 
-df = open_csv("testdata/mandatory_fields_check.csv")
+df = open_csv("testdata/neg_value.csv")
 
 print (df)
 
-cov = mandatory_fields_check(
+cov = negative_values_detection_where_they_should_not_exist(
     data=df,
-    mandatory_fields=["gender", "age", "sector"]
+    numeric_columns=["age", "food_provided", "water_liters"]
     )
 
 print (cov)

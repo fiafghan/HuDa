@@ -40,7 +40,9 @@ DONE-Calculate z-scores for anomalies
 DONE-Calculate cumulative totals
 4. Data Validation & Quality
 DONE-Check for missing mandatory fields
+
 PENDING-Detect negative values where invalid
+
 Flag impossible values (population <0)
 
 Validate country codes against ISO list
