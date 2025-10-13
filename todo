@@ -1,92 +1,46 @@
 1. Data Ingestion & Loading
-
 DONE-Load CSV files- Changed from pandas to polars
-
 DONE-Load Excel files (XLSX, XLS)- Changed from pandas to polars
-
 DONE-Load JSON data- Changed from pandas to polars
-
 DONE-Load XML data
-
 DONE-Load SQL databases (Postgres, MySQL, SQLite)
-
 DONE-Load API data (REST APIs)
-
 DONE-Load GeoJSON data
-
 DONE-Load Parquet files
-
 DONE(only spss)-Load Stata/SPSS data
-
 DONE-Load NetCDF data (climate, weather, food security)
-
-
 2. Data Cleaning & Preparation
-
 DONE-Handle missing values (drop, impute)
-
 Done-Normalize column names
-
 DONE-Merge multiple datasets
-
 DONE-Handle duplicate rows
-
 DONE-Standardize date formats
-
 DONE-Standardize country names/codes (ISO3, ISO2)
-
 DONE-Translate categorical variables
-
 DONE-Handle inconsistent number formats
-
 DONE-Handling outliers. remember that i added outlier isolation using IsolationForest of Sklearn.
-
 DONE-Clean text fields (lowercase, punctuation removal)
-
 DONE-Geocode location names to lat/long
-
 DONE-Resolve administrative boundaries (ADM0–ADM3)
-
 3. Data Transformation
-
 DONE-Aggregate data by region
-
 DONE-Normalize per population size
-
 DONE-Calculate percentages (e.g., % of population in need)
-
 DONE-Calculate ratios (e.g., children vs adults)
-
 DONE-Pivot/unpivot data (wide ↔ long)
-
 DONE-Rolling averages (moving mean)
-
 DONE-Growth rates (month-over-month, year-over-year)
-
 DONE-Calculate humanitarian severity index
-
 DONE-Calculate humanitarian needs coverage
-
 DONE-Weighted averages by population
-
 DONE-Standardize age groups
-
 DONE-Standardize gender categories
-
 DONE-Convert categorical codes to human-readable labels
-
 DONE-Calculate z-scores for anomalies
-
 DONE-Calculate cumulative totals
-
 4. Data Validation & Quality
-
-PENDING-Check for missing mandatory fields
-
-Check numeric ranges (e.g., 0–100%)
-
-Detect negative values where invalid
-
+DONE-Check for missing mandatory fields
+PENDING-Detect negative values where invalid
 Flag impossible values (population <0)
 
 Validate country codes against ISO list
