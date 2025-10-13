@@ -1,19 +1,15 @@
 from huda.opening import open_csv
-from huda.transformation import categorical_code_to_label
+from huda.transformation import z_score_calculation
 import polars as pl
 
-df = open_csv("testdata/categ.csv")
+df = open_csv("testdata/zscore.csv")
 
 print (df)
 
-cov = categorical_code_to_label(
+cov = z_score_calculation(
     data=df,
-    code_column="sector",
-    mapping={
-        1:"food",
-        2:"health",
-        3:"sanitization"
-    }
+    column="amount",
+    threshold=3.0,
     )
 
 print (cov)
