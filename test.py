@@ -1,14 +1,14 @@
 from huda.opening import open_csv
-from huda.validation_and_quality import negative_values_detection_where_they_should_not_exist
+from huda.validation_and_quality import country_code_validation
 import polars as pl
 
-df = open_csv("testdata/neg_value.csv")
+df = open_csv("testdata/country_code.csv")
 
 print (df)
 
-cov = negative_values_detection_where_they_should_not_exist(
+cov = country_code_validation(
     data=df,
-    numeric_columns=["age", "food_provided", "water_liters"]
+    country_column="country",
     )
 
 print (cov)

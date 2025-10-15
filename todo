@@ -43,9 +43,9 @@ DONE-Check for missing mandatory fields
 
 DONE-Detect negative values where invalid
 
-PENDING-Flag impossible values (population <0)
+DONE-Flag impossible values (population <0)
 
-Validate country codes against ISO list
+PENDING-Validate country codes against ISO list
 
 Validate date ranges (not before 1900, not in future)
 
