@@ -45,7 +45,7 @@ DONE-Detect negative values where invalid
 
 DONE-Flag impossible values (population <0)
 
-PENDING-Validate country codes against ISO list
+DONE-Validate country codes against ISO list
 
 Validate date ranges (not before 1900, not in future)
 
