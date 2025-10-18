@@ -49,7 +49,7 @@ DONE-Validate country codes against ISO list
 
 DONE-Validate date ranges (not before 1900, not in future)
 
-Detect inconsistencies (e.g., reached > targeted)
+PENDING-Detect inconsistencies (e.g., reached > targeted)
 
 Validate humanitarian indicators against standards (Sphere, IPC)
 
