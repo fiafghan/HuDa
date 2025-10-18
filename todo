@@ -47,7 +47,7 @@ DONE-Flag impossible values (population <0)
 
 DONE-Validate country codes against ISO list
 
-Validate date ranges (not before 1900, not in future)
+DONE-Validate date ranges (not before 1900, not in future)
 
 Detect inconsistencies (e.g., reached > targeted)
 
