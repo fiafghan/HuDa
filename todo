@@ -49,13 +49,13 @@ DONE-Validate country codes against ISO list
 
 DONE-Validate date ranges (not before 1900, not in future)
 
-PENDING-Detect inconsistencies (e.g., reached > targeted)
+DONE-Detect inconsistencies (e.g., reached > targeted)
 
-Validate humanitarian indicators against standards (Sphere, IPC)
+DONE-Validate humanitarian indicators against standards (Sphere, IPC)
 
-Automatic data profiling report
+DONE-Automatic data profiling report
 
-Generate summary statistics per dataset
+DONE-Generate summary statistics per dataset
 
 5. Geospatial Features
 
