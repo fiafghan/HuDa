@@ -4,7 +4,7 @@ from typing import Union, List, Optional, Dict, Tuple
 import io
 
 
-def reached_vs_targeted_inconsistency_detection(
+def targeted_vs_reached_inconsistency_detection(
     data: Union[str, pd.DataFrame, pl.DataFrame, io.BytesIO],
     reached_cols: Optional[List[str]] = None,
     targeted_cols: Optional[List[str]] = None,
@@ -48,7 +48,7 @@ def reached_vs_targeted_inconsistency_detection(
     Usage:
     ```python
     import polars as pl
-    from huda.validation_and_quality import reached_vs_targeted_inconsistency_detection
+    from huda.validation_and_quality import targeted_vs_reached_inconsistency_detection
 
     df = pl.DataFrame({
         "province": ["Kabul", "Herat", "Balkh"],
@@ -56,7 +56,7 @@ def reached_vs_targeted_inconsistency_detection(
         "reached": [1200, 700, 600],
     })
 
-    flagged = reached_vs_targeted_inconsistency_detection(df, reached_cols=["reached"], targeted_cols=["targeted"])
+    flagged = targeted_vs_reached_inconsistency_detection(df, reached_cols=["reached"], targeted_cols=["targeted"])
     print(flagged)
     ```
     """

@@ -1,16 +1,21 @@
-from huda.opening import open_csv
-from huda.validation_and_quality import date_range_validation
+from huda.validation_and_quality import targeted_vs_reached_inconsistency_detection 
 import polars as pl
 
-df = open_csv("testdata/date_range.csv")
+df = pl.DataFrame({
+    "province": ["Kabul", "Herat", "Balkh"],
+    "targeted": [1000, 800, 600],
+    "reached": [1200, 700, 600],
+})
 
 print (df)
 
-cov = date_range_validation(
-            df,
-            date_columns=['survey_date', 'report_date']
+flagged = targeted_vs_reached_inconsistency_detection(
+    df,
+    reached_cols=["reached"],
+    targeted_cols=["targeted"],
+
     )
 
-print (cov)
+print (flagged)
 
 
