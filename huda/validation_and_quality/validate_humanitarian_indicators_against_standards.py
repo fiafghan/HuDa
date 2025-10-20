@@ -69,9 +69,59 @@ def _builtin_standards(name: str) -> StandardsConfig:
     return {"numeric": [], "categorical": []}
 
 
+def _normalize_key(s: str) -> str:
+    """Lowercase and keep alphanumerics/underscore to compare column names flexibly."""
+    return "".join(ch for ch in s.lower() if ch.isalnum() or ch == "_")
+
+
+def _resolve_column(
+    df: pl.DataFrame,
+    canonical: str,
+    column_aliases: Optional[Dict[str, str]] = None,
+    synonyms: Optional[Dict[str, List[str]]] = None,
+) -> Optional[str]:
+    """
+    Resolve an actual dataframe column name for a canonical indicator name.
+    Priority:
+    1) explicit column_aliases mapping
+    2) exact match (case-insensitive)
+    3) synonyms list match (case-insensitive)
+    Returns the matched column name or None if not found.
+    """
+    column_aliases = column_aliases or {}
+    synonyms = synonyms or {}
+
+    # Build lookup of normalized df columns
+    df_cols_norm = {_normalize_key(c): c for c in df.columns}
+
+    # 1) explicit mapping
+    if canonical in column_aliases:
+        cand = column_aliases[canonical]
+        if cand in df.columns:
+            return cand
+        # try normalized match
+        cand_norm = _normalize_key(cand)
+        if cand_norm in df_cols_norm:
+            return df_cols_norm[cand_norm]
+
+    # 2) exact/normalized canonical
+    can_norm = _normalize_key(canonical)
+    if can_norm in df_cols_norm:
+        return df_cols_norm[can_norm]
+
+    # 3) synonyms
+    for syn in synonyms.get(canonical, []):
+        syn_norm = _normalize_key(syn)
+        if syn_norm in df_cols_norm:
+            return df_cols_norm[syn_norm]
+
+    return None
+
+
 def validate_humanitarian_indicators_against_standards(
     data: Union[str, pd.DataFrame, pl.DataFrame, io.BytesIO],
     standards: Union[str, StandardsConfig] = "sphere",
+    column_aliases: Optional[Dict[str, str]] = None,
 ) -> pl.DataFrame:
     """
     Validate humanitarian indicators against Sphere/IPC standards or a custom rule set.
@@ -102,6 +152,9 @@ def validate_humanitarian_indicators_against_standards(
             {"column": str, "allowed": List[Any], "description": str},
           ]
         }
+    - column_aliases: Optional explicit mapping from canonical indicator names
+      (e.g., "coverage_percent") to your dataset's column names (e.g., "coverage").
+      If omitted, common synonyms are auto-detected (e.g., "sex" -> "gender").
 
     Returns:
     - pl.DataFrame with columns:
@@ -112,11 +165,14 @@ def validate_humanitarian_indicators_against_standards(
     from huda.validation_and_quality import validate_humanitarian_indicators_against_standards
     import polars as pl
 
+    # Simple column names (auto-mapped):
     df = pl.DataFrame({
         "province": ["Kabul", "Herat", "Balkh"],
-        "water_liters_per_person_per_day": [12, 18, 10],
-        "ipc_phase": [3, 6, 2],
-        "coverage_percent": [95, 105, -2],
+        "water_per_person": [12, 18, 10],          # auto -> water_liters_per_person_per_day
+        "ipc": [3, 6, 2],                           # auto -> ipc_phase
+        "coverage": [95, 105, -2],                  # auto -> coverage_percent
+        "sex": ["male", "female", "other"],       # matches categorical
+        "cmr_per_10k": [0.8, 1.2, 0.5],             # auto -> cmr_per_10k_per_day
     })
 
     # Sphere + IPC combined (simple union)
@@ -155,15 +211,29 @@ def validate_humanitarian_indicators_against_standards(
 
     violations_tables: List[pl.DataFrame] = []
 
+    # Synonyms for auto-mapping common column names
+    synonyms: Dict[str, List[str]] = {
+        "water_liters_per_person_per_day": ["water_per_person", "water_liters", "water_lppd", "waterppd"],
+        "coverage_percent": ["coverage", "coverage_pct", "pct_coverage"],
+        "cmr_per_10k_per_day": ["cmr", "cmr_per_10k", "cmr10k"],
+        "ipc_phase": ["ipc", "phase"],
+        "sex": ["gender"],
+        "fcs": ["food_consumption_score"],
+    }
+
+    # Add row index once to avoid ColumnNotFound during filtering
+    df_idx = df.with_row_count("row_index")
+
     # Numeric rules
     for rule in cfg.get("numeric", []):
-        col = rule.get("column")
+        canonical_col = rule.get("column")
         op = rule.get("op")
         thr = rule.get("threshold")
         desc = rule.get("description", "")
-        if col not in df.columns:
+        actual_col = _resolve_column(df, canonical_col, column_aliases, synonyms)
+        if actual_col is None:
             continue
-        col_expr = pl.col(col).cast(pl.Float64, strict=False)
+        col_expr = pl.col(actual_col).cast(pl.Float64, strict=False)
         if op == ">=":
             mask = col_expr < float(thr)
             rule_label = f"< {thr}"
@@ -189,14 +259,14 @@ def validate_humanitarian_indicators_against_standards(
         else:
             raise ValueError(f"Unsupported op: {op}")
 
-        tbl = df.select([
-            pl.int_range(0, df.height).alias("row_index"),
-            pl.col(col).alias("value"),
-        ]).filter(mask)
+        tbl = df_idx.filter(mask).select([
+            "row_index",
+            pl.col(actual_col).alias("value"),
+        ])
         if tbl.height:
             violations_tables.append(
                 tbl.with_columns([
-                    pl.lit(col).alias("column"),
+                    pl.lit(actual_col).alias("column"),
                     pl.lit(desc).alias("description"),
                     pl.lit(rule_label).alias("rule"),
                 ])["row_index", "column", "description", "rule", "value"]
@@ -204,20 +274,20 @@ def validate_humanitarian_indicators_against_standards(
 
     # Categorical rules
     for rule in cfg.get("categorical", []):
-        col = rule.get("column")
+        canonical_col = rule.get("column")
         allowed = rule.get("allowed", [])
         desc = rule.get("description", "")
-        if col not in df.columns:
+        actual_col = _resolve_column(df, canonical_col, column_aliases, synonyms)
+        if actual_col is None:
             continue
-        s = df.get_column(col)
-        tbl = df.select([
-            pl.int_range(0, df.height).alias("row_index"),
-            pl.col(col).alias("value"),
-        ]).filter(~pl.col(col).is_in(allowed))
+        tbl = df_idx.filter(~pl.col(actual_col).is_in(allowed)).select([
+            "row_index",
+            pl.col(actual_col).alias("value"),
+        ])
         if tbl.height:
             violations_tables.append(
                 tbl.with_columns([
-                    pl.lit(col).alias("column"),
+                    pl.lit(actual_col).alias("column"),
                     pl.lit(desc).alias("description"),
                     pl.lit("not in").alias("rule"),
                 ])["row_index", "column", "description", "rule", "value"]
