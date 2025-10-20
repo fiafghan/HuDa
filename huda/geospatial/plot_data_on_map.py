@@ -16,33 +16,23 @@ def plot_data_on_map(
     center_lon: float = 67.7100,
 ) -> folium.Map:
     """
-    Plot point data on an interactive web map (Leaflet via Folium).
+    Simple Points Map for Afghanistan
+    ---------------------------------
 
     What this does:
-    - Places markers at each latitude/longitude.
-    - Optional popups with any column.
+    - Shows each row as a point on an interactive map using latitude/longitude.
+    - Can show a small popup with site name or any other column.
 
     When to use:
-    - Visualize survey sites, facility locations, or monitoring points in Afghanistan.
+    - To quickly see survey locations, clinics, schools, or distribution points on a map.
 
-    Why important:
-    - Quick visual QA of geocoded data. Easy to share as HTML.
+    Why it is useful:
+    - Fast quality check for coordinates and easy to share as HTML with colleagues.
 
-    Where to apply:
-    - Household assessments in Kabul/Herat/Balkh, health facility lists, distribution points.
+    Where to use (Afghan example):
+    - Kabul, Herat, Balkh survey points from a household assessment.
 
-    Parameters:
-    - data: pandas or polars DataFrame with coordinates.
-    - lat_col, lon_col: column names for latitude and longitude.
-    - popup_col: optional column to show in marker popup (e.g., site name).
-    - tiles: base tiles provider (e.g., "OpenStreetMap", "CartoDB positron").
-    - zoom_start: initial zoom level.
-    - center_lat, center_lon: map center (defaults to Afghanistan centroid).
-
-    Returns:
-    - folium.Map that you can save via map_obj.save("map.html").
-
-    Afghanistan example:
+    How to use (example):
     ```python
     import polars as pl
     from huda.geospatial import plot_data_on_map
@@ -56,18 +46,27 @@ def plot_data_on_map(
     m = plot_data_on_map(df, popup_col="site")
     m.save("afghanistan_points.html")
     ```
-    """
-    if isinstance(data, pl.DataFrame):
-        df = data.to_pandas()
-    else:
-        df = data
 
+    Output:
+    - Interactive HTML map with markers. Clicking shows the popup text (if given).
+    """
+    # If data is a Polars DataFrame, convert it to Pandas for Folium compatibility
+    if isinstance(data, pl.DataFrame):  # check if input is polars
+        df = data.to_pandas()           # convert to pandas
+    else:
+        df = data                       # already pandas
+
+    # Create the base map centered over Afghanistan with the chosen tiles and zoom
     m = folium.Map(location=[center_lat, center_lon], tiles=tiles, zoom_start=zoom_start)
 
+    # Loop over all rows that have non-missing latitude and longitude
     for _, row in df.dropna(subset=[lat_col, lon_col]).iterrows():
+        # Prepare popup text if a popup column was provided and exists
         popup = None
         if popup_col and popup_col in df.columns:
             popup = folium.Popup(str(row[popup_col]), parse_html=True)
+        # Add a marker for this point onto the map
         folium.Marker(location=[row[lat_col], row[lon_col]], popup=popup).add_to(m)
 
+    # Return the map object so the caller can save it to HTML
     return m

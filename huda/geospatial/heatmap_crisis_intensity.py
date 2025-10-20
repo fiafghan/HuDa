@@ -19,16 +19,22 @@ def heatmap_crisis_intensity(
     center_lon: float = 67.7100,
 ) -> folium.Map:
     """
-    Create a heatmap of crisis intensity using point data.
+    Heatmap for Crisis Intensity in Afghanistan
+    ------------------------------------------
 
-    Parameters:
-    - data: pandas or polars DataFrame with coordinates and optional weights.
-    - lat_col, lon_col: column names for latitude and longitude.
-    - weight_col: optional column for heat intensity (e.g., number_in_need).
-    - radius, blur, min_opacity: visual tuning parameters.
-    - tiles: base map.
+    What this does:
+    - Draws a heatmap from points. Brighter areas mean higher values or more points.
 
-    Example (Afghanistan):
+    When to use:
+    - To see hotspots of need or incidents (for example, more people in need in Kabul).
+
+    Why it is useful:
+    - Quickly shows where the situation is most intense.
+
+    Where to use (Afghan example):
+    - Points from assessments in Kabul, Herat, Balkh with a "people_in_need" column.
+
+    How to use (example):
     ```python
     from huda.geospatial import heatmap_crisis_intensity
     import polars as pl
@@ -42,21 +48,29 @@ def heatmap_crisis_intensity(
     m = heatmap_crisis_intensity(df, weight_col="people_in_need")
     m.save("heatmap_afg.html")
     ```
-    """
-    if isinstance(data, pl.DataFrame):
-        df = data.to_pandas()
-    else:
-        df = data
 
+    Output:
+    - Interactive heatmap. Areas with bigger numbers look hotter/brighter.
+    """
+    # Convert Polars to Pandas if needed
+    if isinstance(data, pl.DataFrame):      # check for Polars input
+        df = data.to_pandas()               # convert to Pandas DataFrame
+    else:
+        df = data                          # already Pandas
+
+    # Create a dark base map centered on Afghanistan
     m = folium.Map(location=[center_lat, center_lon], tiles=tiles, zoom_start=zoom_start)
 
+    # Build list of points with optional weights
     points = []
-    if weight_col and weight_col in df.columns:
+    if weight_col and weight_col in df.columns:  # if a weight column is provided
         for _, r in df.dropna(subset=[lat_col, lon_col, weight_col]).iterrows():
-            points.append([r[lat_col], r[lon_col], float(r[weight_col])])
+            points.append([r[lat_col], r[lon_col], float(r[weight_col])])  # lat, lon, weight
     else:
         for _, r in df.dropna(subset=[lat_col, lon_col]).iterrows():
-            points.append([r[lat_col], r[lon_col], 1.0])
+            points.append([r[lat_col], r[lon_col], 1.0])  # equal weight for each point
 
+    # Add heatmap layer to the map
     HeatMap(points, radius=radius, blur=blur, min_opacity=min_opacity).add_to(m)
+    # Return the map for saving as HTML
     return m

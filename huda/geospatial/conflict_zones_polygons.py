@@ -10,14 +10,22 @@ def conflict_zones_polygons(
     tiles: str = "CartoDB positron",
 ) -> folium.Map:
     """
-    Show conflict-affected zones (polygons) with styling by conflict level.
+    Conflict Zones Map (Afghanistan)
+    -------------------------------
 
-    Parameters:
-    - geojson: GeoJSON dict or path to a .geojson file with polygons and conflict attributes.
-    - level_property: GeoJSON property indicating conflict level (e.g., low/medium/high).
-    - map_center, zoom_start, tiles: base map options.
+    What this does:
+    - Draws polygons for conflict-affected areas and colors them by level (low/medium/high).
 
-    Example (Afghanistan conflict polygons):
+    When to use:
+    - To present conflict intensity by district or province from a GeoJSON layer.
+
+    Why it is useful:
+    - Clear picture of where the conflict impacts are stronger.
+
+    Where to use (Afghan example):
+    - District polygons with a property like `level` = low/medium/high.
+
+    How to use (example):
     ```python
     import json
     from huda.geospatial import conflict_zones_polygons
@@ -28,20 +36,26 @@ def conflict_zones_polygons(
     m = conflict_zones_polygons(gj, level_property="level")
     m.save("conflict_afg.html")
     ```
+
+    Output:
+    - Interactive map with colored polygons and a tooltip showing conflict level.
     """
+    # Create base map over Afghanistan
     m = folium.Map(location=list(map_center), zoom_start=zoom_start, tiles=tiles)
 
+    # Style polygons based on conflict level text
     def style_function(feature):
-        lvl = str(feature["properties"].get(level_property, "")).lower()
-        color = "#9ecae1"  # default
+        lvl = str(feature["properties"].get(level_property, "")).lower()  # read conflict level
+        color = "#9ecae1"  # default light blue
         if "high" in lvl:
-            color = "#cb181d"
+            color = "#cb181d"   # red for high
         elif "medium" in lvl or "moderate" in lvl:
-            color = "#fb6a4a"
+            color = "#fb6a4a"   # orange for medium
         elif "low" in lvl:
-            color = "#fcae91"
+            color = "#fcae91"   # light orange for low
         return {"fillColor": color, "color": color, "weight": 1, "fillOpacity": 0.5}
 
+    # Add polygons to the map with optional tooltip
     folium.GeoJson(
         data=geojson,
         style_function=style_function,
@@ -49,5 +63,6 @@ def conflict_zones_polygons(
         tooltip=folium.GeoJsonTooltip(fields=[level_property], aliases=["Conflict level"]) if level_property else None,
     ).add_to(m)
 
+    # Layer control to toggle
     folium.LayerControl().add_to(m)
     return m

@@ -16,15 +16,23 @@ def overlay_multiple_indicators_on_map(
     center_lon: float = 67.7100,
 ) -> folium.Map:
     """
-    Overlay multiple numeric indicators as colored circle markers with layer control.
+    Overlay Multiple Indicators (Simple Afghan Map)
+    ----------------------------------------------
 
-    Parameters:
-    - data: pandas or polars DataFrame with coordinates and indicator columns.
-    - indicators: mapping of {layer_name: column_name} to visualize per layer.
-    - color_fn: optional function that accepts a pandas Series of values and returns a color hex.
-      If None, a default simple color scale will be used per layer.
+    What this does:
+    - Adds multiple layers of colored circle markers to one map, one layer for each indicator.
+    - You can turn layers on/off using the layer control.
 
-    Example (Afghanistan):
+    When to use:
+    - To compare two or more indicators on the same map (e.g., need index and coverage).
+
+    Why it is useful:
+    - Quick visual comparison across indicators at the same locations.
+
+    Where to use (Afghan example):
+    - Household assessment points in Kabul, Herat, Balkh with columns like `need_index` and `coverage`.
+
+    How to use (example):
     ```python
     from huda.geospatial import overlay_multiple_indicators_on_map
     import polars as pl
@@ -42,46 +50,49 @@ def overlay_multiple_indicators_on_map(
     )
     m.save("overlay_indicators_afg.html")
     ```
+
+    Output:
+    - Interactive map with a layer per indicator and a legend-like layer control.
     """
     if indicators is None:
-        indicators = {}
+        indicators = {}  # default to empty dict if not provided
 
-    if isinstance(data, pl.DataFrame):
-        df = data.to_pandas()
+    if isinstance(data, pl.DataFrame):   # if polars is given
+        df = data.to_pandas()            # convert to pandas
     else:
-        df = data
+        df = data                        # already pandas
 
-    m = folium.Map(location=[center_lat, center_lon], tiles=tiles, zoom_start=zoom_start)
+    m = folium.Map(location=[center_lat, center_lon], tiles=tiles, zoom_start=zoom_start)  # base map
 
     def default_color_scale(v: float, vmin: float, vmax: float) -> str:
         # simple red-green scale
         if v is None:
-            return "#808080"
+            return "#808080"  # gray when no value
         if vmax == vmin:
-            return "#2b8cbe"
-        t = (float(v) - vmin) / (vmax - vmin)
+            return "#2b8cbe"  # blue if no range
+        t = (float(v) - vmin) / (vmax - vmin)  # normalize 0..1
         r = int(255 * t)
         g = int(255 * (1 - t))
-        return f"#{r:02x}{g:02x}55"
+        return f"#{r:02x}{g:02x}55"  # build hex color
 
     for layer_name, col in indicators.items():
-        if col not in df.columns:
+        if col not in df.columns:  # skip missing columns
             continue
-        group = folium.FeatureGroup(name=layer_name, show=True)
-        series = df[col]
-        vmin, vmax = pd.to_numeric(series, errors="coerce").min(), pd.to_numeric(series, errors="coerce").max()
-        for _, r in df.dropna(subset=[lat_col, lon_col]).iterrows():
-            val = r.get(col, None)
-            color = color_fn(series) if callable(color_fn) else default_color_scale(val, vmin, vmax)
+        group = folium.FeatureGroup(name=layer_name, show=True)  # one layer per indicator
+        series = df[col]  # the indicator series
+        vmin, vmax = pd.to_numeric(series, errors="coerce").min(), pd.to_numeric(series, errors="coerce").max()  # min/max
+        for _, r in df.dropna(subset=[lat_col, lon_col]).iterrows():  # loop valid points
+            val = r.get(col, None)  # value for this indicator
+            color = color_fn(series) if callable(color_fn) else default_color_scale(val, vmin, vmax)  # color choice
             folium.CircleMarker(
-                location=[r[lat_col], r[lon_col]],
-                radius=6,
-                color=color,
-                fill=True,
-                fill_opacity=0.8,
-                popup=folium.Popup(f"{layer_name}: {val}", parse_html=True),
+                location=[r[lat_col], r[lon_col]],  # point location
+                radius=6,                            # marker size
+                color=color,                          # outline color
+                fill=True,                            # fill circle
+                fill_opacity=0.8,                     # fill opacity
+                popup=folium.Popup(f"{layer_name}: {val}", parse_html=True),  # show value in popup
             ).add_to(group)
-        group.add_to(m)
+        group.add_to(m)  # add the whole layer to the map
 
-    folium.LayerControl().add_to(m)
-    return m
+    folium.LayerControl().add_to(m)  # allow toggling layers
+    return m  # return the final map

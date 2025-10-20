@@ -16,14 +16,22 @@ def generate_buffer_zones(
     popup_col: Optional[str] = None,
 ) -> folium.Map:
     """
-    Generate circular buffer zones (meters) around points, e.g., 50km radius.
+    Draw Buffer Zones Around Points (Afghanistan)
+    --------------------------------------------
 
-    Parameters:
-    - data: pandas or polars DataFrame with coordinates.
-    - radius_meters: buffer radius (e.g., 50_000 for 50km).
-    - popup_col: optional popup label column.
+    What this does:
+    - Draws a circle (buffer) around each point. You choose the size in meters.
 
-    Example (Afghanistan 50km buffers):
+    When to use:
+    - To show service coverage (for example, a 50 km area around a hospital).
+
+    Why it is useful:
+    - Easy way to communicate reach and access on a simple map.
+
+    Where to use (Afghan example):
+    - 50 km around Kabul and Herat sites from a survey.
+
+    How to use (example):
     ```python
     import polars as pl
     from huda.geospatial import generate_buffer_zones
@@ -34,26 +42,33 @@ def generate_buffer_zones(
         "site": ["Kabul", "Herat"],
     })
 
-    m = generate_buffer_zones(df, radius_meters=50000, popup_col="site")
+    m = generate_buffer_zones(df, radius_meters=50_000, popup_col="site")
     m.save("buffers_50km_afg.html")
     ```
+
+    Output:
+    - Interactive HTML map with blue circles around each point.
     """
+    # Convert to Pandas if we got a Polars DataFrame
     if isinstance(data, pl.DataFrame):
         df = data.to_pandas()
     else:
         df = data
 
+    # Build the base map centered on Afghanistan
     m = folium.Map(location=[center_lat, center_lon], tiles=tiles, zoom_start=zoom_start)
 
+    # For each point, add a circle with the chosen radius
     for _, r in df.dropna(subset=[lat_col, lon_col]).iterrows():
         popup = folium.Popup(str(r[popup_col]), parse_html=True) if popup_col and popup_col in df.columns else None
         folium.Circle(
-            location=[r[lat_col], r[lon_col]],
-            radius=radius_meters,
-            color="#2b8cbe",
-            fill=True,
-            fill_opacity=0.2,
-            popup=popup,
+            location=[r[lat_col], r[lon_col]],  # center of the circle
+            radius=radius_meters,               # radius in meters
+            color="#2b8cbe",                   # blue outline
+            fill=True,                           # fill circle
+            fill_opacity=0.2,                    # transparent fill
+            popup=popup,                         # optional label
         ).add_to(m)
 
+    # Return the map for saving to HTML
     return m

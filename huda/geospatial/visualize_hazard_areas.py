@@ -10,17 +10,23 @@ def visualize_hazard_areas(
     tiles: str = "CartoDB positron",
 ) -> folium.Map:
     """
-    Visualize flood/drought-affected polygons as an interactive layer.
+    Hazard Areas Map (Flood/Drought) for Afghanistan
+    -----------------------------------------------
 
-    Parameters:
-    - geojson: GeoJSON dict or path to a .geojson file with polygons and a hazard attribute (e.g., flood/drought).
-    - hazard_property: GeoJSON property that indicates hazard category.
-    - map_center, zoom_start, tiles: base map options.
+    What this does:
+    - Draws polygons (areas) for hazards like flood, drought, landslide.
+    - Colors them differently so you can see hazard types.
 
-    Returns:
-    - folium.Map with styled polygons per hazard.
+    When to use:
+    - To visualize areas affected by hazards from your GeoJSON layer.
 
-    Example (Afghanistan flood/drought polygons):
+    Why it is useful:
+    - Helps planners and analysts quickly see hazard coverage.
+
+    Where to use (Afghan example):
+    - Flood polygons around Kabul River, drought-affected districts in the west.
+
+    How to use (example):
     ```python
     import json
     from huda.geospatial import visualize_hazard_areas
@@ -31,26 +37,34 @@ def visualize_hazard_areas(
     m = visualize_hazard_areas(gj, hazard_property="hazard")
     m.save("hazards_afg.html")
     ```
+
+    Output:
+    - Interactive HTML map with colored hazard polygons and tooltips showing the hazard type.
     """
+    # Create a map centered on Afghanistan
     m = folium.Map(location=list(map_center), zoom_start=zoom_start, tiles=tiles)
 
+    # Style polygons based on hazard type text
     def style_function(feature):
-        h = str(feature["properties"].get(hazard_property, "")).lower()
-        color = "#3182bd"  # default
+        h = str(feature["properties"].get(hazard_property, "")).lower()  # read hazard text
+        color = "#3182bd"  # default color
         if "flood" in h:
-            color = "#2c7fb8"
+            color = "#2c7fb8"  # blue
         elif "drought" in h:
-            color = "#d95f0e"
+            color = "#d95f0e"  # orange
         elif "landslide" in h:
-            color = "#756bb1"
+            color = "#756bb1"  # purple
         return {"fillColor": color, "color": color, "weight": 1, "fillOpacity": 0.5}
 
+    # Add polygons to the map with tooltips
     folium.GeoJson(
-        data=geojson,
-        style_function=style_function,
-        name="Hazard Areas",
+        data=geojson,  # the GeoJSON data or path
+        style_function=style_function,  # color by hazard
+        name="Hazard Areas",  # layer name
         tooltip=folium.GeoJsonTooltip(fields=[hazard_property], aliases=["Hazard"]) if hazard_property else None,
     ).add_to(m)
 
+    # Add a layer control to toggle
     folium.LayerControl().add_to(m)
+    # Return the final map
     return m

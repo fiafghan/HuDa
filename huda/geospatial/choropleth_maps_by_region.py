@@ -17,25 +17,22 @@ def choropleth_maps_by_region(
     tiles: str = "CartoDB positron",
 ) -> folium.Map:
     """
-    Create a choropleth map by country/region using a GeoJSON boundary layer.
+    Choropleth Map by Afghan Provinces or Districts
+    -----------------------------------------------
 
-    Parameters:
-    - data: pandas or polars DataFrame containing a region identifier and a value column.
-    - geojson: GeoJSON dict or path to a .geojson file with the regions.
-    - region_key: column in data that matches a GeoJSON property (e.g., "ADM1_EN", "iso3").
-    - value_col: numeric column to visualize.
-    - map_center: initial map center (default Afghanistan centroid).
-    - zoom_start: initial zoom level.
-    - legend_name: legend title.
-    - key_on: property path in GeoJSON to join on (e.g., "feature.properties.ADM1_EN").
-      If None, tries "feature.properties." + region_key.
-    - fill_color: color scale.
-    - tiles: base tiles provider.
+    What this does:
+    - Colors each region (province/district) using your numeric value (e.g., severity).
 
-    Returns:
-    - folium.Map with a choropleth layer.
+    When to use:
+    - To compare regions side-by-side (for example, severity by province in Afghanistan).
 
-    Example (Afghanistan provinces):
+    Why it is useful:
+    - Makes patterns by region easy to see (hotspots vs low values).
+
+    Where to use (Afghan example):
+    - Provinces Kabul, Herat, Balkh using a GeoJSON boundary file.
+
+    How to use (example):
     ```python
     from huda.geospatial import choropleth_maps_by_region
     import polars as pl, json
@@ -52,30 +49,39 @@ def choropleth_maps_by_region(
                                   legend_name="Severity")
     m.save("choropleth_afg.html")
     ```
+
+    Output:
+    - Interactive map with colored regions and a legend.
     """
+    # Convert Polars to Pandas if needed (Folium works with Pandas)
     if isinstance(data, pl.DataFrame):
         df = data.to_pandas()
     else:
         df = data
 
+    # Create base map over Afghanistan
     m = folium.Map(location=list(map_center), zoom_start=zoom_start, tiles=tiles)
 
+    # If key_on not given, join on a property with the same name as your region_key
     if key_on is None:
         key_on = f"feature.properties.{region_key}"
 
+    # Add a choropleth (colored polygons) layer using your data and GeoJSON
     folium.Choropleth(
-        geo_data=geojson,
-        name="choropleth",
-        data=df,
-        columns=[region_key, value_col],
-        key_on=key_on,
-        fill_color=fill_color,
-        fill_opacity=0.5,
-        line_opacity=0.2,
-        legend_name=legend_name or value_col,
-        nan_fill_color="lightgray",
+        geo_data=geojson,                  # GeoJSON with regions
+        name="choropleth",                # Layer name
+        data=df,                           # DataFrame with values
+        columns=[region_key, value_col],   # Join columns [region, value]
+        key_on=key_on,                     # GeoJSON property path to match region_key
+        fill_color=fill_color,             # Color palette
+        fill_opacity=0.5,                  # Polygon fill opacity
+        line_opacity=0.2,                  # Border opacity
+        legend_name=legend_name or value_col,  # Legend title
+        nan_fill_color="lightgray",       # Color for missing regions
     ).add_to(m)
 
+    # Allow toggling layers
     folium.LayerControl().add_to(m)
 
+    # Return map to save as HTML
     return m
