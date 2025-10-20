@@ -61,23 +61,23 @@ DONE-Generate summary statistics per dataset
 
 Plot data on maps
 
-Choropleth maps by country/region
+DONE-Choropleth maps by country/region - Tested
 
-Heatmaps for crisis intensity
+DONE-Heatmaps for crisis intensity
 
-Overlay multiple indicators on maps
+DONE-Overlay multiple indicators on maps
 
-Display refugee camp locations
+DONE-Display refugee camp locations
 
-Visualize flood/drought-affected areas
+DONE-Visualize flood/drought-affected areas
 
-Show conflict-affected zones (geospatial polygons)
+DONE-Show conflict-affected zones (geospatial polygons)
 
-Connect with OpenStreetMap data
+DONE-Connect with OpenStreetMap data
 
-Generate buffer zones (e.g., 50km radius)
+DONE-Generate buffer zones (e.g., 50km radius)
 
-Cluster humanitarian facilities (hospitals, schools)
+DONE-Cluster humanitarian facilities (hospitals, schools)
 
 6. Analysis Functions
 

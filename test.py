@@ -1,12 +1,26 @@
-from huda.validation_and_quality import humanatarian_index_validation_against_standards 
 import polars as pl
+import json
+from pathlib import Path
+from huda.geospatial import choropleth_maps_by_region
 
-df = pl.DataFrame({
-        "province": ["Kabul", "Herat", "Balkh"],
-        "water_liters_per_person_per_day": [12, 18, 10],
-        "ipc_phase": [3, 6, 2],
-        "coverage_percent": [95, 105, -2],
-    })
-violations_sphere = humanatarian_index_validation_against_standards(df, standards="sphere")
-print(violations_sphere)
+# Load CSV (با polars)
+df = pl.read_csv("testdata/prov.csv")
 
+# Load GeoJSON
+with open("testdata/afg_provinces.geojson", "r", encoding="utf-8") as f:
+    gj = json.load(f)
+
+# Create map
+m = choropleth_maps_by_region(
+    data=df,
+    geojson=gj,
+    region_key="province",
+    value_col="severity",
+    legend_name="Severity (Example Data)",
+)
+
+# Save to HTML
+output = Path("testdata/choropleth_afg.html")
+m.save(output)
+
+print(f"✅ Map saved to {output.absolute()}")
