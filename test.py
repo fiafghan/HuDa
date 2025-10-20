@@ -1,4 +1,4 @@
-from huda.validation_and_quality import validate_humanitarian_indicators_against_standards 
+from huda.validation_and_quality import humanatarian_index_validation_against_standards 
 import polars as pl
 
 df = pl.DataFrame({
@@ -7,8 +7,6 @@ df = pl.DataFrame({
         "ipc_phase": [3, 6, 2],
         "coverage_percent": [95, 105, -2],
     })
-violations_sphere = validate_humanitarian_indicators_against_standards(df, standards="sphere")
-violations_ipc = validate_humanitarian_indicators_against_standards(df, standards="ipc")
+violations_sphere = humanatarian_index_validation_against_standards(df, standards="sphere")
 print(violations_sphere)
-print(violations_ipc)
 

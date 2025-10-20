@@ -4,7 +4,7 @@ from .country_code_validation import country_code_validation
 from .date_range_validation import date_range_validation
 from .targeted_vs_reached_inconsistency_detection import targeted_vs_reached_inconsistency_detection
 from .generate_summary_statistics_per_dataset import generate_summary_statistics_per_dataset
-from .validate_humanitarian_indicators_against_standards import validate_humanitarian_indicators_against_standards
+from .humanatarian_index_validation_against_standards import humanatarian_index_validation_against_standards
 from .automatic_data_profiling_report import automatic_data_profiling_report
 
 
@@ -15,7 +15,7 @@ __all__ = [
     "date_range_validation",
     "targeted_vs_reached_inconsistency_detection",
     "generate_summary_statistics_per_dataset",
-    "validate_humanitarian_indicators_against_standards",
+    "humanatarian_index_validation_against_standards",
     "automatic_data_profiling_report",
 
 ]

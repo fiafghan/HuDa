@@ -118,7 +118,7 @@ def _resolve_column(
     return None
 
 
-def validate_humanitarian_indicators_against_standards(
+def humanatarian_index_validation_against_standards(
     data: Union[str, pd.DataFrame, pl.DataFrame, io.BytesIO],
     standards: Union[str, StandardsConfig] = "sphere",
     column_aliases: Optional[Dict[str, str]] = None,
@@ -162,7 +162,7 @@ def validate_humanitarian_indicators_against_standards(
 
     Afghanistan example:
     ```python
-    from huda.validation_and_quality import validate_humanitarian_indicators_against_standards
+    from huda.validation_and_quality import humanatarian_index_validation_against_standards
     import polars as pl
 
     # Simple column names (auto-mapped):
@@ -176,7 +176,7 @@ def validate_humanitarian_indicators_against_standards(
     })
 
     # Sphere + IPC combined (simple union)
-    violations = validate_humanitarian_indicators_against_standards(df, standards="sphere")
+    violations = humanatarian_index_validation_against_standards(df, standards="sphere")
     # You can run again with IPC or pass a merged custom standard set
 
     print(violations)
