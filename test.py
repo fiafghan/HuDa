@@ -24,3 +24,8 @@ output = Path("testdata/choropleth_afg.html")
 m.save(output)
 
 print(f"✅ Map saved to {output.absolute()}")
+
+
+
+
+
