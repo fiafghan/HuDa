@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kabul",
+        "conflict_level": "high"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[69.1, 34.5], [69.4, 34.5], [69.4, 34.9], [69.1, 34.9], [69.1, 34.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kandahar",
+        "conflict_level": "medium"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[65.5, 31.4], [65.9, 31.4], [65.9, 31.8], [65.5, 31.8], [65.5, 31.4]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bamyan",
+        "conflict_level": "low"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[67.4, 34.5], [67.9, 34.5], [67.9, 34.9], [67.4, 34.9], [67.4, 34.5]]]
+      }
+    }
+  ]
+}
