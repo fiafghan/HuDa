@@ -1,4 +1,5 @@
-from huda.validation_and_quality import targeted_vs_reached_inconsistency_detection 
+from pstats import Stats
+from huda.validation_and_quality import generate_summary_statistics_per_dataset 
 import polars as pl
 
 df = pl.DataFrame({
@@ -9,13 +10,11 @@ df = pl.DataFrame({
 
 print (df)
 
-flagged = targeted_vs_reached_inconsistency_detection(
-    df,
-    reached_cols=["reached"],
-    targeted_cols=["targeted"],
+Stats = generate_summary_statistics_per_dataset(
+    df 
 
     )
 
-print (flagged)
+print (Stats)
 
 
