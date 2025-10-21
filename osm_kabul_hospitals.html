@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0d1abdb279b7797b05104ed0cbccf309 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0d1abdb279b7797b05104ed0cbccf309" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0d1abdb279b7797b05104ed0cbccf309 = L.map(
+                "map_0d1abdb279b7797b05104ed0cbccf309",
+                {
+                    center: [34.55, 69.2],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ffcb1104b737ed33738565cc4a2aeb64 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ffcb1104b737ed33738565cc4a2aeb64.addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+            var marker_ed7b37dcc5ca5dd0c3945172d97a878d = L.marker(
+                [34.5792043, 69.1380368],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5fff6fa4c2961fb07f2c06b947fd6bca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48ebf46abf96c016abe4179683c30f7b = $(`<div id="html_48ebf46abf96c016abe4179683c30f7b" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=Khair Khana Hospital, name:fa=شفا خانه خيرخانه</div>`)[0];
+                popup_5fff6fa4c2961fb07f2c06b947fd6bca.setContent(html_48ebf46abf96c016abe4179683c30f7b);
+            
+        
+
+        marker_ed7b37dcc5ca5dd0c3945172d97a878d.bindPopup(popup_5fff6fa4c2961fb07f2c06b947fd6bca)
+        ;
+
+        
+    
+    
+            var marker_e739700150ea4551bb26384f88cff222 = L.marker(
+                [34.5016545, 69.0818161],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b8a776c5325814d15fa1862d4090fc4a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01ea387002a1cb6be879ceeee33de634 = $(`<div id="html_01ea387002a1cb6be879ceeee33de634" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital</div>`)[0];
+                popup_b8a776c5325814d15fa1862d4090fc4a.setContent(html_01ea387002a1cb6be879ceeee33de634);
+            
+        
+
+        marker_e739700150ea4551bb26384f88cff222.bindPopup(popup_b8a776c5325814d15fa1862d4090fc4a)
+        ;
+
+        
+    
+    
+            var marker_7bdb809092eaf37007405f9804964a07 = L.marker(
+                [34.5016794, 69.0816918],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_8f78f9b7cc9bf8db306d1bd27c989d2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_500f05110869719d93e0f4eb1099250f = $(`<div id="html_500f05110869719d93e0f4eb1099250f" style="width: 100.0%; height: 100.0%;">Watan Hospital</div>`)[0];
+                popup_8f78f9b7cc9bf8db306d1bd27c989d2b.setContent(html_500f05110869719d93e0f4eb1099250f);
+            
+        
+
+        marker_7bdb809092eaf37007405f9804964a07.bindPopup(popup_8f78f9b7cc9bf8db306d1bd27c989d2b)
+        ;
+
+        
+    
+    
+            var marker_1d2f2f67326f66cef43c4607af5f0fde = L.marker(
+                [34.5760998, 69.0983078],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_54a102eace50ff4ee84631fe14459db3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_deacca4a1feb1ce2cc746352f84e05ba = $(`<div id="html_deacca4a1feb1ce2cc746352f84e05ba" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=شفاخانه ارتوپیدی کمال</div>`)[0];
+                popup_54a102eace50ff4ee84631fe14459db3.setContent(html_deacca4a1feb1ce2cc746352f84e05ba);
+            
+        
+
+        marker_1d2f2f67326f66cef43c4607af5f0fde.bindPopup(popup_54a102eace50ff4ee84631fe14459db3)
+        ;
+
+        
+    
+    
+            var marker_65357cb0091b23a4bee56082f6e2aa19 = L.marker(
+                [34.6122535, 69.0792512],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5e5dd592e886978bb39e51c4c089a07c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40db25c66c4a4ce7450185493abc2f3c = $(`<div id="html_40db25c66c4a4ce7450185493abc2f3c" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=United medical complex</div>`)[0];
+                popup_5e5dd592e886978bb39e51c4c089a07c.setContent(html_40db25c66c4a4ce7450185493abc2f3c);
+            
+        
+
+        marker_65357cb0091b23a4bee56082f6e2aa19.bindPopup(popup_5e5dd592e886978bb39e51c4c089a07c)
+        ;
+
+        
+    
+    
+            var marker_687c07a6897ef8785f571610906f6a66 = L.marker(
+                [34.5675319, 69.1216215],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_d256ecf3bec218b721a5bbd27c4c260a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1f53a28d75173beea3e599697666f05c = $(`<div id="html_1f53a28d75173beea3e599697666f05c" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=Nadira Sidiqi Hospital</div>`)[0];
+                popup_d256ecf3bec218b721a5bbd27c4c260a.setContent(html_1f53a28d75173beea3e599697666f05c);
+            
+        
+
+        marker_687c07a6897ef8785f571610906f6a66.bindPopup(popup_d256ecf3bec218b721a5bbd27c4c260a)
+        ;
+
+        
+    
+    
+            var marker_952d5e13777cb2b2a773282723fed8f1 = L.marker(
+                [34.4988624, 69.0609593],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_407cbbbd205a984306fbf521e2ce5549 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b30982644af7535692dbfc8b55c28a60 = $(`<div id="html_b30982644af7535692dbfc8b55c28a60" style="width: 100.0%; height: 100.0%;">شفاخانه عالمی</div>`)[0];
+                popup_407cbbbd205a984306fbf521e2ce5549.setContent(html_b30982644af7535692dbfc8b55c28a60);
+            
+        
+
+        marker_952d5e13777cb2b2a773282723fed8f1.bindPopup(popup_407cbbbd205a984306fbf521e2ce5549)
+        ;
+
+        
+    
+    
+            var marker_79337eaac08745fb4c122721196a9ff4 = L.marker(
+                [34.4989828, 69.0613719],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b568e4ec650bf84bb7382c7188394bb0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0c71fb72789732f1db1ddb049331f6be = $(`<div id="html_0c71fb72789732f1db1ddb049331f6be" style="width: 100.0%; height: 100.0%;">شفاخانه امام زمان</div>`)[0];
+                popup_b568e4ec650bf84bb7382c7188394bb0.setContent(html_0c71fb72789732f1db1ddb049331f6be);
+            
+        
+
+        marker_79337eaac08745fb4c122721196a9ff4.bindPopup(popup_b568e4ec650bf84bb7382c7188394bb0)
+        ;
+
+        
+    
+    
+            var marker_68be5b496897d154183784eb3be3f9f7 = L.marker(
+                [34.5092102, 69.0584841],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_85503f819e80af7e88984de79f87ba41 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_67ff4b34c6551ddf61047b1477f8639f = $(`<div id="html_67ff4b34c6551ddf61047b1477f8639f" style="width: 100.0%; height: 100.0%;">شفاخانه داکتر غضنفر</div>`)[0];
+                popup_85503f819e80af7e88984de79f87ba41.setContent(html_67ff4b34c6551ddf61047b1477f8639f);
+            
+        
+
+        marker_68be5b496897d154183784eb3be3f9f7.bindPopup(popup_85503f819e80af7e88984de79f87ba41)
+        ;
+
+        
+    
+    
+            var marker_c46ca7a407dae875229659c928b8b386 = L.marker(
+                [34.5350271, 69.1635342],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_245432205596d660c094ef4ac26838c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c8719f2e5d7c713260baee4c5836650 = $(`<div id="html_1c8719f2e5d7c713260baee4c5836650" style="width: 100.0%; height: 100.0%;">DK - German Medical Diagnostic Centre</div>`)[0];
+                popup_245432205596d660c094ef4ac26838c5.setContent(html_1c8719f2e5d7c713260baee4c5836650);
+            
+        
+
+        marker_c46ca7a407dae875229659c928b8b386.bindPopup(popup_245432205596d660c094ef4ac26838c5)
+        ;
+
+        
+    
+    
+            var marker_711297582f29c4b3f1b8de32fd2e574d = L.marker(
+                [34.5883595, 69.0854374],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5a255030d44a8cea4b7a36b5fcb2b70f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d59239b593d00bad0822a128236e79d8 = $(`<div id="html_d59239b593d00bad0822a128236e79d8" style="width: 100.0%; height: 100.0%;">شفاخانه خرمی</div>`)[0];
+                popup_5a255030d44a8cea4b7a36b5fcb2b70f.setContent(html_d59239b593d00bad0822a128236e79d8);
+            
+        
+
+        marker_711297582f29c4b3f1b8de32fd2e574d.bindPopup(popup_5a255030d44a8cea4b7a36b5fcb2b70f)
+        ;
+
+        
+    
+    
+            var marker_c91df10e339bd62cfbe2872336be4b4a = L.marker(
+                [34.5643933, 69.1444469],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_880c0a10ede929a457310f6bbd52f811 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5af6e70942fce64ebc45bb9268ce07d = $(`<div id="html_c5af6e70942fce64ebc45bb9268ce07d" style="width: 100.0%; height: 100.0%;">شفاخانه یسرا</div>`)[0];
+                popup_880c0a10ede929a457310f6bbd52f811.setContent(html_c5af6e70942fce64ebc45bb9268ce07d);
+            
+        
+
+        marker_c91df10e339bd62cfbe2872336be4b4a.bindPopup(popup_880c0a10ede929a457310f6bbd52f811)
+        ;
+
+        
+    
+    
+            var marker_6c23b6827c2fca5352c1b2843216990f = L.marker(
+                [34.5508673, 69.1466742],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_ad3d5b8691eacee1626a4afc9b96f914 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ddc8bab6a65ad2e2564cdea1be445ba = $(`<div id="html_2ddc8bab6a65ad2e2564cdea1be445ba" style="width: 100.0%; height: 100.0%;">شفاخانه امان یشفین</div>`)[0];
+                popup_ad3d5b8691eacee1626a4afc9b96f914.setContent(html_2ddc8bab6a65ad2e2564cdea1be445ba);
+            
+        
+
+        marker_6c23b6827c2fca5352c1b2843216990f.bindPopup(popup_ad3d5b8691eacee1626a4afc9b96f914)
+        ;
+
+        
+    
+    
+            var marker_5f34191328f4e508db0310c41634281a = L.marker(
+                [34.5357191, 69.1801236],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b2163255d8dcff494565c79158a08ef1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63bba19ca3e94b1e79a12dda50e47fcf = $(`<div id="html_63bba19ca3e94b1e79a12dda50e47fcf" style="width: 100.0%; height: 100.0%;">شفاجو روغتون</div>`)[0];
+                popup_b2163255d8dcff494565c79158a08ef1.setContent(html_63bba19ca3e94b1e79a12dda50e47fcf);
+            
+        
+
+        marker_5f34191328f4e508db0310c41634281a.bindPopup(popup_b2163255d8dcff494565c79158a08ef1)
+        ;
+
+        
+    
+    
+            var marker_eafd2163c0513dcb56b1b60bc16006f6 = L.marker(
+                [34.5372209, 69.1579668],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_e9a35182ea6b50b729d22cd5753a946e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_172e3ca10f434664f66eb9fddd50fecf = $(`<div id="html_172e3ca10f434664f66eb9fddd50fecf" style="width: 100.0%; height: 100.0%;">DK-German Medical Centre</div>`)[0];
+                popup_e9a35182ea6b50b729d22cd5753a946e.setContent(html_172e3ca10f434664f66eb9fddd50fecf);
+            
+        
+
+        marker_eafd2163c0513dcb56b1b60bc16006f6.bindPopup(popup_e9a35182ea6b50b729d22cd5753a946e)
+        ;
+
+        
+    
+    
+            var marker_45536ba38fef55345b48ddea34833cf5 = L.marker(
+                [34.4773725, 69.2441795],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_cbdb524c437577e3b2b353a53108191b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14a2c48b168e25fceb87979c2f6a92e4 = $(`<div id="html_14a2c48b168e25fceb87979c2f6a92e4" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital</div>`)[0];
+                popup_cbdb524c437577e3b2b353a53108191b.setContent(html_14a2c48b168e25fceb87979c2f6a92e4);
+            
+        
+
+        marker_45536ba38fef55345b48ddea34833cf5.bindPopup(popup_cbdb524c437577e3b2b353a53108191b)
+        ;
+
+        
+    
+    
+            var marker_e12644d3d3c67fb301bdb5e6439f3008 = L.marker(
+                [34.5810721, 69.0843914],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_49d60b1e860c5e159005c45916c6929b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17244b8782e2de02f45e35b916cd7470 = $(`<div id="html_17244b8782e2de02f45e35b916cd7470" style="width: 100.0%; height: 100.0%;">addr:street=سرک تصدی الی شهرک ذاکرین, amenity=hospital, healthcare=hospital, name:en=سعیدی هسپتال, opening_hours=24/7</div>`)[0];
+                popup_49d60b1e860c5e159005c45916c6929b.setContent(html_17244b8782e2de02f45e35b916cd7470);
+            
+        
+
+        marker_e12644d3d3c67fb301bdb5e6439f3008.bindPopup(popup_49d60b1e860c5e159005c45916c6929b)
+        ;
+
+        
+    
+    
+            var marker_12abd8604f91cf4235e94f1cdbe7aaa0 = L.marker(
+                [34.5569297, 69.1403241],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_7ed46ba8955e4d5535819b270f62474f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c176e12bdac59bbf33ba8d74aba463a = $(`<div id="html_7c176e12bdac59bbf33ba8d74aba463a" style="width: 100.0%; height: 100.0%;">شفاخانه آریا سیتی</div>`)[0];
+                popup_7ed46ba8955e4d5535819b270f62474f.setContent(html_7c176e12bdac59bbf33ba8d74aba463a);
+            
+        
+
+        marker_12abd8604f91cf4235e94f1cdbe7aaa0.bindPopup(popup_7ed46ba8955e4d5535819b270f62474f)
+        ;
+
+        
+    
+    
+            var marker_9ba3035d3fddee7e88344429c5ea9de3 = L.marker(
+                [34.5569677, 69.1399508],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_64adc726ee0e356325fc5640976e8c0c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_674663ff4c1e78a3e190acad54bbd7ae = $(`<div id="html_674663ff4c1e78a3e190acad54bbd7ae" style="width: 100.0%; height: 100.0%;">شفاخانه معالجوی آریانا دانشمل</div>`)[0];
+                popup_64adc726ee0e356325fc5640976e8c0c.setContent(html_674663ff4c1e78a3e190acad54bbd7ae);
+            
+        
+
+        marker_9ba3035d3fddee7e88344429c5ea9de3.bindPopup(popup_64adc726ee0e356325fc5640976e8c0c)
+        ;
+
+        
+    
+    
+            var marker_00934629b02b628217178d4275e93e15 = L.marker(
+                [34.5563418, 69.1503525],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_1757ee27308599948bbb3bd1d6d19eab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ad8ced087711dd681f77b9c92274198 = $(`<div id="html_3ad8ced087711dd681f77b9c92274198" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=سیتی طبی لابرتوار</div>`)[0];
+                popup_1757ee27308599948bbb3bd1d6d19eab.setContent(html_3ad8ced087711dd681f77b9c92274198);
+            
+        
+
+        marker_00934629b02b628217178d4275e93e15.bindPopup(popup_1757ee27308599948bbb3bd1d6d19eab)
+        ;
+
+        
+    
+    
+            var marker_46fdb92f3e6d9f521122d4ad2d570396 = L.marker(
+                [34.5347665, 69.1029945],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_edc07413c0381b87d87200526021f58e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf1b41401d31ae440ff38c847269050d = $(`<div id="html_cf1b41401d31ae440ff38c847269050d" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=Ariana medical complex</div>`)[0];
+                popup_edc07413c0381b87d87200526021f58e.setContent(html_cf1b41401d31ae440ff38c847269050d);
+            
+        
+
+        marker_46fdb92f3e6d9f521122d4ad2d570396.bindPopup(popup_edc07413c0381b87d87200526021f58e)
+        ;
+
+        
+    
+    
+            var marker_e98a6fad3b724839ff7993f740d9814d = L.marker(
+                [34.5466227, 69.1431441],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_a3716a222c496f7b0766483c4cc79bcf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d99fd8f5982141860cde906c0ed1ece = $(`<div id="html_2d99fd8f5982141860cde906c0ed1ece" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=الحيات روغتون AL-HAYAT HOSPITAL</div>`)[0];
+                popup_a3716a222c496f7b0766483c4cc79bcf.setContent(html_2d99fd8f5982141860cde906c0ed1ece);
+            
+        
+
+        marker_e98a6fad3b724839ff7993f740d9814d.bindPopup(popup_a3716a222c496f7b0766483c4cc79bcf)
+        ;
+
+        
+    
+    
+            var marker_2f9a770ed80b76d56876bf97a15e67e9 = L.marker(
+                [34.52456, 69.1183723],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_cfad446a73a159611f3862c10b8102c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b130ec9f1026303101a40e2ba8c71267 = $(`<div id="html_b130ec9f1026303101a40e2ba8c71267" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=امان د سترګو روغتون Aman Eye Hospital</div>`)[0];
+                popup_cfad446a73a159611f3862c10b8102c0.setContent(html_b130ec9f1026303101a40e2ba8c71267);
+            
+        
+
+        marker_2f9a770ed80b76d56876bf97a15e67e9.bindPopup(popup_cfad446a73a159611f3862c10b8102c0)
+        ;
+
+        
+    
+    
+            var marker_05e2e0bc5a23b81c1809c25c586645be = L.marker(
+                [34.5314995, 69.1644744],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_4793338584603ee8f159cb490baa0081 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e90ef6ceb5fcfbc0f142bd4aa21cd9e = $(`<div id="html_9e90ef6ceb5fcfbc0f142bd4aa21cd9e" style="width: 100.0%; height: 100.0%;">Enayat Doctors Complex</div>`)[0];
+                popup_4793338584603ee8f159cb490baa0081.setContent(html_9e90ef6ceb5fcfbc0f142bd4aa21cd9e);
+            
+        
+
+        marker_05e2e0bc5a23b81c1809c25c586645be.bindPopup(popup_4793338584603ee8f159cb490baa0081)
+        ;
+
+        
+    
+    
+            var marker_e92a228422146f3f7299ebd4391b9a3d = L.marker(
+                [34.5468614, 69.1434665],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_4ff97fa5809508dd2f6d0a0c5f14fdef = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_42f1caea1d49817e29d72bef6d9c6013 = $(`<div id="html_42f1caea1d49817e29d72bef6d9c6013" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=شفاخانه الحیات / Al Hayat hospital</div>`)[0];
+                popup_4ff97fa5809508dd2f6d0a0c5f14fdef.setContent(html_42f1caea1d49817e29d72bef6d9c6013);
+            
+        
+
+        marker_e92a228422146f3f7299ebd4391b9a3d.bindPopup(popup_4ff97fa5809508dd2f6d0a0c5f14fdef)
+        ;
+
+        
+    
+    
+            var marker_d61932a84dbcd828565f04a81e871586 = L.marker(
+                [34.5062982, 69.1261551],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_9d30c8878d68d691eba069589d587ad3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e811c80b96d003860308676c02c937fe = $(`<div id="html_e811c80b96d003860308676c02c937fe" style="width: 100.0%; height: 100.0%;">شفاخانه الخیر</div>`)[0];
+                popup_9d30c8878d68d691eba069589d587ad3.setContent(html_e811c80b96d003860308676c02c937fe);
+            
+        
+
+        marker_d61932a84dbcd828565f04a81e871586.bindPopup(popup_9d30c8878d68d691eba069589d587ad3)
+        ;
+
+        
+    
+    
+            var marker_878b852f872785bd855f81c51b7d607a = L.marker(
+                [34.5120168, 69.1683483],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_9c096dde64df6b9e39a5a1ef9e1d6d61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b49cb28cfec6e458f28be239cdcf202f = $(`<div id="html_b49cb28cfec6e458f28be239cdcf202f" style="width: 100.0%; height: 100.0%;">شفاخانه معالجوی بستردار نوی لقمان حکیم</div>`)[0];
+                popup_9c096dde64df6b9e39a5a1ef9e1d6d61.setContent(html_b49cb28cfec6e458f28be239cdcf202f);
+            
+        
+
+        marker_878b852f872785bd855f81c51b7d607a.bindPopup(popup_9c096dde64df6b9e39a5a1ef9e1d6d61)
+        ;
+
+        
+    
+    
+            var marker_abe008b7f37d103095ce857457193055 = L.marker(
+                [34.5050643, 69.133442],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_bf4bb6ddc1d181576fe8374636af457d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8672ec9c925f9eb41bfd09d89b9c7f91 = $(`<div id="html_8672ec9c925f9eb41bfd09d89b9c7f91" style="width: 100.0%; height: 100.0%;">شفاخانه مدرن کریمی مدیکل کامپلکس</div>`)[0];
+                popup_bf4bb6ddc1d181576fe8374636af457d.setContent(html_8672ec9c925f9eb41bfd09d89b9c7f91);
+            
+        
+
+        marker_abe008b7f37d103095ce857457193055.bindPopup(popup_bf4bb6ddc1d181576fe8374636af457d)
+        ;
+
+        
+    
+    
+            var marker_d59e80b3cb540835e77c5212adf79d6d = L.marker(
+                [34.500724, 69.1387726],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_ab50b2e457c955d072573a5f28b7bd2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d83ac3b901ea0f3c93e8c89dee2dce9 = $(`<div id="html_9d83ac3b901ea0f3c93e8c89dee2dce9" style="width: 100.0%; height: 100.0%;">شفاخانه معالجوی تاج</div>`)[0];
+                popup_ab50b2e457c955d072573a5f28b7bd2f.setContent(html_9d83ac3b901ea0f3c93e8c89dee2dce9);
+            
+        
+
+        marker_d59e80b3cb540835e77c5212adf79d6d.bindPopup(popup_ab50b2e457c955d072573a5f28b7bd2f)
+        ;
+
+        
+    
+    
+            var marker_b6ffd168b3fb8ad5b9a8e8994fdd6938 = L.marker(
+                [34.5728698, 69.122414],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_c7ce2dacc61bebdc413acfdd792bdbe7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a21ea8cace60b3a2b00dfdbadf2e08d = $(`<div id="html_4a21ea8cace60b3a2b00dfdbadf2e08d" style="width: 100.0%; height: 100.0%;">شفاخانه فیضی</div>`)[0];
+                popup_c7ce2dacc61bebdc413acfdd792bdbe7.setContent(html_4a21ea8cace60b3a2b00dfdbadf2e08d);
+            
+        
+
+        marker_b6ffd168b3fb8ad5b9a8e8994fdd6938.bindPopup(popup_c7ce2dacc61bebdc413acfdd792bdbe7)
+        ;
+
+        
+    
+    
+            var marker_f5cfb353b04b5c740c9df60fa40651e6 = L.marker(
+                [34.5729552, 69.1220974],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_4b12a110af411870f57c524d628d8251 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55a6a018d2e16bfb90abf0d3afc6b6b4 = $(`<div id="html_55a6a018d2e16bfb90abf0d3afc6b6b4" style="width: 100.0%; height: 100.0%;">شفاخانه افغان</div>`)[0];
+                popup_4b12a110af411870f57c524d628d8251.setContent(html_55a6a018d2e16bfb90abf0d3afc6b6b4);
+            
+        
+
+        marker_f5cfb353b04b5c740c9df60fa40651e6.bindPopup(popup_4b12a110af411870f57c524d628d8251)
+        ;
+
+        
+    
+    
+            var marker_1a20e2615423a664ef64181e30dd1315 = L.marker(
+                [34.551656, 69.1466359],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5c1d399e455e341cd2c109d9e30bbddc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b51676c518ccdaa21b922d424a2a697 = $(`<div id="html_7b51676c518ccdaa21b922d424a2a697" style="width: 100.0%; height: 100.0%;">شفاخانه خدمت</div>`)[0];
+                popup_5c1d399e455e341cd2c109d9e30bbddc.setContent(html_7b51676c518ccdaa21b922d424a2a697);
+            
+        
+
+        marker_1a20e2615423a664ef64181e30dd1315.bindPopup(popup_5c1d399e455e341cd2c109d9e30bbddc)
+        ;
+
+        
+    
+    
+            var marker_85404cece70f2edefd903482a6e1ecf1 = L.marker(
+                [34.5055693, 69.1391319],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_1a20c7cbcc69e2905221df1ec0d9e2fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f403934d9e1fe5e4d1a076d9d79b0fe5 = $(`<div id="html_f403934d9e1fe5e4d1a076d9d79b0fe5" style="width: 100.0%; height: 100.0%;">شفاخانه جلدی و زیبایی زیتون</div>`)[0];
+                popup_1a20c7cbcc69e2905221df1ec0d9e2fd.setContent(html_f403934d9e1fe5e4d1a076d9d79b0fe5);
+            
+        
+
+        marker_85404cece70f2edefd903482a6e1ecf1.bindPopup(popup_1a20c7cbcc69e2905221df1ec0d9e2fd)
+        ;
+
+        
+    
+    
+            var marker_031dc350b6e6791dd6c197d452b65e0b = L.marker(
+                [34.5048167, 69.1334667],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_6f8f7114315de43ce4fd4cde6303d2a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_817c68b3419a48c6f1c800083ee21812 = $(`<div id="html_817c68b3419a48c6f1c800083ee21812" style="width: 100.0%; height: 100.0%;">شفاخانه علی سینا</div>`)[0];
+                popup_6f8f7114315de43ce4fd4cde6303d2a9.setContent(html_817c68b3419a48c6f1c800083ee21812);
+            
+        
+
+        marker_031dc350b6e6791dd6c197d452b65e0b.bindPopup(popup_6f8f7114315de43ce4fd4cde6303d2a9)
+        ;
+
+        
+    
+    
+            var marker_5344678068910d069b5eb3b60303d066 = L.marker(
+                [34.5347898, 69.1381517],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b8027df463ad6bd64cd467e99f37c25a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4f2d3bb65054fe5a508fb9a3c232062 = $(`<div id="html_b4f2d3bb65054fe5a508fb9a3c232062" style="width: 100.0%; height: 100.0%;">شفاخانه اطلس</div>`)[0];
+                popup_b8027df463ad6bd64cd467e99f37c25a.setContent(html_b4f2d3bb65054fe5a508fb9a3c232062);
+            
+        
+
+        marker_5344678068910d069b5eb3b60303d066.bindPopup(popup_b8027df463ad6bd64cd467e99f37c25a)
+        ;
+
+        
+    
+    
+            var marker_57147bfec02651acb94c008492ea71cf = L.marker(
+                [34.5340203, 69.1384737],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_11706753ff24d2a68b293799c51a15cc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e20ecbf596c37f6824b5350ec48978d = $(`<div id="html_3e20ecbf596c37f6824b5350ec48978d" style="width: 100.0%; height: 100.0%;">شفاخانه صحت شهر</div>`)[0];
+                popup_11706753ff24d2a68b293799c51a15cc.setContent(html_3e20ecbf596c37f6824b5350ec48978d);
+            
+        
+
+        marker_57147bfec02651acb94c008492ea71cf.bindPopup(popup_11706753ff24d2a68b293799c51a15cc)
+        ;
+
+        
+    
+    
+            var marker_dea03662da28bedcc4906bb2bebe9541 = L.marker(
+                [34.5013045, 69.0771982],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_bb4e6ec885f7f95aa7313cae07bc7e31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_899bc5ec1a802dfeb2d1b38fa0a96505 = $(`<div id="html_899bc5ec1a802dfeb2d1b38fa0a96505" style="width: 100.0%; height: 100.0%;">Amiri Gharb</div>`)[0];
+                popup_bb4e6ec885f7f95aa7313cae07bc7e31.setContent(html_899bc5ec1a802dfeb2d1b38fa0a96505);
+            
+        
+
+        marker_dea03662da28bedcc4906bb2bebe9541.bindPopup(popup_bb4e6ec885f7f95aa7313cae07bc7e31)
+        ;
+
+        
+    
+    
+            var marker_6b6fccc7515f56df1966e2b47bddb62e = L.marker(
+                [34.5046281, 69.1495179],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_e073694a8ca723f5fa7df680514d7019 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3615b93e90fc4e25153fcff386a65901 = $(`<div id="html_3615b93e90fc4e25153fcff386a65901" style="width: 100.0%; height: 100.0%;">Khataman nabiyin</div>`)[0];
+                popup_e073694a8ca723f5fa7df680514d7019.setContent(html_3615b93e90fc4e25153fcff386a65901);
+            
+        
+
+        marker_6b6fccc7515f56df1966e2b47bddb62e.bindPopup(popup_e073694a8ca723f5fa7df680514d7019)
+        ;
+
+        
+    
+    
+            var marker_d7c733ae36c2c836422d608f1e32af41 = L.marker(
+                [34.5539674, 69.1494378],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_46612b5745438a61be11260eb8e15de3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58e152f94d79e2a6ac3b258d6f80fbfe = $(`<div id="html_58e152f94d79e2a6ac3b258d6f80fbfe" style="width: 100.0%; height: 100.0%;">Mahtab hospital</div>`)[0];
+                popup_46612b5745438a61be11260eb8e15de3.setContent(html_58e152f94d79e2a6ac3b258d6f80fbfe);
+            
+        
+
+        marker_d7c733ae36c2c836422d608f1e32af41.bindPopup(popup_46612b5745438a61be11260eb8e15de3)
+        ;
+
+        
+    
+    
+            var marker_33233e34c1cce1a534286ac8cbc76ee5 = L.marker(
+                [34.5113573, 69.1978464],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_e1bf92c503305deee37309cb2cea6df6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9ab392fba15e486e69163bae54d2a810 = $(`<div id="html_9ab392fba15e486e69163bae54d2a810" style="width: 100.0%; height: 100.0%;">خان روغتون</div>`)[0];
+                popup_e1bf92c503305deee37309cb2cea6df6.setContent(html_9ab392fba15e486e69163bae54d2a810);
+            
+        
+
+        marker_33233e34c1cce1a534286ac8cbc76ee5.bindPopup(popup_e1bf92c503305deee37309cb2cea6df6)
+        ;
+
+        
+    
+    
+            var marker_87377aa7ead826d47ca3f9ead1652629 = L.marker(
+                [34.4885619, 69.1362702],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5980d6337ce02d3342b0a6691f97ebc0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2437ad4a8d0f7c7bbd39341fc683d7e0 = $(`<div id="html_2437ad4a8d0f7c7bbd39341fc683d7e0" style="width: 100.0%; height: 100.0%;">شفاخانه استقلال</div>`)[0];
+                popup_5980d6337ce02d3342b0a6691f97ebc0.setContent(html_2437ad4a8d0f7c7bbd39341fc683d7e0);
+            
+        
+
+        marker_87377aa7ead826d47ca3f9ead1652629.bindPopup(popup_5980d6337ce02d3342b0a6691f97ebc0)
+        ;
+
+        
+    
+    
+            var marker_2365328c72ea69da92d59a9e979103a5 = L.marker(
+                [34.5190116, 69.177226],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_f317ffff5564e7a2113b4f32e136e70b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1ed0ac0fcc676510f50a2f6a65c5d29 = $(`<div id="html_a1ed0ac0fcc676510f50a2f6a65c5d29" style="width: 100.0%; height: 100.0%;">رابعه بلخی روغتون</div>`)[0];
+                popup_f317ffff5564e7a2113b4f32e136e70b.setContent(html_a1ed0ac0fcc676510f50a2f6a65c5d29);
+            
+        
+
+        marker_2365328c72ea69da92d59a9e979103a5.bindPopup(popup_f317ffff5564e7a2113b4f32e136e70b)
+        ;
+
+        
+    
+    
+            var marker_0fd3e68e7a2d3b2f3ee12d255bf2462c = L.marker(
+                [34.5145615, 69.17234],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_8057be81fd1a270405de2dfb8bac0b1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_daf0c08ae4ce92e50c535fe29577b32a = $(`<div id="html_daf0c08ae4ce92e50c535fe29577b32a" style="width: 100.0%; height: 100.0%;">Ploeclinic Markazai & Eye Center</div>`)[0];
+                popup_8057be81fd1a270405de2dfb8bac0b1b.setContent(html_daf0c08ae4ce92e50c535fe29577b32a);
+            
+        
+
+        marker_0fd3e68e7a2d3b2f3ee12d255bf2462c.bindPopup(popup_8057be81fd1a270405de2dfb8bac0b1b)
+        ;
+
+        
+    
+    
+            var marker_79a20d8dc4810bb19469965792b7b582 = L.marker(
+                [34.5410709, 69.188832],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_2ff8fb3d4812cf0cceb369d3b1d15edb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_edea5955cbaefb85f823636e93aa031f = $(`<div id="html_edea5955cbaefb85f823636e93aa031f" style="width: 100.0%; height: 100.0%;">د داود خان نظامي روغتون</div>`)[0];
+                popup_2ff8fb3d4812cf0cceb369d3b1d15edb.setContent(html_edea5955cbaefb85f823636e93aa031f);
+            
+        
+
+        marker_79a20d8dc4810bb19469965792b7b582.bindPopup(popup_2ff8fb3d4812cf0cceb369d3b1d15edb)
+        ;
+
+        
+    
+    
+            var marker_426e13ddedbc840b58f00189270e385c = L.marker(
+                [34.5394752, 69.1857313],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_42fc6a7cc2c76e12cc247bc056d78141 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_813ab714e75495a5f47dc1cddd08c37b = $(`<div id="html_813ab714e75495a5f47dc1cddd08c37b" style="width: 100.0%; height: 100.0%;">Wazir Akbar Khan hospital</div>`)[0];
+                popup_42fc6a7cc2c76e12cc247bc056d78141.setContent(html_813ab714e75495a5f47dc1cddd08c37b);
+            
+        
+
+        marker_426e13ddedbc840b58f00189270e385c.bindPopup(popup_42fc6a7cc2c76e12cc247bc056d78141)
+        ;
+
+        
+    
+    
+            var marker_c0cbeb1312fb0cc1557aca5529dca2e1 = L.marker(
+                [34.5369186, 69.186502],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_65d79855213cc7097fd7bfc8d733c4e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd42611a8171939af5ec90c18c324dcf = $(`<div id="html_dd42611a8171939af5ec90c18c324dcf" style="width: 100.0%; height: 100.0%;">شفاخانه اورتوپدی کابل</div>`)[0];
+                popup_65d79855213cc7097fd7bfc8d733c4e1.setContent(html_dd42611a8171939af5ec90c18c324dcf);
+            
+        
+
+        marker_c0cbeb1312fb0cc1557aca5529dca2e1.bindPopup(popup_65d79855213cc7097fd7bfc8d733c4e1)
+        ;
+
+        
+    
+    
+            var marker_cd93714e8fed666ddd0f17072cc74158 = L.marker(
+                [34.5316698, 69.1762268],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_c5850f1be31d68fed84bb1308c73d298 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee8cfab763535fc8aa8cacb1b7e54dce = $(`<div id="html_ee8cfab763535fc8aa8cacb1b7e54dce" style="width: 100.0%; height: 100.0%;">شفاخانه رایل</div>`)[0];
+                popup_c5850f1be31d68fed84bb1308c73d298.setContent(html_ee8cfab763535fc8aa8cacb1b7e54dce);
+            
+        
+
+        marker_cd93714e8fed666ddd0f17072cc74158.bindPopup(popup_c5850f1be31d68fed84bb1308c73d298)
+        ;
+
+        
+    
+    
+            var marker_7f156284c74568ce376d4f3154c47539 = L.marker(
+                [34.5241074, 69.2036791],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_10a56009d2eb8052a0fa7bae1f02e2b1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eba3acb847a99a7f494af384715c513f = $(`<div id="html_eba3acb847a99a7f494af384715c513f" style="width: 100.0%; height: 100.0%;">شفاخانه مدرن امید</div>`)[0];
+                popup_10a56009d2eb8052a0fa7bae1f02e2b1.setContent(html_eba3acb847a99a7f494af384715c513f);
+            
+        
+
+        marker_7f156284c74568ce376d4f3154c47539.bindPopup(popup_10a56009d2eb8052a0fa7bae1f02e2b1)
+        ;
+
+        
+    
+    
+            var marker_217750390b4fa83c39f2ffccc9ed636f = L.marker(
+                [34.5984244, 69.2574566],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_91c6c45903c62e6c4bb6b9a21c0de65a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_868de44db177352e1a30f14f12ee022b = $(`<div id="html_868de44db177352e1a30f14f12ee022b" style="width: 100.0%; height: 100.0%;">amenity=hospital, emergency=yes, healthcare=hospital</div>`)[0];
+                popup_91c6c45903c62e6c4bb6b9a21c0de65a.setContent(html_868de44db177352e1a30f14f12ee022b);
+            
+        
+
+        marker_217750390b4fa83c39f2ffccc9ed636f.bindPopup(popup_91c6c45903c62e6c4bb6b9a21c0de65a)
+        ;
+
+        
+    
+    
+            var marker_89c6ce624b6f26d13b1b376c58fa135b = L.marker(
+                [34.5015384, 69.0816968],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_6df6b254a318f3befb9fd80d15c06d28 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6a721cc92e562e9537767d7a1426884 = $(`<div id="html_b6a721cc92e562e9537767d7a1426884" style="width: 100.0%; height: 100.0%;">شفاخانه معالجوی وطن</div>`)[0];
+                popup_6df6b254a318f3befb9fd80d15c06d28.setContent(html_b6a721cc92e562e9537767d7a1426884);
+            
+        
+
+        marker_89c6ce624b6f26d13b1b376c58fa135b.bindPopup(popup_6df6b254a318f3befb9fd80d15c06d28)
+        ;
+
+        
+    
+    
+            var marker_dd1535152ad637baf39419f07731e1c1 = L.marker(
+                [34.5342842, 69.1036688],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_a90a23f69ba65d4183eaa48c8bd326b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59923e896ad69b9b5a55374407f904bb = $(`<div id="html_59923e896ad69b9b5a55374407f904bb" style="width: 100.0%; height: 100.0%;">امیری روغتون</div>`)[0];
+                popup_a90a23f69ba65d4183eaa48c8bd326b5.setContent(html_59923e896ad69b9b5a55374407f904bb);
+            
+        
+
+        marker_dd1535152ad637baf39419f07731e1c1.bindPopup(popup_a90a23f69ba65d4183eaa48c8bd326b5)
+        ;
+
+        
+    
+    
+            var marker_51c4b18451fea9ff77b052f9e0ee3fd2 = L.marker(
+                [34.5305829, 69.1619453],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_a916b3258946bc80966a3aa730585b71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7cb40f430e82f2102f7f94e62920933e = $(`<div id="html_7cb40f430e82f2102f7f94e62920933e" style="width: 100.0%; height: 100.0%;">ملالی زیژنتون</div>`)[0];
+                popup_a916b3258946bc80966a3aa730585b71.setContent(html_7cb40f430e82f2102f7f94e62920933e);
+            
+        
+
+        marker_51c4b18451fea9ff77b052f9e0ee3fd2.bindPopup(popup_a916b3258946bc80966a3aa730585b71)
+        ;
+
+        
+    
+    
+            var marker_7bc97d645bf948ba1bbbbc21cec2c1b5 = L.marker(
+                [34.5395657, 69.1536822],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_de57e8a639fc78e1ad1e6b5b083f98d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3efcc42882df62dfa2626d07133cda01 = $(`<div id="html_3efcc42882df62dfa2626d07133cda01" style="width: 100.0%; height: 100.0%;">شفاخانه اوستا</div>`)[0];
+                popup_de57e8a639fc78e1ad1e6b5b083f98d6.setContent(html_3efcc42882df62dfa2626d07133cda01);
+            
+        
+
+        marker_7bc97d645bf948ba1bbbbc21cec2c1b5.bindPopup(popup_de57e8a639fc78e1ad1e6b5b083f98d6)
+        ;
+
+        
+    
+    
+            var marker_73db9d85fea4f3380ef5d4c6bf2c1483 = L.marker(
+                [34.4737238, 69.1241883],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_9e4cde845a9af8de5e99e9835941d131 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17d6867a2dbbc6fc10a7cbf4322cb280 = $(`<div id="html_17d6867a2dbbc6fc10a7cbf4322cb280" style="width: 100.0%; height: 100.0%;">شفاخانه بین المللی کیور</div>`)[0];
+                popup_9e4cde845a9af8de5e99e9835941d131.setContent(html_17d6867a2dbbc6fc10a7cbf4322cb280);
+            
+        
+
+        marker_73db9d85fea4f3380ef5d4c6bf2c1483.bindPopup(popup_9e4cde845a9af8de5e99e9835941d131)
+        ;
+
+        
+    
+    
+            var marker_fd95de02360c555afa8ec0804c0a52cc = L.marker(
+                [34.5023697, 69.0985874],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b24df2503f786bf2c7e1764b2cd9f6cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b53575b70456ec70aa99fe4ef22285e = $(`<div id="html_2b53575b70456ec70aa99fe4ef22285e" style="width: 100.0%; height: 100.0%;">شفاخانه جناح</div>`)[0];
+                popup_b24df2503f786bf2c7e1764b2cd9f6cf.setContent(html_2b53575b70456ec70aa99fe4ef22285e);
+            
+        
+
+        marker_fd95de02360c555afa8ec0804c0a52cc.bindPopup(popup_b24df2503f786bf2c7e1764b2cd9f6cf)
+        ;
+
+        
+    
+    
+            var marker_91c3c9215db862c6af3a569ccbecd61b = L.marker(
+                [34.5326982, 69.1747493],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_97dd567e08df6c45d7f915b1eed6b821 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1f3168d0e7f64cce1473e0573c3db5d = $(`<div id="html_a1f3168d0e7f64cce1473e0573c3db5d" style="width: 100.0%; height: 100.0%;">شفاخانه امرجنسی</div>`)[0];
+                popup_97dd567e08df6c45d7f915b1eed6b821.setContent(html_a1f3168d0e7f64cce1473e0573c3db5d);
+            
+        
+
+        marker_91c3c9215db862c6af3a569ccbecd61b.bindPopup(popup_97dd567e08df6c45d7f915b1eed6b821)
+        ;
+
+        
+    
+    
+            var marker_e7986afa77cbfc2469b3180d51ebd25f = L.marker(
+                [34.5540595, 69.1445236],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_0426b6c78db357f0856ef4853a144bd5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dd221b713a69888d49605959907a8f9 = $(`<div id="html_5dd221b713a69888d49605959907a8f9" style="width: 100.0%; height: 100.0%;">شفاخانه جلدی روز</div>`)[0];
+                popup_0426b6c78db357f0856ef4853a144bd5.setContent(html_5dd221b713a69888d49605959907a8f9);
+            
+        
+
+        marker_e7986afa77cbfc2469b3180d51ebd25f.bindPopup(popup_0426b6c78db357f0856ef4853a144bd5)
+        ;
+
+        
+    
+    
+            var marker_4a924108c7a688c36a3f2fce5a573b99 = L.marker(
+                [34.555127, 69.1598139],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_c6d3d44c7f47c687f5eefee57286868c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f0a7aa0f59a1127180ae46d21dc90ba = $(`<div id="html_9f0a7aa0f59a1127180ae46d21dc90ba" style="width: 100.0%; height: 100.0%;">شفاخانه چراغ</div>`)[0];
+                popup_c6d3d44c7f47c687f5eefee57286868c.setContent(html_9f0a7aa0f59a1127180ae46d21dc90ba);
+            
+        
+
+        marker_4a924108c7a688c36a3f2fce5a573b99.bindPopup(popup_c6d3d44c7f47c687f5eefee57286868c)
+        ;
+
+        
+    
+    
+            var marker_d44dd0a27384bd761caa2cf36cd4b7c9 = L.marker(
+                [34.5365252, 69.171655],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_fa7e78430e8f1c627420e7f41b55ab2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_149e6d1c557ee04ef9a3c42351a781bd = $(`<div id="html_149e6d1c557ee04ef9a3c42351a781bd" style="width: 100.0%; height: 100.0%;">amenity=hospital, building=hospital, building:levels=8, healthcare=hospital, name:en=Sana Medical Complex, name:fa=شفاخانه معالجوی ثناء</div>`)[0];
+                popup_fa7e78430e8f1c627420e7f41b55ab2f.setContent(html_149e6d1c557ee04ef9a3c42351a781bd);
+            
+        
+
+        marker_d44dd0a27384bd761caa2cf36cd4b7c9.bindPopup(popup_fa7e78430e8f1c627420e7f41b55ab2f)
+        ;
+
+        
+    
+    
+            var marker_3c925c17a0f1a8a3bb4d25e844f58684 = L.marker(
+                [34.4710666, 69.0850784],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_f766af046337ac264cd41f449c813133 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01a7e5dc3e582823affee6694b13f0fa = $(`<div id="html_01a7e5dc3e582823affee6694b13f0fa" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital</div>`)[0];
+                popup_f766af046337ac264cd41f449c813133.setContent(html_01a7e5dc3e582823affee6694b13f0fa);
+            
+        
+
+        marker_3c925c17a0f1a8a3bb4d25e844f58684.bindPopup(popup_f766af046337ac264cd41f449c813133)
+        ;
+
+        
+    
+    
+            var marker_37d46d83090b03d62f680339c5a35c72 = L.marker(
+                [34.5396491, 69.1715386],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5894c37748e98f42c48cc0710d5e5d0e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_edd2c41de0b8f53275e77f2deef90c4f = $(`<div id="html_edd2c41de0b8f53275e77f2deef90c4f" style="width: 100.0%; height: 100.0%;">amenity=hospital, building=hospital</div>`)[0];
+                popup_5894c37748e98f42c48cc0710d5e5d0e.setContent(html_edd2c41de0b8f53275e77f2deef90c4f);
+            
+        
+
+        marker_37d46d83090b03d62f680339c5a35c72.bindPopup(popup_5894c37748e98f42c48cc0710d5e5d0e)
+        ;
+
+        
+    
+    
+            var marker_bb39244a3bd4d3f7009463bdc6470220 = L.marker(
+                [34.5411528, 69.1690247],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_a2e10b4bbdd9e86f02a873318efadec1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98eb1d06389d3931aa26afc60d6543e2 = $(`<div id="html_98eb1d06389d3931aa26afc60d6543e2" style="width: 100.0%; height: 100.0%;">Nazo Ana OBGY Clinic</div>`)[0];
+                popup_a2e10b4bbdd9e86f02a873318efadec1.setContent(html_98eb1d06389d3931aa26afc60d6543e2);
+            
+        
+
+        marker_bb39244a3bd4d3f7009463bdc6470220.bindPopup(popup_a2e10b4bbdd9e86f02a873318efadec1)
+        ;
+
+        
+    
+    
+            var marker_9c885a419547b5ab38aa0316b7043298 = L.marker(
+                [34.5687093, 69.1770286],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_939656e6c71d3c49aad7e4190a4f5c33 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43721122cbbcfea9a88d7cee2eb3dc14 = $(`<div id="html_43721122cbbcfea9a88d7cee2eb3dc14" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital</div>`)[0];
+                popup_939656e6c71d3c49aad7e4190a4f5c33.setContent(html_43721122cbbcfea9a88d7cee2eb3dc14);
+            
+        
+
+        marker_9c885a419547b5ab38aa0316b7043298.bindPopup(popup_939656e6c71d3c49aad7e4190a4f5c33)
+        ;
+
+        
+    
+    
+            var marker_e30765a3d8c49bec5a6c95328536a13d = L.marker(
+                [34.5341151, 69.1358455],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_f7bca5f8accccab8a1cd8d3116db9f43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f80bd6f0b8ccec85acb647bf522289b = $(`<div id="html_2f80bd6f0b8ccec85acb647bf522289b" style="width: 100.0%; height: 100.0%;">مرکز رادیولوژی مکه</div>`)[0];
+                popup_f7bca5f8accccab8a1cd8d3116db9f43.setContent(html_2f80bd6f0b8ccec85acb647bf522289b);
+            
+        
+
+        marker_e30765a3d8c49bec5a6c95328536a13d.bindPopup(popup_f7bca5f8accccab8a1cd8d3116db9f43)
+        ;
+
+        
+    
+    
+            var marker_ab0ab537ba571af73108d6d035bfd585 = L.marker(
+                [34.5340524, 69.1381957],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b792cd1f0b48d4517a4bd9370369a0fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa57da9074eb914f022b15ade4ae86b7 = $(`<div id="html_aa57da9074eb914f022b15ade4ae86b7" style="width: 100.0%; height: 100.0%;">شفاخانه معالجوی سیتی</div>`)[0];
+                popup_b792cd1f0b48d4517a4bd9370369a0fe.setContent(html_aa57da9074eb914f022b15ade4ae86b7);
+            
+        
+
+        marker_ab0ab537ba571af73108d6d035bfd585.bindPopup(popup_b792cd1f0b48d4517a4bd9370369a0fe)
+        ;
+
+        
+    
+    
+            var marker_f15c0b6974aa01014a6c7bfd51b611af = L.marker(
+                [34.5371175, 69.1423059],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_6920ae88e2da32184afa6a707984a017 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b17ad76a079df091838f134ed70c8d34 = $(`<div id="html_b17ad76a079df091838f134ed70c8d34" style="width: 100.0%; height: 100.0%;">گلوبل میدیکال کامپلکس</div>`)[0];
+                popup_6920ae88e2da32184afa6a707984a017.setContent(html_b17ad76a079df091838f134ed70c8d34);
+            
+        
+
+        marker_f15c0b6974aa01014a6c7bfd51b611af.bindPopup(popup_6920ae88e2da32184afa6a707984a017)
+        ;
+
+        
+    
+    
+            var marker_e45a1b25905c4cda94bd4e161711fea4 = L.marker(
+                [34.5099551, 69.1265537],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_3f3444f15c193e0fd081b06cbddf1faa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e67d96db625d417830e1aa2d14f39096 = $(`<div id="html_e67d96db625d417830e1aa2d14f39096" style="width: 100.0%; height: 100.0%;">شفاخانه لقمان حکیم</div>`)[0];
+                popup_3f3444f15c193e0fd081b06cbddf1faa.setContent(html_e67d96db625d417830e1aa2d14f39096);
+            
+        
+
+        marker_e45a1b25905c4cda94bd4e161711fea4.bindPopup(popup_3f3444f15c193e0fd081b06cbddf1faa)
+        ;
+
+        
+    
+    
+            var marker_617146505f5f5a689def428a8a63a59e = L.marker(
+                [34.5466707, 69.143467],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_1b885a1cacd0011e773e2790a72b0c48 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef5a2c73c2d8a296b0ae50b83b932174 = $(`<div id="html_ef5a2c73c2d8a296b0ae50b83b932174" style="width: 100.0%; height: 100.0%;">الحیات</div>`)[0];
+                popup_1b885a1cacd0011e773e2790a72b0c48.setContent(html_ef5a2c73c2d8a296b0ae50b83b932174);
+            
+        
+
+        marker_617146505f5f5a689def428a8a63a59e.bindPopup(popup_1b885a1cacd0011e773e2790a72b0c48)
+        ;
+
+        
+    
+    
+            var marker_acb4afe61fafd9f2f58c110715d63827 = L.marker(
+                [34.5570517, 69.1400045],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_30f9cff1d75519529d1eef84d2f07e10 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5815be260bb81420fc38bb4478846357 = $(`<div id="html_5815be260bb81420fc38bb4478846357" style="width: 100.0%; height: 100.0%;">شفاخانه مرکزی کیشا</div>`)[0];
+                popup_30f9cff1d75519529d1eef84d2f07e10.setContent(html_5815be260bb81420fc38bb4478846357);
+            
+        
+
+        marker_acb4afe61fafd9f2f58c110715d63827.bindPopup(popup_30f9cff1d75519529d1eef84d2f07e10)
+        ;
+
+        
+    
+    
+            var marker_34b3ca22ce41053fbd0a82353b2e5d63 = L.marker(
+                [34.4757698, 69.0825057],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_6a13cdb1baa62ea24f5780cf7067af25 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccd26d3d3ad7a56fc1052d9b7bc62c14 = $(`<div id="html_ccd26d3d3ad7a56fc1052d9b7bc62c14" style="width: 100.0%; height: 100.0%;">شفاخانه افشار</div>`)[0];
+                popup_6a13cdb1baa62ea24f5780cf7067af25.setContent(html_ccd26d3d3ad7a56fc1052d9b7bc62c14);
+            
+        
+
+        marker_34b3ca22ce41053fbd0a82353b2e5d63.bindPopup(popup_6a13cdb1baa62ea24f5780cf7067af25)
+        ;
+
+        
+    
+    
+            var marker_0895553af83a409ce777768a442e5952 = L.marker(
+                [34.5139773, 69.1741102],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_fd69daef9bb001c32b9e01ba1c0c7f06 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0ed3e9560fce12b1bf210a436dcb2d1d = $(`<div id="html_0ed3e9560fce12b1bf210a436dcb2d1d" style="width: 100.0%; height: 100.0%;">د میوند تدریسي روغتون</div>`)[0];
+                popup_fd69daef9bb001c32b9e01ba1c0c7f06.setContent(html_0ed3e9560fce12b1bf210a436dcb2d1d);
+            
+        
+
+        marker_0895553af83a409ce777768a442e5952.bindPopup(popup_fd69daef9bb001c32b9e01ba1c0c7f06)
+        ;
+
+        
+    
+    
+            var marker_35b787e38858662ce37a5442fb1c29b3 = L.marker(
+                [34.4792277, 69.0662292],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_c6744da6d7a6cc522e3debf455d3013e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ee6b4c705d38e6aecbb03beac446364 = $(`<div id="html_6ee6b4c705d38e6aecbb03beac446364" style="width: 100.0%; height: 100.0%;">شفاخانه غظنفر</div>`)[0];
+                popup_c6744da6d7a6cc522e3debf455d3013e.setContent(html_6ee6b4c705d38e6aecbb03beac446364);
+            
+        
+
+        marker_35b787e38858662ce37a5442fb1c29b3.bindPopup(popup_c6744da6d7a6cc522e3debf455d3013e)
+        ;
+
+        
+    
+    
+            var marker_83e7a8fea190e74d382d5b5e31f04ee0 = L.marker(
+                [34.5121451, 69.1243475],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_b3f31dd757418355a0e6026c259b92d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb125922bf2baf2b1d609043c45cad73 = $(`<div id="html_fb125922bf2baf2b1d609043c45cad73" style="width: 100.0%; height: 100.0%;">شفاخانه ابو علی سینا</div>`)[0];
+                popup_b3f31dd757418355a0e6026c259b92d5.setContent(html_fb125922bf2baf2b1d609043c45cad73);
+            
+        
+
+        marker_83e7a8fea190e74d382d5b5e31f04ee0.bindPopup(popup_b3f31dd757418355a0e6026c259b92d5)
+        ;
+
+        
+    
+    
+            var marker_352e578df3fdb5270be4b671721f1ed7 = L.marker(
+                [34.5093916, 69.2348746],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_151ef6d6d7c24b09fd23e46efbbb34fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d9fe0f616c55ac5ceb24f9c10e306a1 = $(`<div id="html_1d9fe0f616c55ac5ceb24f9c10e306a1" style="width: 100.0%; height: 100.0%;">Habib Dental Clinic & Academy</div>`)[0];
+                popup_151ef6d6d7c24b09fd23e46efbbb34fb.setContent(html_1d9fe0f616c55ac5ceb24f9c10e306a1);
+            
+        
+
+        marker_352e578df3fdb5270be4b671721f1ed7.bindPopup(popup_151ef6d6d7c24b09fd23e46efbbb34fb)
+        ;
+
+        
+    
+    
+            var marker_54bd8a2364414fde9b95837fc7e95440 = L.marker(
+                [34.5384101, 69.186085],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_534c0a7955a280420eb2c748cfddfa64 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b335312339b2df4c2b94213fd952b19 = $(`<div id="html_7b335312339b2df4c2b94213fd952b19" style="width: 100.0%; height: 100.0%;">د اندرا ګاندي ماشومانو روغتون</div>`)[0];
+                popup_534c0a7955a280420eb2c748cfddfa64.setContent(html_7b335312339b2df4c2b94213fd952b19);
+            
+        
+
+        marker_54bd8a2364414fde9b95837fc7e95440.bindPopup(popup_534c0a7955a280420eb2c748cfddfa64)
+        ;
+
+        
+    
+    
+            var marker_df4c8b2e2215ffbd268cf9c99f3c94e9 = L.marker(
+                [34.5202531, 69.1334499],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_7251e1f5ad7276cf9326466b1b2f958b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad3cedef7ea469954de9c1a91813eaf4 = $(`<div id="html_ad3cedef7ea469954de9c1a91813eaf4" style="width: 100.0%; height: 100.0%;">شفاخانه فرانسوی برای اطفال</div>`)[0];
+                popup_7251e1f5ad7276cf9326466b1b2f958b.setContent(html_ad3cedef7ea469954de9c1a91813eaf4);
+            
+        
+
+        marker_df4c8b2e2215ffbd268cf9c99f3c94e9.bindPopup(popup_7251e1f5ad7276cf9326466b1b2f958b)
+        ;
+
+        
+    
+    
+            var marker_b87cb80e36462ec2a54f8a9d8de3bfa7 = L.marker(
+                [34.5200405, 69.1299365],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_42afbe36a3d0fd541fd7633d12065b3d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5d0bde1e8392fbf461dd72cb13e149b = $(`<div id="html_b5d0bde1e8392fbf461dd72cb13e149b" style="width: 100.0%; height: 100.0%;">Ali Abad Hospital</div>`)[0];
+                popup_42afbe36a3d0fd541fd7633d12065b3d.setContent(html_b5d0bde1e8392fbf461dd72cb13e149b);
+            
+        
+
+        marker_b87cb80e36462ec2a54f8a9d8de3bfa7.bindPopup(popup_42afbe36a3d0fd541fd7633d12065b3d)
+        ;
+
+        
+    
+    
+            var marker_cade4f965a223f84e6145c40095e7b07 = L.marker(
+                [34.5255652, 69.1684337],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_18d25c6a910ec50a876af52a5823d947 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90b1a987caf5a04dfadd57ba52b0693d = $(`<div id="html_90b1a987caf5a04dfadd57ba52b0693d" style="width: 100.0%; height: 100.0%;">amenity=hospital, healthcare=hospital, name:en=Jamhuriat Hospital, name:ru=Больница Джамхуриат, name:ur=شفاخانه جمهوریت, opening_hours=24/7, operator:type=public/government, wikipedia=en:Jamhuriat Hospital</div>`)[0];
+                popup_18d25c6a910ec50a876af52a5823d947.setContent(html_90b1a987caf5a04dfadd57ba52b0693d);
+            
+        
+
+        marker_cade4f965a223f84e6145c40095e7b07.bindPopup(popup_18d25c6a910ec50a876af52a5823d947)
+        ;
+
+        
+    
+    
+            var marker_ec2ab34beea50b1772ceae834c4cdd0a = L.marker(
+                [34.5060943, 69.1172066],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_e341fdb927e2f2778c7a2f5f9ae36e9a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27381b5dd31ab26bf1540674bc3c03ac = $(`<div id="html_27381b5dd31ab26bf1540674bc3c03ac" style="width: 100.0%; height: 100.0%;">amenity=hospital, building=hospital</div>`)[0];
+                popup_e341fdb927e2f2778c7a2f5f9ae36e9a.setContent(html_27381b5dd31ab26bf1540674bc3c03ac);
+            
+        
+
+        marker_ec2ab34beea50b1772ceae834c4cdd0a.bindPopup(popup_e341fdb927e2f2778c7a2f5f9ae36e9a)
+        ;
+
+        
+    
+    
+            var marker_e9be23f67bb6c34160c63873bc53058d = L.marker(
+                [34.4990702, 69.0561703],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_4d1555aaed8a0b82cb67e2896092ddf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dcfb605ef66dcf20781c7c609af2e85f = $(`<div id="html_dcfb605ef66dcf20781c7c609af2e85f" style="width: 100.0%; height: 100.0%;">Syeed u Shuhada Hospital</div>`)[0];
+                popup_4d1555aaed8a0b82cb67e2896092ddf3.setContent(html_dcfb605ef66dcf20781c7c609af2e85f);
+            
+        
+
+        marker_e9be23f67bb6c34160c63873bc53058d.bindPopup(popup_4d1555aaed8a0b82cb67e2896092ddf3)
+        ;
+
+        
+    
+    
+            var marker_8f8b395fe34f566641dae2f2924203d4 = L.marker(
+                [34.5019639, 69.0833091],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5e256ee4bf56508f44bb9fb46af6c12f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b26881233e38f32756ab3e86531bd229 = $(`<div id="html_b26881233e38f32756ab3e86531bd229" style="width: 100.0%; height: 100.0%;">Ramoz Eys Hospital</div>`)[0];
+                popup_5e256ee4bf56508f44bb9fb46af6c12f.setContent(html_b26881233e38f32756ab3e86531bd229);
+            
+        
+
+        marker_8f8b395fe34f566641dae2f2924203d4.bindPopup(popup_5e256ee4bf56508f44bb9fb46af6c12f)
+        ;
+
+        
+    
+    
+            var marker_f921d053ecfeec19c2ba6bc2244796d1 = L.marker(
+                [34.5092703, 69.1176934],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_5865e45fedc60968f2c45f831ec8c7a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d95ae0129211ef4f8c1d1ba7e599825d = $(`<div id="html_d95ae0129211ef4f8c1d1ba7e599825d" style="width: 100.0%; height: 100.0%;">Darman</div>`)[0];
+                popup_5865e45fedc60968f2c45f831ec8c7a6.setContent(html_d95ae0129211ef4f8c1d1ba7e599825d);
+            
+        
+
+        marker_f921d053ecfeec19c2ba6bc2244796d1.bindPopup(popup_5865e45fedc60968f2c45f831ec8c7a6)
+        ;
+
+        
+    
+    
+            var marker_a0212b544b66cae833637d58532c303b = L.marker(
+                [34.534724, 69.1295548],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_0dd8d3d1afbd685fd3733ec42f7a3fab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e858690d162733145c922d7b0cea0cd = $(`<div id="html_3e858690d162733145c922d7b0cea0cd" style="width: 100.0%; height: 100.0%;">Kaim Hospital</div>`)[0];
+                popup_0dd8d3d1afbd685fd3733ec42f7a3fab.setContent(html_3e858690d162733145c922d7b0cea0cd);
+            
+        
+
+        marker_a0212b544b66cae833637d58532c303b.bindPopup(popup_0dd8d3d1afbd685fd3733ec42f7a3fab)
+        ;
+
+        
+    
+    
+            var marker_a248e330e01a32748f56a985abd5724e = L.marker(
+                [34.5015656, 69.0734913],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_49e43667f8417628eab11e7d62ef67f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dfca532d602fc3ad3e0e664af8080c8 = $(`<div id="html_5dfca532d602fc3ad3e0e664af8080c8" style="width: 100.0%; height: 100.0%;">Tank-e-tail hospital</div>`)[0];
+                popup_49e43667f8417628eab11e7d62ef67f9.setContent(html_5dfca532d602fc3ad3e0e664af8080c8);
+            
+        
+
+        marker_a248e330e01a32748f56a985abd5724e.bindPopup(popup_49e43667f8417628eab11e7d62ef67f9)
+        ;
+
+        
+    
+    
+            var marker_9b4cde7136a6cbee13036457b46fd131 = L.marker(
+                [34.5209268, 69.133755],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_fee2848f45532f57452c671d522450b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_345d6e3142b0c28faa15128921cd8bdc = $(`<div id="html_345d6e3142b0c28faa15128921cd8bdc" style="width: 100.0%; height: 100.0%;">شفاخانه آتاترک</div>`)[0];
+                popup_fee2848f45532f57452c671d522450b9.setContent(html_345d6e3142b0c28faa15128921cd8bdc);
+            
+        
+
+        marker_9b4cde7136a6cbee13036457b46fd131.bindPopup(popup_fee2848f45532f57452c671d522450b9)
+        ;
+
+        
+    
+    
+            var marker_91635a53369d3fffe538554b039ee160 = L.marker(
+                [34.5237322, 69.1916339],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_290723c77a6e622f75d2cd8e6538b1fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_221f2b82256ef0d761de93e75182490f = $(`<div id="html_221f2b82256ef0d761de93e75182490f" style="width: 100.0%; height: 100.0%;">amenity=hospital</div>`)[0];
+                popup_290723c77a6e622f75d2cd8e6538b1fe.setContent(html_221f2b82256ef0d761de93e75182490f);
+            
+        
+
+        marker_91635a53369d3fffe538554b039ee160.bindPopup(popup_290723c77a6e622f75d2cd8e6538b1fe)
+        ;
+
+        
+    
+    
+            var marker_044e4c2acf06ce9f7fea58c9390c665e = L.marker(
+                [34.5332628, 69.1599189],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_be026a464f1500dc4cec8b58f4d89546 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82d3f57f4c2c5414579e0d4f25e6f944 = $(`<div id="html_82d3f57f4c2c5414579e0d4f25e6f944" style="width: 100.0%; height: 100.0%;">شفاخانه علی آباد</div>`)[0];
+                popup_be026a464f1500dc4cec8b58f4d89546.setContent(html_82d3f57f4c2c5414579e0d4f25e6f944);
+            
+        
+
+        marker_044e4c2acf06ce9f7fea58c9390c665e.bindPopup(popup_be026a464f1500dc4cec8b58f4d89546)
+        ;
+
+        
+    
+    
+            var marker_02b15bd698a87e1a4107431cc691203d = L.marker(
+                [34.5114458, 69.1660261],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_df0d79c3ef24b2d2cbb52f08f003780c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_75b32aa912e0ca92303a1e9dd1477fbd = $(`<div id="html_75b32aa912e0ca92303a1e9dd1477fbd" style="width: 100.0%; height: 100.0%;">ابن سینا روغتون</div>`)[0];
+                popup_df0d79c3ef24b2d2cbb52f08f003780c.setContent(html_75b32aa912e0ca92303a1e9dd1477fbd);
+            
+        
+
+        marker_02b15bd698a87e1a4107431cc691203d.bindPopup(popup_df0d79c3ef24b2d2cbb52f08f003780c)
+        ;
+
+        
+    
+    
+            var marker_aadb1df2d48420bd0da8952e60f44c06 = L.marker(
+                [34.5800193, 69.2149886],
+                {
+}
+            ).addTo(map_0d1abdb279b7797b05104ed0cbccf309);
+        
+    
+        var popup_9c5da1fcf11af47a0816b38f08665fed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d8db1e3680891c1c77279598c922b9b6 = $(`<div id="html_d8db1e3680891c1c77279598c922b9b6" style="width: 100.0%; height: 100.0%;">amenity=hospital, type=multipolygon</div>`)[0];
+                popup_9c5da1fcf11af47a0816b38f08665fed.setContent(html_d8db1e3680891c1c77279598c922b9b6);
+            
+        
+
+        marker_aadb1df2d48420bd0da8952e60f44c06.bindPopup(popup_9c5da1fcf11af47a0816b38f08665fed)
+        ;
+
+        
+    
+</script>
+</html>
