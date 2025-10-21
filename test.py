@@ -1,15 +1,11 @@
+from huda.geospatial import heatmap_crisis_intensity
 import polars as pl
-from huda.geospatial import display_refugee_camp_locations
 
-# ساختن داده نمونه
 df = pl.DataFrame({
-    "latitude": [34.5, 34.35],
-    "longitude": [69.2, 62.2],
-    "camp_name": ["Kabul IDP Camp", "Herat Camp"],
+    "latitude": [34.5553, 34.3482, 36.7280],
+    "longitude": [69.2075, 62.1997, 66.8960],
+    "people_in_need": [500000, 1200, 2200],
 })
 
-# ساخت نقشه
-m = display_refugee_camp_locations(df)
-
-# ذخیره به فایل HTML
-m.save("camps_afg.html")
+m = heatmap_crisis_intensity(df, weight_col="people_in_need")
+m.save("testdata/heatmap_afg.html")
