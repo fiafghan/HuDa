@@ -81,45 +81,45 @@ DONE-Cluster humanitarian facilities (hospitals, schools)
 
 6. Analysis Functions
 
-Time-series trend analysis
+DONE-Time-series trend analysis
 
-Forecasting needs (ARIMA, Prophet)
+DONE-Forecasting needs (ARIMA, Prophet)
 
-Correlation analysis between indicators
+DONE-Correlation analysis between indicators
 
-Regression models (linear, logistic)
+DONE-Regression models (linear, logistic)
 
-Cluster analysis (k-means for regions)
+DONE-Cluster analysis (k-means for regions)
 
-PCA/dimensionality reduction for indicators
+DONE-PCA/dimensionality reduction for indicators
 
-Inequality measures (Gini, Theil index)
+DONE-Inequality measures (Gini, Theil index)
 
-Impact analysis of interventions
+DONE-Impact analysis of interventions
 
-Coverage gap analysis
+DONE-Coverage gap analysis
 
-Needs vs funding gap analysis
+DONE-Needs vs funding gap analysis
 
-Seasonality detection
+DONE-Seasonality detection
 
-Anomaly detection (sudden spikes in needs)
+DONE-Anomaly detection (sudden spikes in needs)
 
-Predicting displacement flows
+DONE-Predicting displacement flows
 
-Mortality/morbidity analysis
+DONE-Mortality/morbidity analysis
 
-Food security phase classification
+DONE-Food security phase classification
 
-Shelter adequacy analysis
+DONE-Shelter adequacy analysis
 
-Health facility accessibility analysis
+DONE-Health facility accessibility analysis
 
-Education access analysis
+DONE-Education access analysis
 
-Livelihood resilience analysis
+DONE-Livelihood resilience analysis
 
-Gender-disaggregated analysis
+DONE-Gender-disaggregated analysis
 
 7. Humanitarian-Specific Metrics
 
