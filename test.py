@@ -1,11 +1,7 @@
-from huda.geospatial import heatmap_crisis_intensity
-import polars as pl
+from huda.opening import open_geojson
+from huda.geospatial import visualize_hazard_areas
 
-df = pl.DataFrame({
-    "latitude": [34.5553, 34.3482, 36.7280],
-    "longitude": [69.2075, 62.1997, 66.8960],
-    "people_in_need": [500000, 1200, 2200],
-})
+gdf, df = open_geojson("testdata/hazard.geojson")
 
-m = heatmap_crisis_intensity(df, weight_col="people_in_need")
-m.save("testdata/heatmap_afg.html")
+m = visualize_hazard_areas(gdf, hazard_property="hazard_type")
+m.save("testdata/hazard.html")
