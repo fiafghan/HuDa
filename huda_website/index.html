@@ -123,88 +123,33 @@
         <section id="transformation" class="content-section hidden">
           <div class="prose max-w-none">
             <h3 class="text-xl font-semibold mb-3">Phase: Transformation</h3>
-            <p class="text-gray-700">Aggregate, reshape, and prepare tidy datasets.</p>
-            <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-from huda.transformation import reshape_long_to_wide
-
-wide = reshape_long_to_wide(df, index_cols=["province"], name_col="indicator", value_col="value")
-</code></pre>
+            <p class="text-gray-700">Aggregate, reshape, standardize, and compute indexes.</p>
+            <a href="./docs_transformation.html" class="inline-flex items-center gap-2 text-sm text-indigo-700 hover:text-indigo-900 underline">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              Open full Transformation docs
+            </a>
           </div>
         </section>
 
         <section id="validation" class="content-section hidden">
           <div class="prose max-w-none">
             <h3 class="text-xl font-semibold mb-3">Phase: Validation & Quality</h3>
-            <p class="text-gray-700">Validate common humanitarian indicators and generate reports.</p>
-            <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-import polars as pl
-from huda.validation_and_quality import humanatarian_index_validation_against_standards
-
-activity = pl.DataFrame({
-    "water_liters_per_person_per_day": [12, 18, 10],
-    "ipc_phase": [3, 6, 2],
-    "coverage_percent": [95, 105, -2],
-})
-violations = humanatarian_index_validation_against_standards(activity, standards="sphere")
-print(violations)
-</code></pre>
+            <p class="text-gray-700">Validate columns, check ranges, enforce standards, and auto profile.</p>
+            <a href="./docs_validation_quality.html" class="inline-flex items-center gap-2 text-sm text-indigo-700 hover:text-indigo-900 underline">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              Open full Validation & Quality docs
+            </a>
           </div>
         </section>
 
         <section id="geospatial" class="content-section hidden">
           <div class="prose max-w-none">
             <h3 class="text-xl font-semibold mb-3">Phase: Geospatial</h3>
-            <p class="text-gray-700">Create maps for Afghan operations: points, choropleths, heatmaps.</p>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="rounded-lg border border-gray-200 p-4">
-                <div class="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                  <i data-lucide="map-pin" class="w-4 h-4"></i>
-                  Plot Points
-                </div>
-                <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-from huda.geospatial import plot_data_on_map
-
-m = plot_data_on_map(df, popup_col="site")
-m.save("points.html")
-</code></pre>
-              </div>
-              <div class="rounded-lg border border-gray-200 p-4">
-                <div class="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                  <i data-lucide="palette" class="w-4 h-4"></i>
-                  Choropleth by Province
-                </div>
-                <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-from huda.geospatial import choropleth_maps_by_region
-
-m = choropleth_maps_by_region(df, gj, region_key="province", value_col="severity", legend_name="Severity")
-m.save("choropleth.html")
-</code></pre>
-              </div>
-              <div class="rounded-lg border border-gray-200 p-4">
-                <div class="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                  <i data-lucide="flame" class="w-4 h-4"></i>
-                  Heatmap
-                </div>
-                <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-from huda.geospatial import heatmap_crisis_intensity
-
-m = heatmap_crisis_intensity(df, weight_col="people_in_need")
-m.save("heatmap.html")
-</code></pre>
-              </div>
-              <div class="rounded-lg border border-gray-200 p-4">
-                <div class="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                  <i data-lucide="combine" class="w-4 h-4"></i>
-                  Overlay Indicators
-                </div>
-                <pre class="rounded-md bg-gray-900 text-gray-100 p-4 overflow-auto"><code># Python
-from huda.geospatial import overlay_multiple_indicators_on_map
-
-m = overlay_multiple_indicators_on_map(df, indicators={"Need Index": "need_index"})
-m.save("overlay.html")
-</code></pre>
-              </div>
-            </div>
+            <p class="text-gray-700">Create maps and overlays using Folium and GeoJSON layers.</p>
+            <a href="./docs_geospatial.html" class="inline-flex items-center gap-2 text-sm text-indigo-700 hover:text-indigo-900 underline">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              Open full Geospatial docs
+            </a>
           </div>
         </section>
 
