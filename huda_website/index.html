@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-gray-50">
+<html lang="en" class="h-full bg-gradient-to-br from-indigo-50 via-sky-50 to-rose-50">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,12 +9,30 @@
     <!-- Lucide Icons (vanilla JS) -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <meta name="description" content="Training website for the HuDa humanitarian data library." />
+    <link rel="stylesheet" href="./theme.css" />
   </head>
-  <body class="h-full">
+  <body class="h-full jeton">
+    <!-- Top Gradient Header -->
+    <div class="w-full bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 text-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between py-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="database" class="w-5 h-5"></i>
+            <span class="font-semibold tracking-tight">HuDa — Humanitarian Data Library</span>
+          </div>
+          <div class="hidden md:flex items-center gap-4 text-sm opacity-90">
+            <a href="#overview" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="home" class="w-4 h-4"></i>Overview</a>
+            <a href="#installation" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="download" class="w-4 h-4"></i>Install</a>
+            <a href="#about" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="info" class="w-4 h-4"></i>About Us</a>
+            <a href="#contact" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="mail" class="w-4 h-4"></i>Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- App Wrapper -->
     <div class="min-h-screen grid grid-cols-1 md:grid-cols-[280px_1fr]">
       <!-- Sidebar -->
-      <aside class="bg-white border-r border-gray-200 p-4 md:p-6">
+      <aside class="bg-white/80 backdrop-blur-sm border-r border-white/60 shadow-sm p-4 md:p-6">
         <div class="flex items-center gap-2 mb-6">
           <i data-lucide="database" class="w-6 h-6 text-indigo-600"></i>
           <h1 class="text-lg font-semibold tracking-tight">HuDa Usage Guide</h1>
@@ -84,23 +102,29 @@
 
       <!-- Main Content -->
       <main class="p-6 md:p-10">
-        <!-- Header -->
-        <header class="mb-8 flex items-center justify-between">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight">HuDa Library</h2>
-            <p class="text-gray-600">Humanitarian Data utilities: simple, fast, consistent.</p>
+        <!-- Hero Header -->
+        <header class="mb-8">
+          <div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 p-[1px] shadow-md">
+            <div class="rounded-[11px] bg-white/90 backdrop-blur-sm">
+              <div class="px-5 md:px-7 py-6 md:py-8 flex items-start md:items-center justify-between gap-6">
+                <div>
+                  <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">HuDa Library</h2>
+                  <p class="text-gray-600">Humanitarian data utilities — simple, fast, consistent.</p>
+                </div>
+                <a href="https://lucide.dev/icons/" target="_blank" rel="noreferrer" class="hidden md:inline-flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
+                  <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i>
+                  Built with Tailwind + Lucide
+                </a>
+              </div>
+            </div>
           </div>
-          <a href="https://lucide.dev/icons/" target="_blank" rel="noreferrer" class="hidden md:inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700">
-            <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i>
-            Built with Tailwind + Lucide
-          </a>
         </header>
 
         <!-- Sections -->
         <section id="overview" class="content-section">
           <div class="prose max-w-none">
             <h3 class="text-xl font-semibold mb-3">Overview</h3>
-            <p class="text-gray-700">HuDa is a Python library to speed up humanitarian data analysis in Afghanistan and beyond. It helps you open, clean, transform, validate, and visualize datasets with practical functions designed for field surveys, 5W, and monitoring data.</p>
+            <p class="text-gray-700">HuDa is a Python library to speed up humanitarian data analysis. It helps you open, clean, transform, validate, and visualize datasets with practical functions designed for field surveys, 5W, and monitoring data.</p>
             <ul class="list-disc pl-6 text-gray-700 mt-4 space-y-1">
               <li><span class="font-semibold">Consistent:</span> same design patterns across modules.</li>
               <li><span class="font-semibold">Fast:</span> leverages Polars/Pandas where needed.</li>

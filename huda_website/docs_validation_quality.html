@@ -8,8 +8,53 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen jeton">
+    <!-- Top Gradient Header -->
+    <div class="w-full bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 text-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between py-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="database" class="w-5 h-5"></i>
+            <span class="font-semibold tracking-tight">HuDa — Humanitarian Data Library</span>
+          </div>
+          <div class="hidden md:flex items-center gap-4 text-sm opacity-90">
+            <a href="./index.html#overview" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="home" class="w-4 h-4"></i>Overview</a>
+            <a href="./index.html" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="book-open" class="w-4 h-4"></i>Docs</a>
+            <a href="#about" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="info" class="w-4 h-4"></i>About Us</a>
+            <a href="#contact" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="mail" class="w-4 h-4"></i>Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Persistent Sidebar -->
+    <aside class="hidden md:block fixed top-[48px] left-0 h-[calc(100vh-48px)] w-72 overflow-y-auto bg-white/80 backdrop-blur border-r border-white/60 shadow-sm p-4">
+      <div class="flex items-center gap-2 mb-4">
+        <i data-lucide="database" class="w-5 h-5 text-indigo-600"></i>
+        <span class="text-sm font-semibold">HuDa Navigation</span>
+      </div>
+      <nav class="space-y-1 text-sm">
+        <a href="./index.html#overview" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="home" class="w-4 h-4"></i>Overview</a>
+        <div class="pt-2 pb-1 text-[10px] uppercase tracking-wider text-gray-500">Phases</div>
+        <a href="./docs_opening.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="folder-open" class="w-4 h-4"></i>Opening</a>
+        <a href="./docs_cleaning.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="brush" class="w-4 h-4"></i>Cleaning</a>
+        <a href="./docs_transformation.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="workflow" class="w-4 h-4"></i>Transformation</a>
+        <a href="./docs_validation_quality.html" class="flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-50 text-indigo-700 hover:bg-indigo-100"><i data-lucide="shield-check" class="w-4 h-4"></i>Validation & Quality</a>
+        <a href="./docs_geospatial.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="map" class="w-4 h-4"></i>Geospatial</a>
+        <a href="./docs_analysis.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="line-chart" class="w-4 h-4"></i>Analysis</a>
+        <a href="./docs_automation.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="workflow" class="w-4 h-4"></i>Automation</a>
+        <a href="./docs_interoperability.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="share-2" class="w-4 h-4"></i>Interoperability</a>
+        <a href="./docs_visualization.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="bar-chart-3" class="w-4 h-4"></i>Visualization</a>
+        <a href="./docs_ml4humanitarian.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="bot" class="w-4 h-4"></i>ML for Humanitarian Data</a>
+        <a href="./docs_document_processing.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="file-search" class="w-4 h-4"></i>Document Processing</a>
+        <a href="./docs_humanitarian_metrics.html" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"><i data-lucide="activity" class="w-4 h-4"></i>Humanitarian Metrics</a>
+      </nav>
+    </aside>
+
+    <!-- Content wrapper to offset sidebar -->
+    <div class="md:pl-72">
     <div class="max-w-5xl mx-auto p-6 md:p-10">
       <header class="flex items-center justify-between mb-8">
         <div class="flex items-center gap-3">
@@ -223,5 +268,17 @@ print(generate_summary_statistics_per_dataset(df))
         });
       });
     </script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-gray-600">© <span id="year"></span> HuDa. Built for humanitarian analysts.</div>
+        <div class="flex items-center gap-4 text-gray-600">
+          <a href="#about" class="inline-flex items-center gap-1 hover:text-gray-900"><i data-lucide="info" class="w-4 h-4"></i>About</a>
+          <a href="#contact" class="inline-flex items-center gap-1 hover:text-gray-900"><i data-lucide="mail" class="w-4 h-4"></i>Contact</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

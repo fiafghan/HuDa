@@ -1,0 +1,80 @@
+/* HuDa Jeton-inspired Theme (approximate) */
+:root {
+  /* Brand */
+  --jeton-primary: #ff6a00; /* Jeton orange (approx) */
+  --jeton-primary-dark: #e65f00; /* hover */
+  --jeton-primary-weak: #fff2e8; /* subtle backgrounds */
+  --jeton-secondary: #0f172a; /* deep slate for text */
+  --jeton-muted: #334155; /* secondary text */
+  --jeton-border: #e5e7eb; /* borders */
+  --jeton-bg: #ffffff; /* base */
+  --jeton-surface: #f8fafc; /* light panels */
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --font-sans: Inter, ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Activate theme by adding class="jeton" on <body> */
+body.jeton {
+  color: var(--jeton-secondary);
+  background-color: var(--jeton-surface);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+/* Header: Jeton uses clean white header, subtle border, dark text, orange CTA */
+body.jeton .bg-gradient-to-r {
+  background-image: none !important;
+  background-color: var(--jeton-bg) !important;
+  color: var(--jeton-secondary) !important;
+  border-bottom: 1px solid var(--jeton-border);
+}
+body.jeton .text-white { color: var(--jeton-secondary) !important; }
+body.jeton header a, body.jeton .bg-gradient-to-r a { color: var(--jeton-secondary); opacity: 0.8; transition: color .2s ease, opacity .2s ease; }
+body.jeton header a:hover, body.jeton .bg-gradient-to-r a:hover { color: var(--jeton-secondary); opacity: 1; text-decoration: none; }
+
+/* Links */
+body.jeton a { color: var(--jeton-secondary); text-underline-offset: 3px; transition: color .2s ease, opacity .2s ease; }
+body.jeton a:hover { color: var(--jeton-secondary); opacity: 0.9; }
+body.jeton a:focus-visible { outline: 2px solid var(--jeton-primary); outline-offset: 2px; border-radius: 6px; }
+
+/* Buttons */
+.btn-primary { background: var(--jeton-primary); color: var(--white); border: 1px solid transparent; border-radius: 12px; padding: 0.5rem 1rem; transition: transform .15s ease, background .2s ease, box-shadow .2s ease; box-shadow: 0 6px 16px rgba(255, 106, 0, 0.25); }
+.btn-primary:hover { background: var(--jeton-primary-dark); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(255, 106, 0, 0.35); }
+.btn-primary:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 106, 0, 0.25); }
+.btn-primary:focus-visible { outline: 3px solid color-mix(in srgb, var(--jeton-primary) 60%, white); outline-offset: 2px; }
+
+.btn-outline { background: var(--jeton-bg); color: var(--jeton-secondary); border: 1px solid var(--jeton-border); border-radius: 12px; padding: 0.5rem 1rem; transition: background .2s ease, border-color .2s ease; }
+.btn-outline:hover { background: var(--jeton-surface); border-color: #d1d5db; }
+
+/* Sidebar */
+body.jeton aside { background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); }
+body.jeton aside .active, body.jeton aside .bg-indigo-50 { background: var(--jeton-primary-weak) !important; color: var(--jeton-secondary) !important; }
+body.jeton aside a:hover, body.jeton aside button:hover { background: #fff8f2; }
+
+/* Footer: dark slate with white text */
+body.jeton footer { background: #0b1220 !important; border-top: none !important; color: #e5e7eb; }
+body.jeton footer a { color: #e5e7eb; }
+body.jeton footer a:hover { color: #ffffff; }
+
+/* Cards and panels */
+body.jeton .shadow-sm { box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08), 0 2px 6px rgba(2, 6, 23, 0.06) !important; }
+body.jeton .border-white\/60 { border-color: var(--jeton-border) !important; }
+body.jeton .bg-white\/80 { background-color: rgba(255,255,255,0.92) !important; }
+
+/* Typography */
+body.jeton h1, body.jeton h2, body.jeton h3, body.jeton h4 { color: var(--jeton-secondary); letter-spacing: -0.01em; }
+body.jeton .tracking-tight { letter-spacing: -0.01em; }
+
+/* Animations (subtle) */
+.hover-lift { transition: transform .2s ease, box-shadow .2s ease; }
+.hover-lift:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(2, 6, 23, 0.12); }
+
+/* Utilities */
+.text-jeton { color: var(--jeton-primary) !important; }
+.bg-jeton { background: var(--jeton-primary) !important; }
+.border-jeton { border-color: var(--jeton-primary) !important; }
