@@ -1,7 +1,7 @@
 /* HuDa Jeton-inspired Theme (approximate) */
 :root {
   /* Brand */
-  --jeton-primary: #ff6a00; /* Jeton orange (approx) */
+  --jeton-primary: #2493ee; /* Jeton orange (approx) */
   --jeton-primary-dark: #e65f00; /* hover */
   --jeton-primary-weak: #fff2e8; /* subtle backgrounds */
   --jeton-secondary: #0f172a; /* deep slate for text */
@@ -78,3 +78,65 @@ body.jeton .tracking-tight { letter-spacing: -0.01em; }
 .text-jeton { color: var(--jeton-primary) !important; }
 .bg-jeton { background: var(--jeton-primary) !important; }
 .border-jeton { border-color: var(--jeton-primary) !important; }
+
+/* Migration Data Portal-inspired Theme (first pass) */
+:root {
+  --mdp-primary: #005ea8; /* deep portal blue (approx) */
+  --mdp-primary-600: #1976c5; /* hover */
+  --mdp-accent: #f3b700; /* accent/gold (approx) */
+  --mdp-bg: #ffffff;
+  --mdp-surface: #f5f7fa; /* light gray background */
+  --mdp-text: #0f172a; /* slate */
+  --mdp-muted: #475569; /* secondary text */
+  --mdp-border: #e2e8f0; /* borders */
+}
+
+/* Activate by adding class="mdp" on <body> */
+body.mdp {
+  color: var(--mdp-text);
+  background: var(--mdp-surface);
+  font-family: Inter, ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Header: clean white bar, blue links, subtle divider */
+body.mdp .bg-gradient-to-r {
+  background-image: none !important;
+  background-color: var(--mdp-bg) !important;
+  color: var(--mdp-text) !important;
+  border-bottom: 1px solid var(--mdp-border);
+}
+body.mdp .text-white { color: var(--mdp-text) !important; }
+body.mdp .bg-gradient-to-r a { color: var(--mdp-text); opacity: .85; transition: color .2s ease, opacity .2s ease; }
+body.mdp .bg-gradient-to-r a:hover { color: var(--mdp-text); opacity: 1; text-decoration: none; }
+
+/* Links */
+body.mdp a { color: var(--mdp-primary); text-underline-offset: 3px; }
+body.mdp a:hover { color: var(--mdp-primary-600); }
+body.mdp a:focus-visible { outline: 2px solid var(--mdp-accent); outline-offset: 2px; border-radius: 6px; }
+
+/* Sidebar */
+body.mdp aside { background: rgba(255,255,255,0.96); backdrop-filter: blur(6px); border-right: 1px solid var(--mdp-border); }
+body.mdp aside .active, body.mdp aside .bg-indigo-50 { background: #e9f2fb !important; color: var(--mdp-primary) !important; }
+body.mdp aside a:hover, body.mdp aside button:hover { background: #f2f7fc; }
+
+/* Buttons */
+.btn-mdp-primary { background: var(--mdp-primary); color: #fff; border: 1px solid transparent; border-radius: 10px; padding: .5rem 1rem; transition: background .2s ease, box-shadow .2s ease; box-shadow: 0 4px 14px rgba(0,94,168,.25); }
+.btn-mdp-primary:hover { background: var(--mdp-primary-600); box-shadow: 0 6px 18px rgba(0,94,168,.35); }
+
+.btn-mdp-outline { background: #fff; color: var(--mdp-primary); border: 1px solid var(--mdp-border); border-radius: 10px; padding: .5rem 1rem; }
+.btn-mdp-outline:hover { border-color: #cbd5e1; background: #f8fafc; }
+
+/* Footer */
+body.mdp footer { background: #0b1220 !important; color: #e5e7eb; }
+body.mdp footer a { color: #e5e7eb; }
+body.mdp footer a:hover { color: #ffffff; }
+
+/* Cards */
+body.mdp .shadow-sm { box-shadow: 0 6px 20px rgba(2,6,23,.08), 0 2px 6px rgba(2,6,23,.06) !important; }
+body.mdp .border-white\/60 { border-color: var(--mdp-border) !important; }
+body.mdp .bg-white\/80 { background-color: rgba(255,255,255,.96) !important; }
+
+/* Utilities for MDP */
+.text-mdp { color: var(--mdp-primary) !important; }
+.bg-mdp { background: var(--mdp-primary) !important; }
+.border-mdp { border-color: var(--mdp-primary) !important; }
