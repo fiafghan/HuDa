@@ -1,0 +1,12 @@
+# Automation & Workflows module exports
+
+from .monthly_report import automate_monthly_report
+from .snapshot_dashboards import automate_snapshot_dashboards
+from .dataset_downloads import automate_dataset_downloads
+from .scheduled_etl import scheduled_etl_pipeline
+from .dataset_version_control import dataset_version_control
+from .data_lineage import data_lineage_tracking
+from .change_detection import change_detection_in_datasets
+from .auto_refresh_visualizations import auto_refresh_visualizations
+from .reusable_templates import save_reusable_templates
+from .batch_processing import batch_processing_datasets
