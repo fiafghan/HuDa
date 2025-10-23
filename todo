@@ -207,25 +207,25 @@ DONE-Export plots as PNG, SVG, PDF
 
 9. Interoperability
 
-Export to CSV
+DONE-Export to CSV
 
-Export to Excel
+DONE-Export to Excel
 
-Export to JSON
+DONE-Export to JSON
 
-Export to Parquet
+DONE-Export to Parquet
 
-Export to SQL database
+DONE-Export to SQL database
 
-Export to Stata/SPSS formats
+DONE-Export to Stata/SPSS formats
 
-Export to GIS (shapefile, GeoJSON)
+DONE-Export to GIS (shapefile, GeoJSON)
 
-Export to HDX-compatible datasets
+DONE-Export to HDX-compatible datasets
 
-Share dashboards as HTML
+DONE-Share dashboards as HTML
 
-API integration for outputs
+DONE-API integration for outputs
 
 10. Automation & Workflows
 
@@ -292,28 +292,6 @@ Classify needs assessments by sector
 Extract crisis-relevant keywords
 
 Build humanitarian knowledge graph
-
-13. Usability & Accessibility
-
-Simple Python API
-
-Jupyter Notebook integration
-
-Command-line interface
-
-Web-based dashboard option
-
-Humanitarian-specific documentation
-
-Example workflows for common use cases
-
-Integration with Pandas DataFrames
-
-Integration with Matplotlib/Seaborn
-
-Integration with Plotly/Dash
-
-Multi-language documentation (English, French, Arabic, Dari, Pashto)
 
 14. Security & Ethics
 
@@ -336,90 +314,3 @@ Transparency reports on datasets
 Data sharing agreements compliance
 
 
-10. Automation & Workflows
-
-Automate monthly report generation
-
-Automate humanitarian snapshot dashboards
-
-Automate dataset downloads from APIs
-
-Scheduled ETL pipelines
-
-Version control for datasets
-
-Data lineage tracking
-
-Change detection in datasets
-
-Auto-refresh visualizations
-
-Save reusable analysis templates
-
-Batch processing of datasets
-
-11. Machine Learning for Humanitarian Data
-
-Predict displacement flows
-
-Predict food insecurity levels
-
-Predict mortality risks
-
-Classify crisis severity
-
-Detect misinformation trends
-
-Predict funding shortfalls
-
-Predict supply chain bottlenecks
-
-Detect anomalies in survey responses
-
-Crisis event classification from text
-
-Early warning system modeling
-
-12. Text & Document Processing
-
-Process PDF reports (extract tables)
-
-Process Word reports
-
-Extract humanitarian indicators from text
-
-Natural language search on datasets
-
-Translate indicators (English ↔ Dari, Pashto, Arabic, French)
-
-Named entity recognition (organizations, locations)
-
-Sentiment analysis of field reports
-
-Classify needs assessments by sector
-
-Extract crisis-relevant keywords
-
-Build humanitarian knowledge graph
-
-13. Usability & Accessibility
-
-Simple Python API
-
-Jupyter Notebook integration
-
-Command-line interface
-
-Web-based dashboard option
-
-Humanitarian-specific documentation
-
-Example workflows for common use cases
-
-Integration with Pandas DataFrames
-
-Integration with Matplotlib/Seaborn
-
-Integration with Plotly/Dash
-
-Multi-language documentation (English, French, Arabic, Dari, Pashto)
