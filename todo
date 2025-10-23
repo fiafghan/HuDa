@@ -273,25 +273,25 @@ DONE-Early warning system modeling
 
 12. Text & Document Processing
 
-Process PDF reports (extract tables)
+DONE-Process PDF reports (extract tables)
 
-Process Word reports
+DONE-Process Word reports
 
-Extract humanitarian indicators from text
+DONE-Extract humanitarian indicators from text
 
-Natural language search on datasets
+DONE-Natural language search on datasets
 
-Translate indicators (English ↔ Dari, Pashto, Arabic, French)
+DONE-Translate indicators (English ↔ Dari, Pashto, Arabic, French)
 
-Named entity recognition (organizations, locations)
+DONE-Named entity recognition (organizations, locations)
 
-Sentiment analysis of field reports
+DONE-Sentiment analysis of field reports
 
-Classify needs assessments by sector
+DONE-Classify needs assessments by sector
 
-Extract crisis-relevant keywords
+DONE-Extract crisis-relevant keywords
 
-Build humanitarian knowledge graph
+DONE-Build humanitarian knowledge graph
 
 14. Security & Ethics
 
