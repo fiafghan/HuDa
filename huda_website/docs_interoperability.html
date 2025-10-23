@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HuDa Docs — Interoperability</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+  <body class="min-h-screen">
+    <div class="max-w-5xl mx-auto p-6 md:p-10">
+      <header class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <i data-lucide="share-2" class="w-6 h-6 text-indigo-600"></i>
+          <h1 class="text-2xl font-bold tracking-tight">Phase: Interoperability</h1>
+        </div>
+        <a href="./index.html" class="text-sm text-gray-600 hover:text-gray-900 inline-flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+      </header>
+
+      <p class="text-gray-700">Export and sharing interfaces. Each function returns a lightweight intent spec; no files are written. Use these specs with your renderer/uploader. Every card includes What/When/Why/Parameters, a Python example, and the returned Output preview.</p>
+
+      <!-- Export CSV -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-csv">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="file-text" class="w-4 h-4"></i> export_csv(data, path, include_header=True, delimiter=",", encoding="utf-8")</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare a CSV export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Sharing tabular data across tools.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Universal, simple format.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_csv
+import polars as pl
+
+df = pl.DataFrame({"a":[1,2], "b":["x","y"]})
+spec = export_csv(df, path="/tmp/data.csv")
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_csv",
+  "path": "/tmp/data.csv",
+  "options": {"include_header": true, "delimiter": ",", "encoding": "utf-8"},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export Excel -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-excel">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="file-spreadsheet" class="w-4 h-4"></i> export_excel(data, path, sheet_name="Sheet1", include_header=True)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare an Excel export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Analysts using Excel workflows.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Multi-sheet, formatting-friendly.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_excel
+spec = export_excel(df, path="/tmp/data.xlsx", sheet_name="Summary")
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_excel",
+  "path": "/tmp/data.xlsx",
+  "options": {"sheet_name": "Summary", "include_header": true},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export JSON -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-json">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="braces" class="w-4 h-4"></i> export_json(data, path, orient="records", indent=2)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare a JSON export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> APIs, web apps, pipelines.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Flexible and widely supported.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_json
+spec = export_json(df, path="/tmp/data.json", orient="records", indent=2)
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_json",
+  "path": "/tmp/data.json",
+  "options": {"orient": "records", "indent": 2},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export Parquet -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-parquet">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="archive" class="w-4 h-4"></i> export_parquet(data, path, compression="snappy")</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare a Parquet export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Columnar analytics and storage.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Efficient and typed.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_parquet
+spec = export_parquet(df, path="/tmp/data.parquet", compression="snappy")
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_parquet",
+  "path": "/tmp/data.parquet",
+  "options": {"compression": "snappy"},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export SQL Database -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-sql">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="database" class="w-4 h-4"></i> export_sql_database(data, connection_uri, table_name, if_exists="replace")</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare a SQL export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Data marts, dashboards, integration.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Centralize and query at scale.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_sql_database
+spec = export_sql_database(df, connection_uri="postgresql://user:pass@host:5432/db", table_name="huda_export", if_exists="replace")
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_sql",
+  "connection_uri": "postgresql://user:pass@host:5432/db",
+  "table_name": "huda_export",
+  "options": {"if_exists": "replace"},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export Stata/SPSS -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-stata-spss">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="file-cog" class="w-4 h-4"></i> export_stata(data, path, version=118) | export_spss(data, path)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare Stata/SPSS export intents.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Household microdata analysis.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Compatibility with statistical tools.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_stata, export_spss
+spec1 = export_stata(df, path="/tmp/data.dta", version=118)
+spec2 = export_spss(df, path="/tmp/data.sav")
+print(spec1) ; print(spec2)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_stata",
+  "path": "/tmp/data.dta",
+  "options": {"version": 118},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+{
+  "type": "export_spss",
+  "path": "/tmp/data.sav",
+  "options": {},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export GIS (Shapefile, GeoJSON) -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-gis">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="compass" class="w-4 h-4"></i> export_shapefile(data, path, geometry_col="geometry", crs_epsg=4326) | export_geojson(data, path, geometry_col="geometry", crs_epsg=4326)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare GIS export intents.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Sharing spatial datasets.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Integrate with GIS software.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_shapefile, export_geojson
+spec1 = export_shapefile(df, path="/tmp/data.shp", geometry_col="geom")
+spec2 = export_geojson(df, path="/tmp/data.geojson", geometry_col="geom")
+print(spec1) ; print(spec2)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_shapefile",
+  "path": "/tmp/data.shp",
+  "options": {"geometry_col": "geom", "crs_epsg": 4326},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+{
+  "type": "export_geojson",
+  "path": "/tmp/data.geojson",
+  "options": {"geometry_col": "geom", "crs_epsg": 4326},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Export to HDX-compatible dataset -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="export-hdx">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="cloud-upload" class="w-4 h-4"></i> export_hdx_dataset(data, dataset_name, organization, license_name="cc-by", private=False)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare HDX dataset upload intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Publishing on HDX.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Share humanitarian data widely.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import export_hdx_dataset
+spec = export_hdx_dataset(df, dataset_name="huda-afg", organization="huda-org")
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "export_hdx",
+  "dataset_name": "huda-afg",
+  "organization": "huda-org",
+  "options": {"license": "cc-by", "private": false},
+  "preview": {"rows": 2, "columns": ["a", "b"]}
+}
+</code></pre>
+      </section>
+
+      <!-- Share dashboards as HTML -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="share-html">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="globe" class="w-4 h-4"></i> share_dashboard_html(dashboard_spec, path, embed_assets=True, title=None)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare a static HTML dashboard export intent.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Offline sharing or hosting.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Zero dependencies for recipients.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import share_dashboard_html
+from huda.visualize import bar_chart, interactive_dashboard
+charts = [bar_chart(df, "a","a")]
+dashboard = interactive_dashboard(charts=charts)
+spec = share_dashboard_html(dashboard, path="/tmp/dashboard.html", embed_assets=True)
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "share_dashboard_html",
+  "path": "/tmp/dashboard.html",
+  "title": "HuDa Dashboard",
+  "options": {"embed_assets": true},
+  "preview": {"charts": 1, "widgets": 0}
+}
+</code></pre>
+      </section>
+
+      <!-- API integration for outputs -->
+      <section class="mt-8 rounded-lg border border-gray-200 bg-white p-5" id="api-integration">
+        <div class="flex items-center gap-2 text-base font-semibold text-gray-900 mb-1"><i data-lucide="satellite" class="w-4 h-4"></i> api_integration_output(endpoint_url, method="POST", headers=None, auth_type=None, auth_token_env=None)</div>
+        <p class="text-gray-700 text-sm"><strong>What:</strong> Prepare an API call intent to push outputs.</p>
+        <p class="text-gray-700 text-sm"><strong>When:</strong> Automating pipelines and syncs.</p>
+        <p class="text-gray-700 text-sm"><strong>Why:</strong> Integrate with external systems.</p>
+        <h3 class="text-sm font-semibold mt-2">Example</h3>
+        <div class="relative"><button class="copy-btn absolute top-2 right-2 text-xs px-2 py-1 rounded bg-gray-700 text-white">Copy</button>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-python">from huda.Interoperability import api_integration_output
+spec = api_integration_output(
+    endpoint_url="https://api.example.org/upload",
+    method="POST",
+    headers={"Content-Type":"application/json"},
+    auth_type="Bearer",
+    auth_token_env="API_TOKEN"
+)
+print(spec)
+</code></pre></div>
+        <h3 class="text-sm font-semibold mt-2">Output</h3>
+<pre class="rounded-md bg-gray-900 text-gray-100 p-3 overflow-auto"><code class="language-json">{
+  "type": "api_integration",
+  "endpoint_url": "https://api.example.org/upload",
+  "method": "POST",
+  "headers": {"Content-Type":"application/json"},
+  "auth": {"type": "Bearer", "token_env": "API_TOKEN"},
+  "preview": {"will_send_payload": true}
+}
+</code></pre>
+      </section>
+
+      <footer class="text-xs text-gray-500 mt-10">© <span id="year"></span> HuDa</footer>
+    </div>
+
+    <script>
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      lucide.createIcons();
+      if (window.hljs) { hljs.highlightAll(); }
+      document.querySelectorAll('.copy-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const pre = btn.nextElementSibling;
+          const code = pre && pre.querySelector('code');
+          if (!code) return;
+          const text = code.innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            const old = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => (btn.textContent = old), 1200);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
