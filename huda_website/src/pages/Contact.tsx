@@ -18,11 +18,11 @@ export default function Contact() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="p-6 rounded-xl bg-white shadow-sm">
               <div className="flex items-center gap-2 mb-2 text-mdp"><span className="font-semibold">Email</span></div>
-              <p className="text-gray-700 text-sm">support@huda.example</p>
+              <p className="text-gray-700 text-sm">fiafghan@gmail.com</p>
             </div>
             <div className="p-6 rounded-xl bg-white shadow-sm">
               <div className="flex items-center gap-2 mb-2 text-mdp"><span className="font-semibold">GitHub</span></div>
-              <p className="text-gray-700 text-sm"><a className="underline" href="#">github.com/huda</a></p>
+              <p className="text-gray-700 text-sm"><a className="underline" href="#">github.com/fiafghan/HuDa</a></p>
             </div>
             <div className="p-6 rounded-xl bg-white shadow-sm">
               <div className="flex items-center gap-2 mb-2 text-mdp"><span className="font-semibold">Community</span></div>
