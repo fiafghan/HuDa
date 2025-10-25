@@ -15,10 +15,10 @@ export default function Header() {
             <span className="font-semibold tracking-tight">HuDa — Humanitarian Data Library</span>
           </div>
           <nav className="hidden md:flex items-center gap-4 text-sm opacity-90">
-            <a href="#overview" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/') ? 'opacity-100' : ''}`}>
+            <a href="/#overview" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/') ? 'opacity-100' : ''}`}>
               <Home className="w-4 h-4" />Overview
             </a>
-            <a href="#installation" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/') ? 'opacity-100' : ''}`}>
+            <a href="/#installation" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/') ? 'opacity-100' : ''}`}>
               <Download className="w-4 h-4" />Install
             </a>
             <Link to="/about" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/about') ? 'opacity-100' : ''}`}>
