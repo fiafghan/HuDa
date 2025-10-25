@@ -1,5 +1,5 @@
 import React from 'react'
-import { Home, Info, Mail, FolderOpen, Brush, Workflow, ShieldCheck, Map, LineChart, Share2, BarChart3, Bot, FileSearch, Activity } from 'lucide-react'
+import { Home, Info, Mail, FolderOpen, Brush, Workflow, ShieldCheck, Map, LineChart, Share2, BarChart3, Bot, FileSearch, Activity, ChartBar, ChartArea } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 type Item = { to: string; label: string; icon: React.ReactNode; isActive?: boolean }
@@ -21,8 +21,8 @@ export default function Sidebar() {
   return (
     <aside className="hidden md:block fixed top-[48px] left-0 h-[calc(100vh-48px)] w-72 overflow-y-auto bg-white/80 backdrop-blur border-r border-white/60 shadow-sm p-4">
       <div className="flex items-center gap-2 mb-4">
-        <Home className="w-5 h-5 text-indigo-600" />
-        <span className="text-sm font-semibold">HuDa Navigation</span>
+        <ChartArea className="w-5 h-5 text-blue-400" />
+        <span className="text-sm font-semibold">Humanitarian Data Analytics Project (HuDa)</span>
       </div>
       <nav className="space-y-1 text-sm">
         <a href="/#overview" className="flex items-center gap-2 px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"><Home className="w-4 h-4" />Overview</a>

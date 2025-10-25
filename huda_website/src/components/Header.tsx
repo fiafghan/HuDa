@@ -1,5 +1,5 @@
 import React from 'react'
-import { Home, Download, Info, Mail, Database } from 'lucide-react'
+import { Home, Download, Info, Mail, Database, ChartAreaIcon } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
@@ -11,8 +11,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between py-3">
           <div className="flex items-center gap-2">
-            <Database className="w-5 h-5" />
-            <span className="font-semibold tracking-tight">HuDa — Humanitarian Data Library</span>
+            <ChartAreaIcon className="w-5 h-5" />
+            <span className="font-semibold tracking-tight">HuDa — Humanitarian Data Aanalytics Project</span>
           </div>
           <nav className="hidden md:flex items-center gap-4 text-sm opacity-90">
             <a href="/#overview" className={`inline-flex items-center gap-1 hover:opacity-100 ${isActive('/') ? 'opacity-100' : ''}`}>
