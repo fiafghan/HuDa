@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
+import CodeEnhancer from '../components/CodeEnhancer'
 
 export default function Home() {
   return (
@@ -114,6 +115,7 @@ export default function Home() {
           </div>
         </main>
         <Footer />
+        <CodeEnhancer />
       </div>
     </div>
   )

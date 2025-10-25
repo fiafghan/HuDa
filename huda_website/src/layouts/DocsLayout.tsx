@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
+import CodeEnhancer from '../components/CodeEnhancer'
 
 export default function DocsLayout({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export default function DocsLayout({ title, children }: { title: string; childre
           {children}
         </main>
         <Footer />
+        <CodeEnhancer />
       </div>
     </div>
   )
