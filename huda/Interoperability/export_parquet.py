@@ -1,6 +1,6 @@
 import polars as pl
 import pandas as pd
-from typing import Union, Optional, Dict, Any
+from typing import Union, Dict, Any
 import io
 
 
