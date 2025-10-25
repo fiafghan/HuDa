@@ -40,3 +40,6 @@ dependencies = [
 Homepage = "https://github.com/fiafghan/HuDa"
 Repository = "https://github.com/fiafghan/HuDa"
 Issues = "https://github.com/fiafghan/HuDa/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["huda"]
