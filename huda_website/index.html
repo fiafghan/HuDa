@@ -1,92 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full bg-gradient-to-br from-indigo-50 via-sky-50 to-rose-50">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HuDa Library — Training Guide</title>
-    <!-- TailwindCSS (CDN for simplicity) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons (vanilla JS) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     <meta name="description" content="Training website for the HuDa humanitarian data library." />
+    <!-- TailwindCSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Site theme -->
     <link rel="stylesheet" href="./theme.css" />
   </head>
   <body class="h-full mdp">
-    <!-- Top Gradient Header -->
-    <div class="w-full bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 text-white">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="flex items-center justify-between py-3">
-          <div class="flex items-center gap-2">
-            <i data-lucide="database" class="w-5 h-5"></i>
-            <span class="font-semibold tracking-tight">HuDa — Humanitarian Data Library</span>
-          </div>
-          <div class="hidden md:flex items-center gap-4 text-sm opacity-90">
-            <a href="#overview" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="home" class="w-4 h-4"></i>Overview</a>
-            <a href="#installation" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="download" class="w-4 h-4"></i>Install</a>
-            <a href="about.html" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="info" class="w-4 h-4"></i>About Us</a>
-            <a href="contact.html" class="inline-flex items-center gap-1 hover:opacity-100"><i data-lucide="mail" class="w-4 h-4"></i>Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- App Wrapper -->
-    <div class="min-h-screen grid grid-cols-1 md:grid-cols-[280px_1fr]">
-      <!-- Sidebar -->
-      <aside class="bg-white/80 backdrop-blur-sm border-r border-white/60 shadow-sm p-4 md:p-6">
-        <div class="flex items-center gap-2 mb-6">
-          <i data-lucide="chart-no-axes-combined" class="w-6 h-6 text-blue-300"></i>
-          <h1 class="text-lg font-semibold tracking-tight">HuDa Usage Guide</h1>
-        </div>
-        <nav class="space-y-1" id="sidebar">
-          <!-- Each button uses data-target to map to a main content section -->
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 active" data-target="overview">
-            <i data-lucide="home" class="w-4 h-4"></i>
-            Overview
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="installation">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            Installation
-          </button>
-          <div class="pt-3 pb-1 text-xs uppercase tracking-wider text-gray-500">Phases</div>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="opening">
-            <i data-lucide="folder-open" class="w-4 h-4"></i>
-            Opening
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="cleaning">
-            <i data-lucide="brush" class="w-4 h-4"></i>
-            Cleaning
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="transformation">
-            <i data-lucide="workflow" class="w-4 h-4"></i>
-            Transformation
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="validation">
-            <i data-lucide="shield-check" class="w-4 h-4"></i>
-            Validation & Quality
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="geospatial">
-            <i data-lucide="map" class="w-4 h-4"></i>
-            Geospatial
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="analysis">
-            <i data-lucide="line-chart" class="w-4 h-4"></i>
-            Analysis
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="automation">
-            <i data-lucide="workflow" class="w-4 h-4"></i>
-            Automation & Workflows
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="interoperability">
-            <i data-lucide="share-2" class="w-4 h-4"></i>
-            Interoperability
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="visualization">
-            <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
-            Visualization
-          </button>
-          <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="ml4humanitarian">
-            <i data-lucide="bot" class="w-4 h-4"></i>
-            ML for Humanitarian Data
+    <div id="root"></div>
+    <!-- Vite React entry -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
           </button>
           <button class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100" data-target="document-processing">
             <i data-lucide="file-search" class="w-4 h-4"></i>
@@ -276,34 +205,6 @@
       </main>
     </div>
 
-    <!-- Simple client-side tab navigation -->
-    <script>
-      const yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      function setActive(targetId) {
-        document.querySelectorAll('.content-section').forEach((el) => {
-          if (el.id === targetId) el.classList.remove('hidden');
-          else el.classList.add('hidden');
-        });
-        document.querySelectorAll('#sidebar .nav-btn').forEach((btn) => {
-          if (btn.getAttribute('data-target') === targetId) {
-            btn.classList.add('bg-gray-100');
-          } else {
-            btn.classList.remove('bg-gray-100');
-          }
-        });
-      }
-
-      document.querySelectorAll('#sidebar .nav-btn').forEach((btn) => {
-        btn.addEventListener('click', () => setActive(btn.getAttribute('data-target')));
-      });
-
-      // Default visible section
-      setActive('overview');
-
-      // Render Lucide icons
-      lucide.createIcons();
-    </script>
+    
   </body>
 </html>
