@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.26.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "huda"
+version = "0.1.0"
+description = "HuDa — Humanitarian Data Library utilities for opening, cleaning, transforming, validating, geospatial, analysis, visualization, automation, and interoperability."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Fardin Ibrahimi", email = "fiafghan@gmail.com" }
+]
+keywords = ["humanitarian", "data", "analysis", "polars", "pandas", "gis", "geospatial", "etl"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+
+dependencies = [
+  "pandas>=1.5",
+  "polars>=0.20",
+  "numpy>=1.23",
+  "scikit-learn>=1.1",
+  "folium>=0.14",
+  "geopy>=2.3",
+  "pycountry>=22.3.5",
+  "requests>=2.31",
+  "SQLAlchemy>=1.4",
+  "psycopg2-binary>=2.9",
+  "geopandas>=0.12"
+]
+
+[project.urls]
+Homepage = "https://github.com/fiafghan/HuDa"
+Repository = "https://github.com/fiafghan/HuDa"
+Issues = "https://github.com/fiafghan/HuDa/issues"

@@ -20,10 +20,6 @@ export default function Sidebar() {
   const is = (p: string) => pathname === p
   return (
     <aside className="hidden md:block fixed top-[48px] left-0 h-[calc(100vh-48px)] w-72 overflow-y-auto bg-white/80 backdrop-blur border-r border-white/60 shadow-sm p-4">
-      <div className="flex items-center gap-2 mb-4">
-        <ChartArea className="w-5 h-5 text-blue-400" />
-        <span className="text-sm font-semibold">Humanitarian Data Analytics Project (HuDa)</span>
-      </div>
       <nav className="space-y-1 text-sm">
         <a href="/#overview" className="flex items-center gap-2 px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"><Home className="w-4 h-4" />Overview</a>
         <div className="pt-2 pb-1 text-[10px] uppercase tracking-wider text-gray-500">Pages</div>
